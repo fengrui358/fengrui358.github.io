@@ -1,15 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+    <head>
+	<meta name="generator" content="Hugo 0.87.0" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>free blog</title><meta name="Description" content=""><meta property="og:title" content="free blog" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="free blog"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="free blog">
+<meta name="apple-mobile-web-app-title" content="free blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/" /><link rel="alternate" href="/index.xml" type="application/rss+xml" title="free blog">
+    <link rel="feed" href="/index.xml" type="application/rss+xml" title="free blog"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "http:\/\/example.org\/","inLanguage": "zh-CN","name": "free blog"
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-<body>
-    init
-</body>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="free blog">free blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="free blog">free blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page home" posts><div class="home-profile"></div>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/task.run-vs-task.factory.startnew/">Task.Run Vs Task.Factory.StartNew</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>[free]</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2016-03-05">2016-03-05</time></span>&nbsp;<span class="post-category">收录于 <a href="/categories/dotnet/"><i class="far fa-folder fa-fw"></i>dotnet</a></span></div><div class="content">在**.Net 4**中，Task.Factory.StartNew是启动一个新Task的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且Task.Factory.StartNew这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。
+于是，在**.NET Framework 4.5 开发者预览版**中，微软引进了新的Task.Run方法。新方法不是为了替代旧的Task.Factory.StartNew方法，只是提供了一种使用Task.Factory.StartNew方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，Task.Run的内部实现逻辑跟Task.Factory.StartNew一样，只是传递了一些默认参数。比如当你使用Task.Run：
+Task.Run(someAction); 实际上等价于：
+Task.Factory.StartNew(someAction, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Default); 使用这些默认参数，Task.Run就能用于大多数情况——只是将任务简单的交给后台线程池去执行（这也是使用TaskScheduler.Default参数的目标）。这也并不意味着Task.Factory.StartNew方法就不必再使用了，它仍然有很多重要的用处。你可以通过控制TaskCreationOptions参数来控制任务的行为，你也可以通过控制TaskScheduler来控制任务应该如何排队如何运行，你也可以使用重载方法中的接受对象状态那个参数，对于一些性能敏感的代码，它可以用于避免闭包以及相应的资源分配。不过对于上面那个简单的例子，Task.Run是最友好。
+Task.Run提供了八种重载方式，用于提供下面这几种组合情况：
+ 普通任务（Task）和带返回值任务（Task&lt;TResult&gt;） 可取消任务（Cancelable）和不可取消任务（non-cancelabl） 同步委托（Synchronous）和异步委托（Asynchronous）  前两个很明显，对于第一点如果是用的Task做返回值的重载方法，那么该任务就没有返回值，如果是用的Task&lt;TResult&gt;做返回值的重载方法，那么该任务就有一个类型为TResult的返回值。对于第二点，也有接受CancellationToken参数的重载，可以在任务开始之前执行取消操作，然后并行任务（Task Parallel Library——TPL）就可以自然的过度到取消状态。 第三点要更有趣一些，它直接关系到 Visual studio 11 中的 C#和 Visual Basic 的异步语言支持。我们先使用Task.Factory.StartNew来展示下这个问题，如果有下面一段代码：
+var t = Task.Factory.StartNew(() =&gt; { Task inner = Task.Factory.StartNew(() =&gt; {}); return inner; }); 这里t的类型会被推断为Task&lt;Task&gt;，因为此处任务的委托类型是Func&lt;TResult&gt;，所以这里TResult的类型就是Task，于是StartNew方法就返回Task&lt;Task&gt;，类似的，我可以改变成下面这种写法：
+var t = Task.Factory.StartNew(() =&gt; { Task&lt;int&gt; inner = Task.Factory.StartNew(() =&gt; 42)); return inner; }); 此处的t的类型自然是Task&lt;Task&lt;int&gt;&gt;，任务的委托类型还是Func&lt;TResult&gt;，TResult的类型就是Task&lt;int&gt;，StartNew方法就返回Task&lt;Task&lt;int&gt;&gt;。这有什么关系呢？考虑下如果我们现在使用下面这种写法：
+var t = Task.Factory.StartNew(async delegate { await Task.</div><div class="post-footer">
+        <a href="/posts/task.run-vs-task.factory.startnew/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/dotnet/">dotnet</a>,&nbsp;<a href="/tags/async/">async</a>,&nbsp;<a href="/tags/translation/">translation</a></div></div>
+</article></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
 
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

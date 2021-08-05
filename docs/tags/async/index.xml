@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>async - 标签 - free blog</title>
+        <link>http://example.org/tags/async/</link>
+        <description>async - 标签 - free blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 05 Mar 2016 15:44:41 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/async/" rel="self" type="application/rss+xml" /><item>
+    <title>Task.Run Vs Task.Factory.StartNew</title>
+    <link>http://example.org/posts/task.run-vs-task.factory.startnew/</link>
+    <pubDate>Sat, 05 Mar 2016 15:44:41 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/task.run-vs-task.factory.startnew/</guid>
+    <description><![CDATA[在**.Net 4**中，Task.Factory.StartNew是启动一个新Task的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且Task.Factory.StartNew这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。
+于是，在**.NET Framework 4.5 开发者预览版**中，微软引进了新的Task.Run方法。新方法不是为了替代旧的Task.Factory.StartNew方法，只是提供了一种使用Task.Factory.StartNew方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，Task.Run的内部实现逻辑跟Task.Factory.StartNew一样，只是传递了一些默认参数。比如当你使用Task.Run：
+Task.Run(someAction); 实际上等价于：
+Task.Factory.StartNew(someAction, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Default); 使用这些默认参数，Task.Run就能用于大多数情况——只是将任务简单的交给后台线程池去执行（这也是使用TaskScheduler.Default参数的目标）。这也并不意味着Task.Factory.StartNew方法就不必再使用了，它仍然有很多重要的用处。你可以通过控制TaskCreationOptions参数来控制任务的行为，你也可以通过控制TaskScheduler来控制任务应该如何排队如何运行，你也可以使用重载方法中的接受对象状态那个参数，对于一些性能敏感的代码，它可以用于避免闭包以及相应的资源分配。不过对于上面那个简单的例子，Task.Run是最友好。
+Task.Run提供了八种重载方式，用于提供下面这几种组合情况：
+ 普通任务（Task）和带返回值任务（Task&lt;TResult&gt;） 可取消任务（Cancelable）和不可取消任务（non-cancelabl） 同步委托（Synchronous）和异步委托（Asynchronous）  前两个很明显，对于第一点如果是用的Task做返回值的重载方法，那么该任务就没有返回值，如果是用的Task&lt;TResult&gt;做返回值的重载方法，那么该任务就有一个类型为TResult的返回值。对于第二点，也有接受CancellationToken参数的重载，可以在任务开始之前执行取消操作，然后并行任务（Task Parallel Library——TPL）就可以自然的过度到取消状态。 第三点要更有趣一些，它直接关系到 Visual studio 11 中的 C#和 Visual Basic 的异步语言支持。我们先使用Task.Factory.StartNew来展示下这个问题，如果有下面一段代码：
+var t = Task.Factory.StartNew(() =&gt; { Task inner = Task.Factory.StartNew(() =&gt; {}); return inner; }); 这里t的类型会被推断为Task&lt;Task&gt;，因为此处任务的委托类型是Func&lt;TResult&gt;，所以这里TResult的类型就是Task，于是StartNew方法就返回Task&lt;Task&gt;，类似的，我可以改变成下面这种写法：
+var t = Task.Factory.StartNew(() =&gt; { Task&lt;int&gt; inner = Task.Factory.StartNew(() =&gt; 42)); return inner; }); 此处的t的类型自然是Task&lt;Task&lt;int&gt;&gt;，任务的委托类型还是Func&lt;TResult&gt;，TResult的类型就是Task&lt;int&gt;，StartNew方法就返回Task&lt;Task&lt;int&gt;&gt;。这有什么关系呢？考虑下如果我们现在使用下面这种写法：
+var t = Task.Factory.StartNew(async delegate { await Task.]]></description>
+</item></channel>
+</rss>

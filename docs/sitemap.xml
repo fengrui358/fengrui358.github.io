@@ -1,0 +1,13 @@
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    ><url>
+            <loc>http://example.org/tags/async/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/categories/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/dotnet/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/categories/dotnet/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/posts/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/posts/task.run-vs-task.factory.startnew/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/translation/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod></url></urlset>
