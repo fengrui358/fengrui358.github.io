@@ -5,36 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Task.Run Vs Task.Factory.StartNew - free blog</title><meta name="Description" content=""><meta property="og:title" content="Task.Run Vs Task.Factory.StartNew" />
-<meta property="og:description" content="在**.Net 4**中，Task.Factory.StartNew是启动一个新Task的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且Task.Factory.StartNew这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。
-于是，在**.NET Framework 4.5 开发者预览版**中，微软引进了新的Task.Run方法。新方法不是为了替代旧的Task.Factory.StartNew方法，只是提供了一种使用Task.Factory.StartNew方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，Task.Run的内部实现逻辑跟Task.Factory.StartNew一样，只是传递了一些默认参数。比如当你使用Task.Run：
+        <title>Task.Run Vs Task.Factory.StartNew - free blog</title><meta name="Description" content="free blog"><meta property="og:title" content="Task.Run Vs Task.Factory.StartNew" />
+<meta property="og:description" content="在 .Net 4 中，Task.Factory.StartNew是启动一个新Task的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且Task.Factory.StartNew这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。
+于是，在 .NET Framework 4.5 开发者预览版 中，微软引进了新的Task.Run方法。新方法不是为了替代旧的Task.Factory.StartNew方法，只是提供了一种使用Task.Factory.StartNew方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，Task.Run的内部实现逻辑跟Task.Factory.StartNew一样，只是传递了一些默认参数。比如当你使用Task.Run：
 Task.Run(someAction); 实际上等价于：
 Task.Factory.StartNew(someAction, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Default); 使用这些默认参数，Task.Run就能用于大多数情况——只是将任务简单的交给后台线程池去执行（这也是使用TaskScheduler.Default参数的目标）。这也并不意味着Task.Factory.StartNew方法就不必再使用了，它仍然有很多重要的用处。你可以通过控制TaskCreationOptions参数来控制任务的行为，你也可以通过控制TaskScheduler来控制任务应该如何排队如何运行，你也可以使用重载方法中的接受对象状态那个参数，对于一些性能敏感的代码，它可以用于避免闭包以及相应的资源分配。不过对于上面那个简单的例子，Task.Run是最友好。
 Task.Run提供了八种重载方式，用于提供下面这几种组合情况：
  普通任务（Task）和带返回值任务（Task&lt;TResult&gt;） 可取消任务（Cancelable）和不可取消任务（non-cancelabl） 同步委托（Synchronous）和异步委托（Asynchronous）  前两个很明显，对于第一点如果是用的Task做返回值的重载方法，那么该任务就没有返回值，如果是用的Task&lt;TResult&gt;做返回值的重载方法，那么该任务就有一个类型为TResult的返回值。对于第二点，也有接受CancellationToken参数的重载，可以在任务开始之前执行取消操作，然后并行任务（Task Parallel Library——TPL）就可以自然的过度到取消状态。 第三点要更有趣一些，它直接关系到 Visual studio 11 中的 C#和 Visual Basic 的异步语言支持。我们先使用Task.Factory.StartNew来展示下这个问题，如果有下面一段代码：
 var t = Task.Factory.StartNew(() =&gt; { Task inner = Task.Factory.StartNew(() =&gt; {}); return inner; }); 这里t的类型会被推断为Task&lt;Task&gt;，因为此处任务的委托类型是Func&lt;TResult&gt;，所以这里TResult的类型就是Task，于是StartNew方法就返回Task&lt;Task&gt;，类似的，我可以改变成下面这种写法：
 var t = Task.Factory.StartNew(() =&gt; { Task&lt;int&gt; inner = Task.Factory.StartNew(() =&gt; 42)); return inner; }); 此处的t的类型自然是Task&lt;Task&lt;int&gt;&gt;，任务的委托类型还是Func&lt;TResult&gt;，TResult的类型就是Task&lt;int&gt;，StartNew方法就返回Task&lt;Task&lt;int&gt;&gt;。这有什么关系呢？考虑下如果我们现在使用下面这种写法：
-var t = Task.Factory.StartNew(async delegate { await Task." />
+var t = Task." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/task.run-vs-task.factory.startnew/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://frhello.com/posts/task.run-vs-task.factory.startnew/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2016-03-05T15:44:41+08:00" />
 <meta property="article:modified_time" content="2016-03-05T15:44:41+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Task.Run Vs Task.Factory.StartNew"/>
-<meta name="twitter:description" content="在**.Net 4**中，Task.Factory.StartNew是启动一个新Task的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且Task.Factory.StartNew这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。
-于是，在**.NET Framework 4.5 开发者预览版**中，微软引进了新的Task.Run方法。新方法不是为了替代旧的Task.Factory.StartNew方法，只是提供了一种使用Task.Factory.StartNew方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，Task.Run的内部实现逻辑跟Task.Factory.StartNew一样，只是传递了一些默认参数。比如当你使用Task.Run：
+<meta name="twitter:description" content="在 .Net 4 中，Task.Factory.StartNew是启动一个新Task的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且Task.Factory.StartNew这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。
+于是，在 .NET Framework 4.5 开发者预览版 中，微软引进了新的Task.Run方法。新方法不是为了替代旧的Task.Factory.StartNew方法，只是提供了一种使用Task.Factory.StartNew方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，Task.Run的内部实现逻辑跟Task.Factory.StartNew一样，只是传递了一些默认参数。比如当你使用Task.Run：
 Task.Run(someAction); 实际上等价于：
 Task.Factory.StartNew(someAction, CancellationToken.None, TaskCreationOptions.DenyChildAttach, TaskScheduler.Default); 使用这些默认参数，Task.Run就能用于大多数情况——只是将任务简单的交给后台线程池去执行（这也是使用TaskScheduler.Default参数的目标）。这也并不意味着Task.Factory.StartNew方法就不必再使用了，它仍然有很多重要的用处。你可以通过控制TaskCreationOptions参数来控制任务的行为，你也可以通过控制TaskScheduler来控制任务应该如何排队如何运行，你也可以使用重载方法中的接受对象状态那个参数，对于一些性能敏感的代码，它可以用于避免闭包以及相应的资源分配。不过对于上面那个简单的例子，Task.Run是最友好。
 Task.Run提供了八种重载方式，用于提供下面这几种组合情况：
  普通任务（Task）和带返回值任务（Task&lt;TResult&gt;） 可取消任务（Cancelable）和不可取消任务（non-cancelabl） 同步委托（Synchronous）和异步委托（Asynchronous）  前两个很明显，对于第一点如果是用的Task做返回值的重载方法，那么该任务就没有返回值，如果是用的Task&lt;TResult&gt;做返回值的重载方法，那么该任务就有一个类型为TResult的返回值。对于第二点，也有接受CancellationToken参数的重载，可以在任务开始之前执行取消操作，然后并行任务（Task Parallel Library——TPL）就可以自然的过度到取消状态。 第三点要更有趣一些，它直接关系到 Visual studio 11 中的 C#和 Visual Basic 的异步语言支持。我们先使用Task.Factory.StartNew来展示下这个问题，如果有下面一段代码：
 var t = Task.Factory.StartNew(() =&gt; { Task inner = Task.Factory.StartNew(() =&gt; {}); return inner; }); 这里t的类型会被推断为Task&lt;Task&gt;，因为此处任务的委托类型是Func&lt;TResult&gt;，所以这里TResult的类型就是Task，于是StartNew方法就返回Task&lt;Task&gt;，类似的，我可以改变成下面这种写法：
 var t = Task.Factory.StartNew(() =&gt; { Task&lt;int&gt; inner = Task.Factory.StartNew(() =&gt; 42)); return inner; }); 此处的t的类型自然是Task&lt;Task&lt;int&gt;&gt;，任务的委托类型还是Func&lt;TResult&gt;，TResult的类型就是Task&lt;int&gt;，StartNew方法就返回Task&lt;Task&lt;int&gt;&gt;。这有什么关系呢？考虑下如果我们现在使用下面这种写法：
-var t = Task.Factory.StartNew(async delegate { await Task."/>
+var t = Task."/>
 <meta name="application-name" content="free blog">
 <meta name="apple-mobile-web-app-title" content="free blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/task.run-vs-task.factory.startnew/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://frhello.com/posts/task.run-vs-task.factory.startnew/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -42,9 +42,9 @@ var t = Task.Factory.StartNew(async delegate { await Task."/>
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/example.org\/posts\/task.run-vs-task.factory.startnew\/"
-        },"genre": "posts","keywords": "dotnet, async, translation","wordcount":  176 ,
-        "url": "http:\/\/example.org\/posts\/task.run-vs-task.factory.startnew\/","datePublished": "2016-03-05T15:44:41+08:00","dateModified": "2016-03-05T15:44:41+08:00","publisher": {
+            "@id": "https:\/\/frhello.com\/posts\/task.run-vs-task.factory.startnew\/"
+        },"genre": "posts","keywords": "dotnet, async, translation","wordcount":  182 ,
+        "url": "https:\/\/frhello.com\/posts\/task.run-vs-task.factory.startnew\/","datePublished": "2016-03-05T15:44:41+08:00","dateModified": "2016-03-05T15:44:41+08:00","publisher": {
             "@type": "Organization",
             "name": "[free]"},"author": {
                 "@type": "Person",
@@ -93,7 +93,7 @@ var t = Task.Factory.StartNew(async delegate { await Task."/>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Task.Run Vs Task.Factory.StartNew</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>[free]</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/dotnet/"><i class="far fa-folder fa-fw"></i>dotnet</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2016-03-05">2016-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 176 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2016-03-05">2016-03-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 182 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -101,8 +101,8 @@ var t = Task.Factory.StartNew(async delegate { await Task."/>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>在**.Net 4**中，<code>Task.Factory.StartNew</code>是启动一个新<code>Task</code>的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且<code>Task.Factory.StartNew</code>这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。</p>
-<p>于是，在**.NET Framework 4.5 开发者预览版**中，微软引进了新的<code>Task.Run</code>方法。新方法不是为了替代旧的<code>Task.Factory.StartNew</code>方法，只是提供了一种使用<code>Task.Factory.StartNew</code>方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，<code>Task.Run</code>的内部实现逻辑跟<code>Task.Factory.StartNew</code>一样，只是传递了一些默认参数。比如当你使用<code>Task.Run</code>：</p>
+            </div><div class="content" id="content"><p>在 <strong>.Net 4</strong> 中，<code>Task.Factory.StartNew</code>是启动一个新<code>Task</code>的首选方法。它有很多重载方法，使它在具体使用当中可以非常灵活，通过设置可选参数，可以传递任意状态，取消任务继续执行，甚至控制任务的调度行为。所有这些能力也带来了复杂性的提升，你必须知道何时应该使用何种重载方法，提供哪种调度方式等等。并且<code>Task.Factory.StartNew</code>这种写法也不够简洁明快，至少对它使用的主要场景不够快，一般它使用的主要场景只是将一个工作任务丢给一个后台线程执行而已。</p>
+<p>于是，在 <strong>.NET Framework 4.5 开发者预览版</strong> 中，微软引进了新的<code>Task.Run</code>方法。新方法不是为了替代旧的<code>Task.Factory.StartNew</code>方法，只是提供了一种使用<code>Task.Factory.StartNew</code>方法的更简洁的形式，而不需要去指定那一系列参数。这是一个捷径，事实上，<code>Task.Run</code>的内部实现逻辑跟<code>Task.Factory.StartNew</code>一样，只是传递了一些默认参数。比如当你使用<code>Task.Run</code>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Task</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">someAction</span><span class="p">);</span>
 </code></pre></div><p>实际上等价于：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="n">StartNew</span><span class="p">(</span><span class="n">someAction</span><span class="p">,</span> <span class="n">CancellationToken</span><span class="p">.</span><span class="n">None</span><span class="p">,</span> <span class="n">TaskCreationOptions</span><span class="p">.</span><span class="n">DenyChildAttach</span><span class="p">,</span> <span class="n">TaskScheduler</span><span class="p">.</span><span class="n">Default</span><span class="p">);</span>
@@ -133,7 +133,7 @@ var t = Task.Factory.StartNew(async delegate { await Task."/>
     <span class="k">return</span> <span class="m">42</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div><p>这里使用了<code>async</code>关键词，编译器会将这个委托映射成<code>Func&lt;Task&lt;int&gt;&gt;</code>，调用这个委托最终会返回<code>Task&lt;int&gt;</code>。因为这个这个委托是<code>Func&lt;Task&lt;int&gt;&gt;</code>，<code>TResult</code>的类型就是<code>Task&lt;int&gt;</code>，所以最后<code>t</code>的类型应该是<code>Task&lt;Task&lt;int&gt;&gt;</code>，而不是<code>Task&lt;int&gt;</code>。</p>
-<p>为了应对这几种情况，在**.Net 4**中引入了<code>Unwrap</code>方法。<code>Unwrap</code>方法有两种重载形式，均是扩展方法的形式，一种是针对类型<code>Task&lt;Task&gt;</code>，另一种是针对<code>&lt;Task&lt;TResult&gt;&gt;</code>。微软只所以要把这个方法命名为解包（Unwrap），是因为这个方法可以返回任务的实际结果。对<code>Task&lt;Task&gt;</code>调用<code>Unwrap</code>方法可以返回一个新的<code>Task</code>（就像内部任务的一个代理一样）代表它的内部任务。相似的，对<code>Task&lt;Task&lt;TResult&gt;&gt;</code>调用<code>Unwrap</code>返回一个新的<code>Task&lt;TResult&gt;</code>代表它的内部任务。但是，如果外部任务失败了或者取消了，就不会有内部任务了，因为没有任务运行完成，所以代理任务也就变成了外部任务的状态。回到前面的例子，如果想让<code>t</code>代表内部任务的返回值（在这个例子中，这个值是 42），那么应该像下面这样写：</p>
+<p>为了应对这几种情况，在 <strong>.Net 4</strong> 中引入了<code>Unwrap</code>方法。<code>Unwrap</code>方法有两种重载形式，均是扩展方法的形式，一种是针对类型<code>Task&lt;Task&gt;</code>，另一种是针对<code>&lt;Task&lt;TResult&gt;&gt;</code>。微软只所以要把这个方法命名为解包（Unwrap），是因为这个方法可以返回任务的实际结果。对<code>Task&lt;Task&gt;</code>调用<code>Unwrap</code>方法可以返回一个新的<code>Task</code>（就像内部任务的一个代理一样）代表它的内部任务。相似的，对<code>Task&lt;Task&lt;TResult&gt;&gt;</code>调用<code>Unwrap</code>返回一个新的<code>Task&lt;TResult&gt;</code>代表它的内部任务。但是，如果外部任务失败了或者取消了，就不会有内部任务了，因为没有任务运行完成，所以代理任务也就变成了外部任务的状态。回到前面的例子，如果想让<code>t</code>代表内部任务的返回值（在这个例子中，这个值是 42），那么应该像下面这样写：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">t</span> <span class="p">=</span> <span class="n">Task</span><span class="p">.</span><span class="n">Factory</span><span class="p">.</span><span class="n">StartNew</span><span class="p">(</span><span class="k">async</span> <span class="k">delegate</span>
 <span class="p">{</span>
     <span class="k">await</span> <span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="m">1000</span><span class="p">);</span>
