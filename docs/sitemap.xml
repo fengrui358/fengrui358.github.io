@@ -3,12 +3,14 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
             <loc>https://frhello.com/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/categories/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/categories/dotnet/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/posts/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/tags/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/tags/xamarin/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://frhello.com/%E8%A7%A3%E5%86%B3-xamarin-android-%E5%A2%99%E7%9A%84%E9%97%AE%E9%A2%98/</loc><lastmod>2016-05-16T12:24:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://frhello.com/tags/async/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://frhello.com/categories/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://frhello.com/tags/dotnet/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://frhello.com/categories/dotnet/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://frhello.com/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://frhello.com/posts/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://frhello.com/tags/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://frhello.com/task.run-vs-task.factory.startnew/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://frhello.com/tags/translation/</loc><lastmod>2016-03-05T15:44:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
