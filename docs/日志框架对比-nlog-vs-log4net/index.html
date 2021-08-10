@@ -1,0 +1,216 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>日志框架对比 NLog VS Log4net - free note</title><meta name=keywords content="[blog software dotnet javascript]">
+<meta name=Description content="free note"><meta property="og:title" content="日志框架对比 NLog VS Log4net">
+<meta property="og:description" content="Log4net 先说 Log4net，它是.net 平台上一个老牌的日志框架，我接触的时间也不长(因为公司有自己的日志库)，但是看着各开源库都在用这个于是前段">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-01-16T19:43:14+08:00">
+<meta property="article:modified_time" content="2016-01-16T19:43:14+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png">
+<meta name=twitter:title content="日志框架对比 NLog VS Log4net">
+<meta name=twitter:description content="Log4net 先说 Log4net，它是.net 平台上一个老牌的日志框架，我接触的时间也不长(因为公司有自己的日志库)，但是看着各开源库都在用这个于是前段">
+<meta name=application-name content="free note">
+<meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/><link rel=prev href=https://frhello.com/xamarin-%E5%85%A5%E9%97%A8%E6%B5%85%E6%9E%90/><link rel=next href=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"日志框架对比 NLog VS Log4net","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, log","wordcount":1082,"url":"https:\/\/frhello.com\/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net\/","datePublished":"2016-01-16T19:43:14+08:00","dateModified":"2016-01-16T19:43:14+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/android-chrome-192x192.png data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x" data-sizes=auto alt=/android-chrome-192x192.png title=/android-chrome-192x192.png>free note</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/android-chrome-192x192.png data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x" data-sizes=auto alt=/android-chrome-192x192.png title=/android-chrome-192x192.png>free note</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">日志框架对比 NLog VS Log4net</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/dotnet/><i class="far fa-folder fa-fw"></i>dotnet</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-01-16>2016-01-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1082 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#log4net>Log4net</a></li>
+<li><a href=#nlog>NLog</a></li>
+<li><a href=#比较>比较</a>
+<ul>
+<li><a href=#下面是总结的几点>下面是总结的几点</a></li>
+<li><a href=#性能比较不再有效详见文末>性能比较（不再有效，详见文末）</a></li>
+</ul>
+</li>
+<li><a href=#2017-年-9-月-1-日更新>2017 年 9 月 1 日更新</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=log4net>Log4net</h2>
+<p>先说 Log4net，它是.net 平台上一个老牌的日志框架，我接触的时间也不长(因为公司有自己的日志库)，但是看着各开源库都在用这个于是前段时间也尝试去了解了一下。</p>
+<p>首先让我认识到 Log4net 强大的地方就是它的多目标输出，可以输出到控制台、文件、数据库、系统事件、Email 等，几乎无所不能。然后它可以通过配置让日志系统实时生效，比如说在服务运行的过程中修改配置改变输出目标，改变日志等级等，均不用重启程序。但是 Log4net 也有一个让我比较头痛的地方就是感觉配置过于复杂，根本记不住，每次都必须去查阅资料，于是乎之前我也针对 Log4net 做了一个简单的封装，内嵌了一个默认使用文件存储的日志配置，提供静态日志方法，还提供一套性能统计的 API(貌似 Visual Studio 2015 后 IDE 已自带了)。以下是这个封装的源代码地址：<a href=https://github.com/qjdev/CS_Lib/tree/master/Src/Library/Log/log4net.Wrap target=_blank rel="noopener noreffer">github</a>，nuget 地址：<a href=https://www.nuget.org/packages/log4net.Wrap target=_blank rel="noopener noreffer">nuget</a>。</p>
+<h2 id=nlog>NLog</h2>
+<p>下面说说为什么又关注起 NLog 了，Nlog 没有 Log4net 老牌，使用从 Nuget 下载量来看也没有 Log4net 用户量大，但是它却一直在保持高速的更新状态，从 github 主页上看它所支持的平台也相当广泛，从.net 环境到 mono 再到现在最新的 Xamarin 均支持：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg title=nlog支持范围></p>
+<h2 id=比较>比较</h2>
+<p>下面这个是一篇比较这两种日志的文章，应该是翻译的 <strong>StackOverFlow</strong> 再加上作者自己的一些见解: <a href=http://www.cnblogs.com/wanglee/archive/2013/05/22/3092474.html target=_blank rel="noopener noreffer">http://www.cnblogs.com/wanglee/archive/2013/05/22/3092474.html</a>。</p>
+<h3 id=下面是总结的几点>下面是总结的几点</h3>
+<table>
+<thead>
+<tr>
+<th style=text-align:center>项目</th>
+<th style=text-align:center><strong>log4net</strong></th>
+<th style=text-align:center><strong>nlog</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:center>流行程度</td>
+<td style=text-align:center>胜</td>
+<td style=text-align:center>负</td>
+</tr>
+<tr>
+<td style=text-align:center>易用性</td>
+<td style=text-align:center>负</td>
+<td style=text-align:center>胜</td>
+</tr>
+<tr>
+<td style=text-align:center>动态配置</td>
+<td style=text-align:center>平</td>
+<td style=text-align:center>平</td>
+</tr>
+<tr>
+<td style=text-align:center>输出目标</td>
+<td style=text-align:center>平</td>
+<td style=text-align:center>平</td>
+</tr>
+<tr>
+<td style=text-align:center>跨平台</td>
+<td style=text-align:center>负</td>
+<td style=text-align:center>胜</td>
+</tr>
+<tr>
+<td style=text-align:center>开源持续维护</td>
+<td style=text-align:center>负</td>
+<td style=text-align:center>胜</td>
+</tr>
+<tr>
+<td style=text-align:center>日志性能</td>
+<td style=text-align:center>负</td>
+<td style=text-align:center>胜</td>
+</tr>
+</tbody>
+</table>
+<h3 id=性能比较不再有效详见文末>性能比较（不再有效，详见文末）</h3>
+<p><em>这是用这两款日志框架写的一个性能比较的 Demo，暂时只比较了文件记录日志的情况(因为相对来说这种情况应该是最多的)，附上<a href=https://github.com/qjdev/Demo/tree/master/LogDemo/LogDemo target=_blank rel="noopener noreffer">源码地址</a>。
+性能比较结果如图，分别是 Debug 条件编译下的单线程和并行多线程以及独占锁和最小冲突锁的情况：</em></p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg title=性能比较结果></p>
+<h2 id=2017-年-9-月-1-日更新>2017 年 9 月 1 日更新</h2>
+<p><strong>以上性能测试不再有效，根据网友反馈，由于输出内容的略有差异导致上面性能测试出现不公平的情况，log4Net 在输出时可能会有更多的计算量。在优化测试代码情况下，仅让日志框架打印日志内容，其余的包括时间、日志等级、日志类名一律不打印，使用最新版 Dll，两个框架性能相差无几。</strong></p>
+<blockquote>
+<p><strong>推荐阅读</strong>：
+NET 开源项目介绍及资源推荐：<a href=http://www.cnblogs.com/Terrylee/archive/2006/12/03/opensource_framework_and_resource_recommendation_Log.html target=_blank rel="noopener noreffer">http://www.cnblogs.com/Terrylee/archive/2006/12/03/opensource_framework_and_resource_recommendation_Log.html</a></p>
+<p><strong>附加链接</strong>：
+log4net：<a href=https://logging.apache.org/log4net/ target=_blank rel="noopener noreffer">https://logging.apache.org/log4net/</a>
+NLog：<a href=https://github.com/NLog/NLog target=_blank rel="noopener noreffer">https://github.com/NLog/NLog</a></p>
+</blockquote>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2016-01-16</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/index.md target=_blank>阅读原始文档</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-title="日志框架对比 NLog VS Log4net" data-hashtags=dotnet,log><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-hashtag=dotnet><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-title="日志框架对比 NLog VS Log4net"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-title="日志框架对比 NLog VS Log4net"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-title="日志框架对比 NLog VS Log4net"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-title="日志框架对比 NLog VS Log4net"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ data-title="日志框架对比 NLog VS Log4net"><i class="fab fa-evernote fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/log/>log</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/xamarin-%E5%85%A5%E9%97%A8%E6%B5%85%E6%9E%90/ class=prev rel=prev title="Xamarin 入门浅析"><i class="fas fa-angle-left fa-fw"></i>Xamarin 入门浅析</a>
+<a href=/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ class=next rel=next title="Xamarin.Forms 入门学习路线">Xamarin.Forms 入门学习路线<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id=comments><div id=gitalk class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"45b7e0bd48967978b707",clientSecret:"a809c07b23bc10c3889efc4ef584d71f37933da8",id:"2016-01-16T19:43:14+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"日志框架对比 NLog VS Log4net"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>

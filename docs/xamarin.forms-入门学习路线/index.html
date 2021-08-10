@@ -1,0 +1,491 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>Xamarin.Forms 入门学习路线 - free note</title><meta name=keywords content="[blog software dotnet javascript]">
+<meta name=Description content="free note"><meta property="og:title" content="Xamarin.Forms 入门学习路线">
+<meta property="og:description" content="Xamarin 介绍 Xamarin 是一套跨平台解决方案，目的是使用 C# 语言创造原生的 iOS，Android，Mac 和 Windows 应用。 Xamarin 的三个优势： Xamarin App 拥有原生 App 的性能，因为最后">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-03-01T20:44:22+08:00">
+<meta property="article:modified_time" content="2016-03-01T20:44:22+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png">
+<meta name=twitter:title content="Xamarin.Forms 入门学习路线">
+<meta name=twitter:description content="Xamarin 介绍 Xamarin 是一套跨平台解决方案，目的是使用 C# 语言创造原生的 iOS，Android，Mac 和 Windows 应用。 Xamarin 的三个优势： Xamarin App 拥有原生 App 的性能，因为最后">
+<meta name=application-name content="free note">
+<meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/><link rel=prev href=https://frhello.com/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/><link rel=next href=https://frhello.com/task.run-vs-task.factory.startnew/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Xamarin.Forms 入门学习路线","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, xamarin","wordcount":7142,"url":"https:\/\/frhello.com\/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF\/","datePublished":"2016-03-01T20:44:22+08:00","dateModified":"2016-03-01T20:44:22+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/android-chrome-192x192.png data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x" data-sizes=auto alt=/android-chrome-192x192.png title=/android-chrome-192x192.png>free note</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/android-chrome-192x192.png data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x" data-sizes=auto alt=/android-chrome-192x192.png title=/android-chrome-192x192.png>free note</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">Xamarin.Forms 入门学习路线</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/xamarin/><i class="far fa-folder fa-fw"></i>xamarin</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-03-01>2016-03-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7142 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 15 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#xamarin-介绍>Xamarin 介绍</a>
+<ul>
+<li><a href=#最终的思想共享代码>最终的思想，共享代码</a></li>
+</ul>
+</li>
+<li><a href=#xamarin-安装指南>Xamarin 安装指南</a>
+<ul>
+<li><a href=#离线破解流程>离线破解流程</a></li>
+<li><a href=#在线破解流程>在线破解流程</a></li>
+</ul>
+</li>
+<li><a href=#xamarinforms-程序结构>Xamarin.Forms 程序结构</a></li>
+<li><a href=#xamarinforms-官方-demo>Xamarin.Forms 官方 Demo</a></li>
+<li><a href=#xamarinforms-官方文档>Xamarin.Forms 官方文档</a></li>
+<li><a href=#forms-中-ui-布局细节>Forms 中 UI 布局细节</a></li>
+<li><a href=#app-的发布>APP 的发布</a>
+<ul>
+<li><a href=#android-发布教程>Android 发布教程</a></li>
+<li><a href=#ios-发布教程>iOS 发布教程</a></li>
+</ul>
+</li>
+<li><a href=#xamarin-组件商店的使用>Xamarin 组件商店的使用</a></li>
+<li><a href=#github-上去找东西>GitHub 上去找东西</a></li>
+<li><a href=#ide技巧>IDE技巧</a></li>
+<li><a href=#一些常用插件>一些常用插件</a></li>
+<li><a href=#xamarin-官方论坛>Xamarin 官方论坛</a></li>
+<li><a href=#没有涉及到的东西>没有涉及到的东西</a></li>
+<li><a href=#资源汇总>资源汇总</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=xamarin-介绍>Xamarin 介绍</h2>
+<p>Xamarin 是一套跨平台解决方案，目的是使用 C# 语言创造原生的 iOS，Android，Mac 和 Windows 应用。</p>
+<p>Xamarin 的三个优势：</p>
+<ol>
+<li>Xamarin App 拥有原生 App 的性能，因为最后生成的 App 中是使用的原生的控件和原生的 API，所以它的体验和效率与原生 App 相近。</li>
+<li>使用熟悉的 C# 语法，在 Objective-C，Swift 或者 Java 中能做的任何事情都可以用 C# 做到。除此之外，C# 还有强大的 IDE 智能提示，lambdas 语法，更自然的异步语法（Task、Async），NuGet 快速获取组件。</li>
+<li>在不同的平台上使用同样的语言还具有共享代码的优势，各个平台大约可以共享 75% 的 APIs 和数据结构代码。如果使用 Xamarin.Forms 来创建UI几乎可以共享 100% 的代码。</li>
+</ol>
+<h3 id=最终的思想共享代码>最终的思想，共享代码</h3>
+<p>说白了，Xamarin 宣称的最大的优势就是在三个平台上使用同一种语言来共享代码，总体说来有三种技术实现：</p>
+<ol>
+<li><a href=https://developer.xamarin.com/guides/cross-platform/application_fundamentals/shared_projects/ target=_blank rel="noopener noreffer">Shared Projects</a>：可以在里面添加供三个平台公用的代码，图片和多媒体文件等，代码部分可使用<code>#if __ANDROID__</code>等条件编译符来指定哪一部分会编译输出到特定平台中。</li>
+<li><a href=https://developer.xamarin.com/guides/cross-platform/application_fundamentals/pcl/introduction_to_portable_class_libraries/ target=_blank rel="noopener noreffer">Portable Class Libraries</a>(PCLs)：使用更多的还是 PCLs，PCLs 库直接就能被各个平台所引用，一些流行的库如 SQLite，Json.NET,ReactiveUI 都支持 PCL。</li>
+<li><a href=https://xamarin.com/forms target=_blank rel="noopener noreffer">Xamarin.Forms</a>：支持你用 C# 代码来创建在三个平台上共享的 UI 界面，总共可以使用超过 40 个控件，它们都会在运行时映射为原生控件。</li>
+</ol>
+<p>共享代码的关系就如下图：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png title=共享代码的关系></p>
+<h2 id=xamarin-安装指南>Xamarin 安装指南</h2>
+<p>工欲善其事，必先利其器。Xamarin的安装过程参考简书上的一篇文章，内容很齐全很详细：<a href=http://www.jianshu.com/p/c67c14b3110c target=_blank rel="noopener noreffer">http://www.jianshu.com/p/c67c14b3110c</a></p>
+<p>由于墙的原因，从官网下载的安装包无法直接安装，可以通过安装包中解析出配置文件，从中获取下载路径：</p>
+<p><a href=https://static.xamarin.com/installer_assets/v3/Windows/Universal/InstallationManifest.xml target=_blank rel="noopener noreffer">Windows下载路径</a></p>
+<p><a href=https://static.xamarin.com/installer_assets/v3/Mac/Universal/InstallationManifest.xml target=_blank rel="noopener noreffer">Mac下载路径</a></p>
+<p>Windows下的大体流程如下：</p>
+<ol>
+<li>Visual Studio 肯定是需要的，推荐 VS2013</li>
+<li>安装 jdk，修改环境变量</li>
+<li>安装 Android SDK，需要修改为<a href=http://www.androiddevtools.cn/ target=_blank rel="noopener noreffer">国内镜像</a></li>
+<li>安装 NDK</li>
+<li>安装 GTK</li>
+<li>安装 Xamarin.VisualStudio</li>
+<li>安装 XamarinStudio（可选）</li>
+</ol>
+<p>注意 6 和 7 的版本号很重要，必须要跟 Mac 端相匹配，跟破解补丁的版本也需要匹配。如果以后升级，通常只需要更新 6 和 7 就可以了。</p>
+<p>关于 Android 模拟器，之前折腾过不少，最后推荐一款专用于游戏玩家的 Andorid 模拟器，<a href=http://www.droid4x.cn/ target=_blank rel="noopener noreffer">海马玩模拟器</a>，它的性能很好很流畅，不过游戏模拟器屏幕默认是横屏的，第一次要手动改成竖屏。</p>
+<p>Mac 下的大体流程：
+如果只考虑用 Mac 开发 iOS 程序，不考虑在 Mac 下开发 Android 程序，那么大体流程如下:</p>
+<ol>
+<li>安装 MonoFramework</li>
+<li>安装 monotouch</li>
+<li>安装 XamarinStudio</li>
+</ol>
+<p>需要注意三者之间的版本一一对应。</p>
+<p>关于商业证书，Xamarin 的<a href=https://store.xamarin.com/ target=_blank rel="noopener noreffer">价格</a>是很昂贵的：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png title=价格></p>
+<p>上面看到的价格只是针对单用户单设备平台，通常我们使用 Xamarin 都希望至少能用于 Android 和 iOS 两个平台，所以价格还得乘以 2。</p>
+<p>安装完毕后如果没有购买商业证书，那么可以按照上面那篇文章来破解试用，如果使用的版本号在 3.11 之前，那么只需要完成离线破解，IDE 不需要登陆 Xamarin 账号，如果版本号在 3.11 之后，而且要编译 iOS（目的是为了连接 Mac 端的 BuildHost，如果是在 Mac 上开发编译 iOS 则不需要），那么还需要完成在线破解，具体破解流程文章里有，大体流程如下，最后提醒一下试用完了别忘了购买官方的商业授权。</p>
+<h3 id=离线破解流程>离线破解流程</h3>
+<ol>
+<li>软件读取机器特征码；</li>
+<li>将特征码通过邮件发给破解者，等待他回复授权证书，不付费证书有效期 1 个月，付费 20 元证书有效期 10 年；</li>
+<li>将证书和对应版本的破解文件拷贝到指定目录。</li>
+</ol>
+<h3 id=在线破解流程>在线破解流程</h3>
+<ol>
+<li>邮件申请开通在线服务</li>
+<li>修改 host 的 IP 地址</li>
+<li>导入 SSL 证书</li>
+<li>登陆 Xamarin 账号</li>
+</ol>
+<h2 id=xamarinforms-程序结构>Xamarin.Forms 程序结构</h2>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png title=程序结构></p>
+<p>程序的目录结构大致就可以参考这个图，最顶上一层表示三个特定平台的工程，第二层表示一个 PCL 或者 SAP 工程，通常也是 Forms 所在的工程，然后引用两个核心库 Xamarin.Forms.Core 和 Xamarin.Forms.Xaml，然后特定平台的工程还要引用两个特定平台的库，这个特定平台的库可以让程序集使用特定平台的 API。</p>
+<h2 id=xamarinforms-官方-demo>Xamarin.Forms 官方 Demo</h2>
+<p>Xamarin 提供了很多学习用的 Demo，地址是：<a href=https://developer.xamarin.com/samples-all/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/samples-all/</a>。不过官网的网速确实太慢，在 GitHub 上还有更多更全的 Forms 的 Demo：<a href=https://github.com/xamarin/xamarin-forms-samples target=_blank rel="noopener noreffer">https://github.com/xamarin/xamarin-forms-samples</a>。
+其中我认为几个比较重要的 Demo 可以学习一下：</p>
+<ul>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/CustomRenderers target=_blank rel="noopener noreffer">CustomRenderers</a>：教你怎样重写Forms里的一些原生控件的样式；</li>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/Forms2Native target=_blank rel="noopener noreffer">Forms2Native</a>：教你怎样从Forms页面跳转到Native页面；</li>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/Native2Forms target=_blank rel="noopener noreffer">Native2Forms</a>：教你怎样从Native页面跳转回Forms页面；</li>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/FormsGallery target=_blank rel="noopener noreffer">FormsGallery</a>：里面有几乎全部的Forms控件展示；</li>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/Navigation target=_blank rel="noopener noreffer">Navigation</a>：教你Forms的App页面导航跳转是怎么回事；</li>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/UsingDependencyService target=_blank rel="noopener noreffer">UsingDependencyService</a>：教你使用依赖服务在Forms里调用Native的方法；</li>
+<li><a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/XamFormsImageResize target=_blank rel="noopener noreffer">XamFormsImageResize</a>：教你图片尺寸相关的东西；</li>
+</ul>
+<h2 id=xamarinforms-官方文档>Xamarin.Forms 官方文档</h2>
+<p>Xamarin 官方提供了一套很全的在线学习指南，地址是：<a href=https://developer.xamarin.com/guides/xamarin-forms/getting-started/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/xamarin-forms/getting-started/</a>，这份指南目录结构良好，便于快速查看，从怎样开始第一个程序到后面怎样到商城发布一应俱全。</p>
+<p>还有一个学习途径就是官网教材，可以免费下载离线版：<a href=https://developer.xamarin.com/guides/xamarin-forms/creating-mobile-apps-xamarin-forms/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/xamarin-forms/creating-mobile-apps-xamarin-forms/</a>，教材的随书 Demo 地址：<a href=https://github.com/xamarin/xamarin-forms-book-preview-2 target=_blank rel="noopener noreffer">https://github.com/xamarin/xamarin-forms-book-preview-2</a>。这本教材支持 Forms1.3 以上，并且章节一直在保持更新，截至 2016/02/25 已发布到 24 章，Demo 的核心库已更新到 2.0 并且加入了 UWP 工程。</p>
+<p>如果说在线学习指南可以帮助你快速入门，那么这本教程可以帮助你更细化的理解 Forms 程序。
+下面我将 24 章的官方教材的目录做个简单介绍，后面有时间也会对重要的几章做个更详尽的剖析：</p>
+<ol>
+<li>How Does Xamarin.Forms Fit In?（Forms适合什么场景）</li>
+<li>Anatomy of an App（剖析一个FormsApp）</li>
+<li>Deeper into Text（深入文本）</li>
+<li>Scrolling the Stack（滚动面板）</li>
+<li>Dealing with Sizes（处理尺寸大小）</li>
+<li>Button Clicks（按钮点击）</li>
+<li>XAML vs. Code（创建UI的两种方式）</li>
+<li>Code and XAML in Harmony（XAML和代码的协调合作）</li>
+<li>Platform-Specific API Calls（平台特定的API调用）</li>
+<li>XAML Markup Extensions（XAML扩展标记语言介绍）</li>
+<li>The Bindable Infrastructure（绑定的基础知识）</li>
+<li>Styles（样式）</li>
+<li>Bitmaps（位图）</li>
+<li>Absolute Layout（绝对布局）</li>
+<li>The Interactive Interface（交互控件）</li>
+<li>Data Binding（数据绑定）</li>
+<li>Mastering the Grid（熟练掌握Grid布局）</li>
+<li>MVVM（数据绑定开发模式Mvvm讲解）</li>
+<li>Collection Views（集合控件讲解&ndash;List）</li>
+<li>Async and File I/O（异步I/O操作文件）</li>
+<li>Transforms（变换&mdash;缩放、定位等）</li>
+<li>Animation（动画）</li>
+<li>Triggers and Behaviors（触发器和行为）</li>
+<li>Page Navigation（页面导航）</li>
+</ol>
+<p>其中我感觉有几章比较重要，如果对 Xaml（WPF 主要用的界面标记语言）开发不太熟悉的同学需要看一下这几章：</p>
+<ul>
+<li>7.XAML vs. Code：了解 Xaml 和 Code 两种方式来创建 UI 界面</li>
+<li>8.Code and XAML in Harmony：了解 XAML 和后台代码如何协同工作</li>
+<li><strong>10.XAML Markup Extensions：了解扩展标记语言</strong></li>
+<li>11.The Bindable Infrastructure：了解绑定的基础知识</li>
+<li>16.Data Binding：更深入的了解数据绑定</li>
+<li><strong>18.MVVM：了解基于数据绑定的 UI 开发模式 Mvvm</strong></li>
+</ul>
+<p>要对Forms的细节有深入理解看下面几章：</p>
+<ul>
+<li>3.Deeper into Text：深入理解文本</li>
+<li><strong>5.Dealing with Sizes：深入理解如何处理尺寸大小，重点也是拿文本举例，教你如何理解移动开发里面像素、物理尺寸（英尺、厘米）、<a href="http://baike.baidu.com/link?url=gTHZg3zK0U2XUIMpkUUtW9rhOTuPd2Rz-jFfkgWvrBdKX1gPd6DwxoBK-SbcRtU42TFRKq4CU5OPxuYZ_cBXnnWk2dOngpUl9DqSU1o-Y67" target=_blank rel="noopener noreffer">DPI</a>、DIU，主要思想反正就是不要去关注表示大小的那些数值，字体应该使用字体枚举，布局应该是用比例去控制，要充分相信 Xamarin 平台能帮你控制好大小尺寸。</strong></li>
+<li><strong>13.Bitmaps：了解怎样在 Forms 中使用图片，也是满满的都是坑，显示在界面上的图片体积一定要尽量的小，不要将一张原始尺寸的图片加载成缩略图然后放在列表中显示，否则程序一定会内存溢出，一定要对图片进行裁剪，将适合的体积的图片用在适合的地方。从这一章中还可以学习图片在具体平台下的用法和差异等。</strong></li>
+<li><strong>19.Collection Views：了解集合控件，列表在 App 当中用得非常普遍，所以应当着重了解。</strong></li>
+<li>
+<ol start=20>
+<li>Async and File I/O：在 Xamarin 中只能使用异步 IO（或者说是 PCL 中只能使用异步IO），从趋势看未来的 .Net Core 可能也只支持异步 IO、异步 Http 请求等，感觉这种更重视性能的 IO 思想是未来框架的趋势，所以可以借此熟悉一下，C# 的异步语法应该算是众多编程语言中的佼佼者了。</li>
+</ol>
+</li>
+</ul>
+<p>下面对第五章 Dealing with Sizes 稍作讲解，这章重点介绍了移动平台下尺寸相关的一些知识，先看下下面两个表格：</p>
+<table>
+<thead>
+<tr>
+<th><strong>型号</strong></th>
+<th>iPhone 2，3</th>
+<th>iPhone 4</th>
+<th>iPhone 5</th>
+<th>iPhone 6</th>
+<th>iPhone 6 Plus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>像素尺寸</strong></td>
+<td>320x480</td>
+<td>640x960</td>
+<td>640x1136</td>
+<td>750x1134</td>
+<td>1080x1920</td>
+</tr>
+<tr>
+<td><strong>屏幕尺寸</strong></td>
+<td>3.5英寸</td>
+<td>3.5英寸</td>
+<td>4英寸</td>
+<td>4.7英寸</td>
+<td>5.5英寸</td>
+</tr>
+<tr>
+<td><strong>像素密度</strong></td>
+<td>165 DPI</td>
+<td>330 DPI</td>
+<td>326 DPI</td>
+<td>326 DPI</td>
+<td>401 DPI</td>
+</tr>
+<tr>
+<td><strong>单位点包含像素数量</strong></td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>点数尺寸</strong></td>
+<td>320x480</td>
+<td>320x480</td>
+<td>320x568</td>
+<td>375x667</td>
+<td>414x736</td>
+</tr>
+<tr>
+<td><strong>每英寸包含点数量</strong></td>
+<td>165</td>
+<td>165</td>
+<td>163</td>
+<td>163</td>
+<td>154</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>屏幕类型</strong></th>
+<th>WVGA</th>
+<th>WXGA</th>
+<th>720P</th>
+<th>1080P</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>像素尺寸</strong></td>
+<td>480x800</td>
+<td>768x1280</td>
+<td>720x1280</td>
+<td>1080x1920</td>
+</tr>
+<tr>
+<td><strong>缩放比例</strong></td>
+<td>1</td>
+<td>1.6</td>
+<td>1.5</td>
+<td>2.25</td>
+</tr>
+<tr>
+<td><strong>DIUs尺寸</strong></td>
+<td>480x800</td>
+<td>480x800</td>
+<td>480x853</td>
+<td>480x853</td>
+</tr>
+</tbody>
+</table>
+<p>第一张图是 iPhone 下的一些尺寸元素间的关系，第二张是 WinPhone 的，这里没有给出 Android 的，其实 Android 整体上说来跟 iPhone 的那些参数很相似。</p>
+<p>Forms 中真正使用的不是像素，而是点数，点里面包含的像素数量是不一致的，像 iPhone2，3 基本上是一一对应，一个点包含一个像素，iPhone4，5，6 就是两倍像素，iPhone6Plus 就是三倍像素，所以 iPhone 的图片里出现 <code>@2x</code>，<code>@3x</code> 这些标识就是对应平台所使用的像素不同的图片。我们在 Forms 中使用的那些表示宽高的值就是这种点数单位，要知道设置的这些值可以获取整个页面的 Width 和 Height 值。</p>
+<p>下面说下字号，Forms 提供了几种枚举字号：Default，Micro，Small，Medium，Large，在不同的设备，不同的用户系统字号设置，不同的控件中，相同的枚举返回的字号数值可能都不一样。通过 Device.GetNamedSize 方法获取的 FontSize 值的单位是 double，表示文本字符从最下面到最上面到高度，字体的宽度一般都是 FontSize 值的一半，字体的行距一般是 FontSize 值的 1.2 倍。</p>
+<h2 id=forms-中-ui-布局细节>Forms 中 UI 布局细节</h2>
+<p>在 Forms 中设计各种元素布局等细节依然可以参考设计网页采用的盒模型的思想。从大的块元素的分离到小如一个文字，都可以想象成一个个小盒子。由内容区，内边距，边框，外边距组成。</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg title=UI></p>
+<p>Forms 中还有几个比较容易混淆的类：ContentView，Frame，BoxView。
+虽然可以按照盒模型的思想来布局元素，但是 Forms 中没有标准的 margin 的概念，Forms 的做法是在一个内容视图外面再嵌套一个 ContentView，ContentView 继承自 Layout，只多了一个 Content 属性来存放内容视图。此时，ContentView 的 Padding 属性就可以想象成盒子的 Margin。</p>
+<p>Frame 在布局中也比较常用，通常用于定义页面中一组视图的区块，它继承自 ContentView，多了些边框、阴影等属性。</p>
+<p>BoxView 是一个矩形填充区，在 Forms 中用得最多的地方就是用它来绘制横线、竖线等分割线。虽然看起来很山寨，但它却是是 Forms 中的一个标准用法。</p>
+<h2 id=app-的发布>APP 的发布</h2>
+<p>前面教程重点是介绍 Xamarin.Forms 相关的东西，对于平台特定的那些没有做介绍，比如平台和 Forms 之间的交互（依赖注入，前面的 Demo 介绍 PPT 有），比如最后 APP 的发布，发布相关的东西参考前面提到的在线教程：</p>
+<h3 id=android-发布教程>Android 发布教程</h3>
+<p>我们项目中的 Android 安装包没有发布进商城，是通过网址直接下载，所以发布教程没有验证：<a href=https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/publishing_an_application/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/publishing_an_application/</a></p>
+<h3 id=ios-发布教程>iOS 发布教程</h3>
+<p>iOS 需要发布，流程主要是有很多和 apple 打交道的地方比较麻烦，比如说开发者证书，AppStore 证书，用特定的证书打包你的 IPA，提交到 itunesconnect，审核等等，Xamarin 的教程如下：<a href=https://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/app_distribution/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/app_distribution/</a></p>
+<h2 id=xamarin-组件商店的使用>Xamarin 组件商店的使用</h2>
+<p>Xamarin 有自己的组件商店，里面有很多免费和收费的组件，刚开始就在这上面找东西，不过网速实在不可恭维，后来发现免费插件这上面有的 GitHub 上几乎都有，所以使用 GitHub 又快又方便。</p>
+<p>如果要在组件商店中下载需要注意最后一步需要<a href=https://github.com/getlantern/lantern title=lantern target=_blank rel="noopener noreffer">翻墙</a>，因为网站用了 google 提供的 jquery 库：<a href=https://components.xamarin.com/ target=_blank rel="noopener noreffer">https://components.xamarin.com/</a></p>
+<p>GitHub 上 Xamarin 提供的一个常用的免费插件目录，这个插件库里有 Xamarin 官方的也有第三方的。我们的项目所使用的插件大多来自这个目录，里面有插件的 NuGet 和 GitHub 地址： <a href=https://github.com/xamarin/plugins target=_blank rel="noopener noreffer">https://github.com/xamarin/plugins</a></p>
+<p>GitHub 上 Xamarin 官方插件库的源代码：<a href=https://github.com/jamesmontemagno/Xamarin.Plugins target=_blank rel="noopener noreffer">https://github.com/jamesmontemagno/Xamarin.Plugins</a></p>
+<h2 id=github-上去找东西>GitHub 上去找东西</h2>
+<p>在 GitHub 上使用“Xamarin.Forms”为关键词进行搜索，可以快速找到相关资源。</p>
+<ul>
+<li><a href=https://github.com/XLabs/Xamarin-Forms-Labs target=_blank rel="noopener noreffer"><strong>Xamarin-Forms-Labs</strong></a>：这个库很大，包含的东西很多，IOC 容器、序列化组件、缓存组件、UI控件等，我们用得最多的还是 UI 控件。但是用法不是像其他插件一样直接引用它的相关 dll（之前尝试过很久，直接使用会导致莫名其妙的问题），而是直接拷贝代码到我们项目中直接用，但是这个库也正如它的名字一样，是实验性的，在 GitHub 介绍上也可以看到可用控件里几乎所有控件都是 beta 状态，我们在使用过程中也发现了不少 Bug，所以项目里的代码有所改动，跟以前应该不太一样了。我们项目里参考并使用的控件有<a href=https://github.com/XLabs/Xamarin-Forms-Labs/wiki/Checkbox-Control target=_blank rel="noopener noreffer">Checkbox</a>、<a href=https://github.com/XLabs/Xamarin-Forms-Labs/tree/master/src/Forms/XLabs.Forms/Controls/RadioButton target=_blank rel="noopener noreffer">RadioButton</a>等。</li>
+<li><a href=https://github.com/RobGibbens/XamarinFormsGestureRecognizers target=_blank rel="noopener noreffer"><strong>XamarinFormsGestureRecognizers</strong></a>：这个没有使用过，从说明来看是一个手势功能相关的库。 XamarinForms 里的控件默认只有 Tap 点击事件，其他手势操作都在平台内部，这个库就是教你怎样将它们连接起来，然后在 PCL 中写针对控件的手势操作代码。</li>
+</ul>
+<h2 id=ide技巧>IDE技巧</h2>
+<ul>
+<li>Android 很简单，在 Windows 上启动海马玩模拟器，模拟器启动时间比较长，但启动好之后就可以不用关了，然后只需要用 Visual Studio 设置 Android 项目为启动项，附加到模拟器进行调试即可；真机用 USB 连接使用同样的方式在 IDE 里调试。</li>
+<li>iOS 比较麻烦，需要打开 Mac 电脑上的 BuildHost（如果 Mac 不在身边，可使用远程软件 <a href=http://www.tightvnc.com/ target=_blank rel="noopener noreffer">tightvnc</a> 操作，不过一台 Mac 同时只能供一人使用），然后 Visual Studio 设置 iOS 为启动项，可自动寻找局域网内的 Mac 电脑上的 BuildHost，然后输入配对码即可连接成功，如果失败请重启 BuildHost 再试；真机调试一样，不过真机只能连接在 Mac 电脑上。</li>
+</ul>
+<h2 id=一些常用插件>一些常用插件</h2>
+<p>Forms 中插件的使用也比较简单，基本上用一次就会了。首先，插件的使用方式都很统一，Forms 的 PCL 中一般引用两个库,两个库都是 PCL 的，一个带 Abstractions 后缀，里面只定义了接口和实体，不包含逻辑代码；另一个不带 Abstractions 后缀，就像工厂一样，只负责创建 Abstractions 程序集里定义的那些接口的实现者，创建的方式不是使用前面提到的 Xamarin 提供的依赖注入（ <a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/UsingDependencyService target=_blank rel="noopener noreffer">UsingDependencyService</a> ），而是条件编译的方式直接 New 对应平台的实现者。在 Andorid 和 iOS（或者 WP）里引用了带 Abstractions 后缀的程序集，然后引用一个真正的属于该平台的程序集（非 PCL，可以调用平台特殊 API），这个程序集实现了 Abstractions 程序集里的接口，它的实例化对象在运行时被真正使用。如果我们自己写插件就可以使用 Xamarin 提供的依赖注入的方式，在特定平台内部写好功能类，然后在 PCL 中直接导出就可以使用了。</p>
+<p>然后下面列出一些常用插件：</p>
+<ul>
+<li><a href=https://github.com/corradocavalli/Corcav.Behaviors target=_blank rel="noopener noreffer">Corcav.Behaviors</a>：帮助你将列表的每一项绑定命令到这个列表的 BindingContext，而不是具体项的 BindingContext，帮助将事件转为命令，Xamarin 自身不带这个功能。</li>
+<li><a href=https://github.com/VictorGrunn/EZ-Compress-for-Xamarin target=_blank rel="noopener noreffer">EZ-Compress-for-Xamarin</a> ：压缩图片流的库。</li>
+<li><a href=https://mvvmlight.codeplex.com/ target=_blank rel="noopener noreffer">MvvmLight</a>：Mvvm 开发模式的支持库，还用到了里面的 Ioc 容器（SimpleIoc，我们系统里有两套 Ioc 容器，一个就是这个，另一个是 Xamarin 的依赖注入容器）；还用到了它提供的导航组件。</li>
+<li><a href=https://github.com/cjlotz/Xamarin.Plugins target=_blank rel="noopener noreffer">Xam.Plugins.Messaging</a>：提供打电话、发短信、发 Email 等功能。</li>
+<li><a href=https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Media target=_blank rel="noopener noreffer">Media.Plugin</a>：提供拍照、选照片的功能。</li>
+<li><a href=https://github.com/dsplaisted/PCLStorage target=_blank rel="noopener noreffer">PCLStorage</a> ：跨平台的异步 I/O 库。</li>
+<li><a href=https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Vibrate target=_blank rel="noopener noreffer">Vibrate</a>：提供了手机震动的功能。</li>
+<li><a href=https://github.com/EgorBo/Toasts.Forms.Plugin target=_blank rel="noopener noreffer">Toasts.Forms.Plugin</a> ：顶部的那个彩色浮动提示框。</li>
+</ul>
+<p>然后一些用得比较多的 UI 组件有：圆形图片、<a href=https://github.com/XLabs/Xamarin-Forms-Labs/wiki/Checkbox-Control target=_blank rel="noopener noreffer">Checkbox</a>、<a href=https://github.com/XLabs/Xamarin-Forms-Labs/tree/master/src/Forms/XLabs.Forms/Controls/RadioButton target=_blank rel="noopener noreffer">RadioButton</a>、图片选择器等，有自己写的，也有在<a href=https://github.com/XLabs/Xamarin-Forms-Labs target=_blank rel="noopener noreffer">Xamarin-Forms-Labs</a>的基础上改的。</p>
+<p>Andorid 使用插件时注意在工程的 Properties 的 AndroidManifest.xml 中写入对应的权限。</p>
+<h2 id=xamarin-官方论坛>Xamarin 官方论坛</h2>
+<p>遇到疑难的问题，上 Xamarin 官方论坛搜索，大部分你遇到的问题上面应该都会有，基本用不着主动提问，这个地址我认为访问频率相当高，地址如下：<a href=http://forums.xamarin.com/ target=_blank rel="noopener noreffer">http://forums.xamarin.com/</a></p>
+<h2 id=没有涉及到的东西>没有涉及到的东西</h2>
+<p>本教程没有涉及到 GIS 相关的内容。</p>
+<p>没有对特定平台内部相关知识介绍，我们团队的成员对平台特定API都了解太少，特别是涉及 UI 方面的，要掌握这些知识的难度跟学习原生开发无异，所以对一些难题解决起来比较费力，比如之前的 Android 和 iOS 的 Tab 页样式差异问题（Android 的 Tab 在屏幕上面，iOS 的 Tab 在屏幕底部）。因为 Tab 属于页面，跟控件不一样，不能使用 <a href=https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/ target=_blank rel="noopener noreffer">CustomRenderers</a> 的技术重写样式，在论坛上搜索的结果如下：</p>
+<p><a href=http://forums.xamarin.com/discussion/54668/bottom-tab-bar-menu-for-android target=_blank rel="noopener noreffer">http://forums.xamarin.com/discussion/54668/bottom-tab-bar-menu-for-android</a></p>
+<p><a href=https://forums.xamarin.com/discussion/10004/tabs-on-the-bottom-for-android-example-code target=_blank rel="noopener noreffer">https://forums.xamarin.com/discussion/10004/tabs-on-the-bottom-for-android-example-code</a></p>
+<p><a href=http://forums.xamarin.com/discussion/56320/is-there-any-way-to-show-tabs-on-bottom-in-android-using-tabbedpagerenderer target=_blank rel="noopener noreffer">http://forums.xamarin.com/discussion/56320/is-there-any-way-to-show-tabs-on-bottom-in-android-using-tabbedpagerenderer</a></p>
+<p>主要意思先是从设计的角度强调不要进行这样通用的设计，如果一定是通用样式那么给出的解决方案也是平台内部的，首先不说技术门槛，这个实现方式跟 Forms 的思想就是有冲突的，所以最好的方案就是在新 APP 里用 Forms 纯手写 Tab 页面。</p>
+<h2 id=资源汇总>资源汇总</h2>
+<blockquote>
+<p>官方Demo：</p>
+</blockquote>
+<p><a href=https://developer.xamarin.com/samples-all/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/samples-all/</a>
+<a href=https://github.com/xamarin/xamarin-forms-samples target=_blank rel="noopener noreffer">https://github.com/xamarin/xamarin-forms-samples</a></p>
+<p>官方程序安装地址：</p>
+<p><a href=https://static.xamarin.com/installer_assets/v3/Windows/Universal/InstallationManifest.xml target=_blank rel="noopener noreffer">https://static.xamarin.com/installer_assets/v3/Windows/Universal/InstallationManifest.xml</a>
+<a href=https://static.xamarin.com/installer_assets/v3/Mac/Universal/InstallationManifest.xml target=_blank rel="noopener noreffer">https://static.xamarin.com/installer_assets/v3/Mac/Universal/InstallationManifest.xml</a></p>
+<p><a href=https://developer.xamarin.com/guides/cross-platform/windows/ios-simulator/ target=_blank rel="noopener noreffer">windows下的ios模拟器</a>
+最新的版本信息查询地址：
+<a href=https://developer.xamarin.com/releases/current/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/releases/current/</a></p>
+<p>一个博客提供的最新下载地址：
+<a href="https://www.coderbusy.com/archives/256.html?from=groupmessage&isappinstalled=0" target=_blank rel="noopener noreffer">https://www.coderbusy.com/archives/256.html?from=groupmessage&isappinstalled=0</a></p>
+<p>可根据以上版本号手动构造下载地址如下：</p>
+<p>Win:</p>
+<p><a href=http://dl.google.com/android/ndk/android-ndk-r10e-windows-x86_64.exe target=_blank rel="noopener noreffer">http://dl.google.com/android/ndk/android-ndk-r10e-windows-x86_64.exe</a>
+<a href=http://dl.google.com/android/installer_r24.4.1-windows.exe target=_blank rel="noopener noreffer">http://dl.google.com/android/installer_r24.4.1-windows.exe</a>
+<a href=http://download.xamarin.com/GTKforWindows/Windows/gtk-sharp-2.12.30.msi target=_blank rel="noopener noreffer">http://download.xamarin.com/GTKforWindows/Windows/gtk-sharp-2.12.30.msi</a>
+<a href=https://dl.xamarin.com/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_4.2.1.58.msi target=_blank rel="noopener noreffer">https://dl.xamarin.com/XamarinforVisualStudio/Windows/Xamarin.VisualStudio_4.2.1.58.msi</a>
+<a href=http://download.xamarin.com/studio/Windows/XamarinStudio-5.10.3.26-0.msi target=_blank rel="noopener noreffer">http://download.xamarin.com/studio/Windows/XamarinStudio-5.10.3.26-0.msi</a></p>
+<p>Mac:</p>
+<p><a href=http://download.xamarin.com/Installer/MonoForAndroid/jdk-7u71-macosx-x64.dmg target=_blank rel="noopener noreffer">http://download.xamarin.com/Installer/MonoForAndroid/jdk-7u71-macosx-x64.dmg</a>
+<a href=http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip target=_blank rel="noopener noreffer">http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip</a>
+<a href=http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin target=_blank rel="noopener noreffer">http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin</a>
+<a href=http://dl.xamarin.com/MonoFrameworkMDK/Macx86/MonoFramework-MDK-4.6.2.7.macos10.xamarin.universal.pkg target=_blank rel="noopener noreffer">http://dl.xamarin.com/MonoFrameworkMDK/Macx86/MonoFramework-MDK-4.6.2.7.macos10.xamarin.universal.pkg</a>
+<a href=https://dl.xamarin.com/MonoDevelop/Mac/XamarinStudio-6.1.2.44.dmg target=_blank rel="noopener noreffer">https://dl.xamarin.com/MonoDevelop/Mac/XamarinStudio-6.1.2.44.dmg</a>
+<a href=https://dl.xamarin.com/MonoTouch/Mac/xamarin.ios-10.2.1.5.pkg target=_blank rel="noopener noreffer">https://dl.xamarin.com/MonoTouch/Mac/xamarin.ios-10.2.1.5.pkg</a>
+<a href=http://dl.xamarin.com/MonoforAndroid/Mac/xamarin.android-7.0.2-37.pkg target=_blank rel="noopener noreffer">http://dl.xamarin.com/MonoforAndroid/Mac/xamarin.android-7.0.2-37.pkg</a>
+<a href=http://dl.xamarin.com/XamarinforMac/Mac/xamarin.mac-2.10.0.113.pkg target=_blank rel="noopener noreffer">http://dl.xamarin.com/XamarinforMac/Mac/xamarin.mac-2.10.0.113.pkg</a></p>
+<p>官方文档：</p>
+<p><a href=https://developer.xamarin.com/guides/xamarin-forms/creating-mobile-apps-xamarin-forms/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/xamarin-forms/creating-mobile-apps-xamarin-forms/</a></p>
+<p>官方教材：</p>
+<p><a href=https://developer.xamarin.com/guides/xamarin-forms/creating-mobile-apps-xamarin-forms/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/xamarin-forms/creating-mobile-apps-xamarin-forms/</a>
+<a href=https://github.com/xamarin/xamarin-forms-book-samples/ target=_blank rel="noopener noreffer">https://github.com/xamarin/xamarin-forms-book-samples/</a></p>
+<p>官方论坛：</p>
+<p><a href=http://forums.xamarin.com/ target=_blank rel="noopener noreffer">http://forums.xamarin.com/</a></p>
+<p>常用插件：</p>
+<p><a href=https://github.com/xamarin/plugins target=_blank rel="noopener noreffer">https://github.com/xamarin/plugins</a>
+<a href=https://github.com/jamesmontemagno/Xamarin.Plugins target=_blank rel="noopener noreffer">https://github.com/jamesmontemagno/Xamarin.Plugins</a>
+<a href=https://components.xamarin.com/ target=_blank rel="noopener noreffer">https://components.xamarin.com/</a>
+<a href=https://github.com/XLabs/Xamarin-Forms-Labs target=_blank rel="noopener noreffer">https://github.com/XLabs/Xamarin-Forms-Labs</a></p>
+<p>MvvmCross</p>
+<p><a href=https://github.com/MvvmCross/MvvmCross target=_blank rel="noopener noreffer">https://github.com/MvvmCross/MvvmCross</a>
+<a href=https://github.com/MvvmCross/MvvmCross-Plugins target=_blank rel="noopener noreffer">https://github.com/MvvmCross/MvvmCross-Plugins</a></p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2016-03-01</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/index.md target=_blank>阅读原始文档</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-title="Xamarin.Forms 入门学习路线" data-hashtags=dotnet,xamarin><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-hashtag=dotnet><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-title="Xamarin.Forms 入门学习路线"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-title="Xamarin.Forms 入门学习路线"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-title="Xamarin.Forms 入门学习路线"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-title="Xamarin.Forms 入门学习路线"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/xamarin.forms-%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/ data-title="Xamarin.Forms 入门学习路线"><i class="fab fa-evernote fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/xamarin/>xamarin</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94-nlog-vs-log4net/ class=prev rel=prev title="日志框架对比 NLog VS Log4net"><i class="fas fa-angle-left fa-fw"></i>日志框架对比 NLog VS Log4net</a>
+<a href=/task.run-vs-task.factory.startnew/ class=next rel=next title="Task.Run Vs Task.Factory.StartNew">Task.Run Vs Task.Factory.StartNew<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id=comments><div id=gitalk class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"45b7e0bd48967978b707",clientSecret:"a809c07b23bc10c3889efc4ef584d71f37933da8",id:"2016-03-01T20:44:22+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"Xamarin.Forms 入门学习路线"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
