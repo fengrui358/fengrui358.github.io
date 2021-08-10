@@ -130,3 +130,4 @@ MvvmLight For Android要求Android版本在2.3(API10)以上
 ### 其他资源
 
 安装、破解：<http://www.jianshu.com/p/c67c14b3110c>
+

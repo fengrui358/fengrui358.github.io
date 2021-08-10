@@ -1,0 +1,783 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>Xamarin.Forms——WebView 技术研究 - free note</title><meta name=keywords content="[blog software dotnet javascript]">
+<meta name=Description content="free note"><meta property="og:title" content="Xamarin.Forms——WebView 技术研究">
+<meta property="og:description" content="在 Xamarin 中有一些 Forms 原生不太好实现的内容可以考虑使用 HTML、Javascript、CSS 那一套前端技术来实现，使用 WebView 来承载显示本地或网络上的 HTML 文">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-03-13T19:06:34+08:00">
+<meta property="article:modified_time" content="2016-03-13T19:06:34+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png">
+<meta name=twitter:title content="Xamarin.Forms——WebView 技术研究">
+<meta name=twitter:description content="在 Xamarin 中有一些 Forms 原生不太好实现的内容可以考虑使用 HTML、Javascript、CSS 那一套前端技术来实现，使用 WebView 来承载显示本地或网络上的 HTML 文">
+<meta name=application-name content="free note">
+<meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/><link rel=prev href=https://frhello.com/xamarin.forms-%E5%B0%BA%E5%AF%B8%E5%A4%A7%E5%B0%8F%E4%BA%94-dealing-with-sizes/><link rel=next href=https://frhello.com/%E8%A7%A3%E5%86%B3-xamarin-android-%E5%A2%99%E7%9A%84%E9%97%AE%E9%A2%98/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Xamarin.Forms——WebView 技术研究","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, xamarin","wordcount":3768,"url":"https:\/\/frhello.com\/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6\/","datePublished":"2016-03-13T19:06:34+08:00","dateModified":"2016-03-13T19:06:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/android-chrome-192x192.png data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x" data-sizes=auto alt=/android-chrome-192x192.png title=/android-chrome-192x192.png>free note</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/android-chrome-192x192.png data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x" data-sizes=auto alt=/android-chrome-192x192.png title=/android-chrome-192x192.png>free note</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">Xamarin.Forms——WebView 技术研究</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/xamarin/><i class="far fa-folder fa-fw"></i>xamarin</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-03-13>2016-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3768 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#content>Content</a>
+<ul>
+<li><a href=#网站websites>网站（Websites）</a>
+<ul>
+<li><a href=#ios-和-ats>iOS 和 ATS</a></li>
+</ul>
+</li>
+<li><a href=#html-字符串>HTML 字符串</a></li>
+<li><a href=#本地-html-文件>本地 HTML 文件</a>
+<ul>
+<li><a href=#ios>iOS</a></li>
+<li><a href=#android>Android</a></li>
+<li><a href=#windows-phone>Windows Phone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#navigation>Navigation</a></li>
+<li><a href=#events>Events</a></li>
+<li><a href=#performance>Performance</a></li>
+<li><a href=#permissions>Permissions</a></li>
+<li><a href=#layout>Layout</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>在 Xamarin 中有一些 Forms 原生不太好实现的内容可以考虑使用 HTML、Javascript、CSS 那一套前端技术来实现，使用 <a href=https://developer.xamarin.com/api/type/Xamarin.Forms.WebView/ target=_blank rel="noopener noreffer">WebView</a> 来承载显示本地或网络上的 HTML 文件。不像 <code>OpenUri</code> 方法，不是将用户带到设备中的本地浏览器里去，而是用 <code>WebView</code> 直接在 App 内部显示 HTML 内容。</p>
+<p>该文档由下面几节内容组成：</p>
+<ul>
+<li><a href=#content rel>内容（Content）</a>——WebView 支持各种内容元素，包括嵌入式 HTML 文件，Web 页面和 HTML 字符串。</li>
+<li><a href=#navigation rel>导航（Navigation）</a>——WebView 支持导航到特定的页面并返回。</li>
+<li><a href=#events rel>事件（Events）</a>——监听并相应响应用户在 WebView 中触发的动作。</li>
+<li><a href=#performance rel>性能（Performance）</a>——了解各平台上 WebView 的性能特点。</li>
+<li><a href=#permissions rel>权限（Permissions）</a>——了解在 App 中使用 WebView 的相应权限设置。</li>
+<li><a href=#layout rel>布局（Layout）</a>——WebView 对布局有一些特别要求，了解如何恰当的显示 WebView。</li>
+</ul>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png title=img></p>
+<h2 id=content>Content</h2>
+<p>WebView 支持下列几种内容：</p>
+<ul>
+<li>HTML 和 CSS 网站——WebView 全方位支持 HTML 和 CSS 布局的网站，也包括对 JavaScript 的支持。</li>
+<li>文档（Documents）——因为 WebView 使用的是平台本地组件，所以 WebView 可以显示平台所支持的那些文档类型。这意味着，PDF 文件可以直接在 iOS 和 Android 平台上显示，但是 Windows Phone 平台不能。</li>
+<li>HTML 字符串——WebView 可以显示内存中的 HTML 字符串。</li>
+<li>本地文件——WebView 可以显示嵌入在 App 中的任何内容。</li>
+</ul>
+<p><strong>注意：</strong> Windows 和 Windows Phone 平台上的 <code>WebView</code> 并不支持 Silverlight，Flash和任何的 ActiveX 控件，即使该平台上的 Internet Explorer 浏览器都支持。</p>
+<h3 id=网站websites>网站（Websites）</h3>
+<p>要显示因特网上的一个网站，可以给 <code>WebView</code> 的 <a href=http://developer.xamarin.com/api/type/Xamarin.Forms.WebViewSource/ target=_blank rel="noopener noreffer"><code>Source</code></a> 属性设置一个 URL 字符串：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>browser</span> <span class=p>=</span> <span class=k>new</span> <span class=n>WebView</span> <span class=p>{</span>
+    <span class=n>Source</span> <span class=p>=</span> <span class=s>&#34;http://xamarin.com&#34;</span>
+<span class=p>};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>注意：</strong> URLs 地址必须是指定协议的完整格式（如：前面必须有"<code>http://</code>&ldquo;或&rdquo;<code>http://</code>"）</p>
+<h4 id=ios-和-ats>iOS 和 ATS</h4>
+<p>自 iOS 9 以后，默认情况下仅允许应用程序和实现了最佳安全实践的服务通信，如果想和不安全的服务进行通信必须要修改 <code>Info.plist</code> 的设置。</p>
+<blockquote>
+<p><strong>注意：</strong> 如果你的应用程序需要链接一个不安全的服务，你应该使用 <code>NSExceptionDomains</code> 设置一些域名做为例外，而不是使用 <code>NSAllowsArbitraryLoads</code> 完全关闭 <a href=https://developer.xamarin.com/guides/ios/platform_features/introduction_to_ios9/ats/ target=_blank rel="noopener noreffer">ATS</a>。 <code>NSAllowsArbitraryLoads</code> 只应该用在某些极端紧急情况下。</p>
+</blockquote>
+<p>下面这个例子展示了如何设置一些特殊域名（此处用 xamarim.com 举例）绕开 <a href=https://developer.xamarin.com/guides/ios/platform_features/introduction_to_ios9/ats/ target=_blank rel="noopener noreffer">ATS</a> 的检验：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;key&gt;</span>NSAppTransportSecurity<span class=nt>&lt;/key&gt;</span>
+    <span class=nt>&lt;dict&gt;</span>
+        <span class=nt>&lt;key&gt;</span>NSExceptionDomains<span class=nt>&lt;/key&gt;</span>
+        <span class=nt>&lt;dict&gt;</span>
+            <span class=nt>&lt;key&gt;</span>xamarin.com<span class=nt>&lt;/key&gt;</span>
+            <span class=nt>&lt;dict&gt;</span>
+                <span class=nt>&lt;key&gt;</span>NSIncludesSubdomains<span class=nt>&lt;/key&gt;</span>
+                <span class=nt>&lt;true/&gt;</span>
+                <span class=nt>&lt;key&gt;</span>NSTemporaryExceptionAllowsInsecureHTTPLoads<span class=nt>&lt;/key&gt;</span>
+                <span class=nt>&lt;true/&gt;</span>
+                <span class=nt>&lt;key&gt;</span>NSTemporaryExceptionMinimumTLSVersion<span class=nt>&lt;/key&gt;</span>
+                <span class=nt>&lt;string&gt;</span>TLSv1.1<span class=nt>&lt;/string&gt;</span>
+            <span class=nt>&lt;/dict&gt;</span>
+        <span class=nt>&lt;/dict&gt;</span>
+    <span class=nt>&lt;/dict&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>良好的实践是只让一部分域名绕开 <a href=https://developer.xamarin.com/guides/ios/platform_features/introduction_to_ios9/ats/ target=_blank rel="noopener noreffer">ATS</a> 的检验，允许你访问受信任的网站同时也能更安全的访问不受信任的域名。下面的例子展示了 App 当中最不安全的一种做法，完全禁用 <a href=https://developer.xamarin.com/guides/ios/platform_features/introduction_to_ios9/ats/ target=_blank rel="noopener noreffer">ATS</a>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;key&gt;</span>NSAppTransportSecurity<span class=nt>&lt;/key&gt;</span>
+    <span class=nt>&lt;dict&gt;</span>
+        <span class=nt>&lt;key&gt;</span>NSAllowsArbitraryLoads <span class=nt>&lt;/key&gt;</span>
+        <span class=nt>&lt;true/&gt;</span>
+    <span class=nt>&lt;/dict&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>查看 <a href=https://developer.xamarin.com/guides/ios/platform_features/introduction_to_ios9/ats/ target=_blank rel="noopener noreffer">App Transport Security</a> 获取关于 iOS 9 这个新功能的更多信息。</p>
+<h3 id=html-字符串>HTML 字符串</h3>
+<p>如果你想展示一串被代码动态定义的 HTML 字符串，你需要创建一个 <a href=https://developer.xamarin.com/api/type/Xamarin.Forms.HtmlWebViewSource/ target=_blank rel="noopener noreffer"><code>HtmlWebViewSource</code></a> 的实例：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>browser</span> <span class=p>=</span> <span class=k>new</span> <span class=n>WebView</span><span class=p>();</span>
+<span class=kt>var</span> <span class=n>htmlSource</span> <span class=p>=</span> <span class=k>new</span> <span class=n>HtmlWebViewSource</span><span class=p>();</span>
+<span class=n>htmlSource</span><span class=p>.</span><span class=n>Html</span> <span class=p>=</span> <span class=s>@&#34;&lt;html&gt;&lt;body&gt;
+</span><span class=s>  &lt;h1&gt;Xamarin.Forms&lt;/h1&gt;
+</span><span class=s>  &lt;p&gt;Welcome to WebView.&lt;/p&gt;
+</span><span class=s>  &lt;/body&gt;&lt;/html&gt;&#34;</span><span class=p>;</span>
+<span class=n>browser</span><span class=p>.</span><span class=n>Source</span> <span class=p>=</span> <span class=n>htmlSource</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png title=img></p>
+<p>上面的代码中，<code>@</code> 符号用于标记 HTML 作为一串字面量的字符串，所有通用转义符都会被忽略。</p>
+<h3 id=本地-html-文件>本地 HTML 文件</h3>
+<p>WebView 可以直接展示嵌入在 App 中的 HTML，CSS 和 Javascript，例如：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Xamarin Forms<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Xamrin.Forms<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>This is an iOS web page.<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>img</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;XamarinLogo.png&#34;</span> <span class=p>/&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>CSS：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=nt>html</span><span class=o>,</span><span class=nt>body</span> <span class=p>{</span>
+  <span class=k>margin</span><span class=p>:</span><span class=mi>0</span><span class=p>;</span>
+  <span class=k>padding</span><span class=p>:</span><span class=mi>10</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=nt>body</span><span class=o>,</span><span class=nt>p</span><span class=o>,</span><span class=nt>h1</span> <span class=p>{</span>
+  <span class=k>font-family</span><span class=p>:</span> <span class=n>Chalkduster</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意上面的 CSS 中指定的特殊字体需要根据不同的平台自定义，不是所有的平台都具有相同的字体。</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png title=img></p>
+<blockquote>
+<p><strong>注意：</strong> Xamarin.Forms 中当前存在一个 bug，在 Windows 中本地 HTML 内容不能被显示，但是它不会影响 Windows Phone。查看 <a href="https://bugzilla.xamarin.com/show_bug.cgi?id=32033" target=_blank rel="noopener noreffer">Bugzilla</a> 获取关于这个 bug 最新状态的更多信息。</p>
+</blockquote>
+<p>使用 <code>WebView</code> 显示本地内容，你需要像打开其他文件一样打开一个 HTML 文件，然后读取内容文本到 <code>HtmlWebViewSource</code> 的 <code>Html</code> 属性上。关于打开文件的更多信息，可以查看 <a href=https://developer.xamarin.com/guides/xamarin-forms/working-with/files/ target=_blank rel="noopener noreffer">Working with Files</a>。</p>
+<p>虽然我们读取了第一个页面，但是 <code>WebView</code> 并不知道 HTML 来自于哪里。这样在处理页面引用本地资源时就会有问题。例如，一个本地文件很可能有一个指向另一个文件的链接，也有可能使用一个分离的 JavaScript 文件，或者一个 CSS 样式文件。</p>
+<p>为了解决这个问题，你需要告诉 <code>WebView</code> 到文件系统的哪里去寻找文件。此时需要设置 <code>WebView</code> 所引用的 <code>HtmlWebViewSource</code> 对象的 <code>BaseUrl</code> 属性。</p>
+<p>因为文件系统在每个操作系统上是不一样的，所以你需要针对每个平台确定它的 URL。Xamarin.Forms 可以通过 <code>DependencyService</code> 解决运行时的平台依赖。</p>
+<p>要使用 <code>DependencyService</code>，需要先定义一个可被各平台所实现的接口：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>interface</span> <span class=n>IBaseUrl</span> <span class=p>{</span> <span class=kt>string</span> <span class=n>Get</span><span class=p>();</span> <span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意，该接口需要被各个平台实现，否则 App 会无法运行。在公共项目中，要确保你记得使用 <code>DependencyService</code> 设置 <code>BaseUrl</code> 的值：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>HtmlWebViewSource</span><span class=p>();</span>
+<span class=n>source</span><span class=p>.</span><span class=n>BaseUrl</span> <span class=p>=</span> <span class=n>DependencyService</span><span class=p>.</span><span class=n>Get</span><span class=p>&lt;</span><span class=n>IBaseUrl</span><span class=p>&gt;().</span><span class=n>Get</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>至此，你只需要在各个平台中实现这个接口就可以了：</p>
+<h4 id=ios>iOS</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=na>[assembly: Dependency(typeof(BaseUrl_iOS))]</span>
+<span class=k>namespace</span> <span class=nn>WorkingWithWebview.iOS</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>class</span> <span class=nc>BaseUrl_iOS</span> <span class=p>:</span> <span class=n>IBaseUrl</span>
+    <span class=p>{</span>
+        <span class=k>public</span> <span class=kt>string</span> <span class=n>Get</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=k>return</span> <span class=n>NSBundle</span><span class=p>.</span><span class=n>MainBundle</span><span class=p>.</span><span class=n>BundlePath</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>此时网站的位置会被定位到项目的根目录或者 <strong>Resources</strong> 目录，并且文件的生成操作应该修改为 <em>BundleResource</em>，如下图：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png title=img></p>
+<h4 id=android>Android</h4>
+<p>在 Android 平台下，HTML，CSS 和图片文件应该位于 <strong>Assets</strong> 文件夹下，并且生成操作应该修改为 <em>AndroidAsset</em>，如下图：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png title=img></p>
+<p>Android 平台下，<code>BaseUrl</code> 的值应该设置为 <code>"file:///android_asset/"</code>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=na>[assembly: Dependency(typeof(BaseUrl_Android))]</span>
+<span class=k>namespace</span> <span class=nn>WorkingWithWebview.Android</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>class</span> <span class=nc>BaseUrl_Android</span> <span class=p>:</span> <span class=n>IBaseUrl</span>
+    <span class=p>{</span>
+        <span class=k>public</span> <span class=kt>string</span> <span class=n>Get</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=k>return</span> <span class=s>&#34;file:///android_asset/&#34;</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Android 平台下，<strong>Assets</strong> 文件夹下的文件也可以通过 <code>Forms.Context.Assets</code> 属性访问，代码如下：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>assetManager</span> <span class=p>=</span> <span class=n>Xamarin</span><span class=p>.</span><span class=n>Forms</span><span class=p>.</span><span class=n>Forms</span><span class=p>.</span><span class=n>Context</span><span class=p>.</span><span class=n>Assets</span><span class=p>;</span>
+<span class=k>using</span> <span class=p>(</span><span class=kt>var</span> <span class=n>streamReader</span> <span class=p>=</span> <span class=k>new</span> <span class=n>StreamReader</span><span class=p>(</span><span class=n>assetManager</span><span class=p>.</span><span class=n>Open</span><span class=p>(</span><span class=s>&#34;local.html&#34;</span><span class=p>)))</span>
+<span class=p>{</span>
+    <span class=kt>var</span> <span class=n>html</span> <span class=p>=</span> <span class=n>streamReader</span><span class=p>.</span><span class=n>ReadToEnd</span><span class=p>();</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=windows-phone>Windows Phone</h4>
+<blockquote>
+<p><strong>注意：</strong> 在Windows Phone 8.1 下 <code>WebView</code> 不支持本地内容，但是在 Windows Phone 8 下支持。</p>
+</blockquote>
+<p>在 Windows Phone 平台下，HTML，CSS 和图片文件位于项目根目录，并且生成操作应该修改为 <em>Content</em>，如下图：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png title=img></p>
+<p>Windows Phone 平台下，<code>BaseUrl</code> 的值应该设置为<code>""</code>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=na>[assembly: Dependency(typeof(BaseUrl_Windows))]</span>
+<span class=k>namespace</span> <span class=nn>WorkingWithWebview.Windows</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>class</span> <span class=nc>BaseUrl_Windows</span> <span class=p>:</span> <span class=n>IBaseUrl</span>
+    <span class=p>{</span>
+        <span class=k>public</span> <span class=kt>string</span> <span class=n>Get</span><span class=p>()</span>
+        <span class=p>{</span>
+            <span class=k>return</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=navigation>Navigation</h2>
+<p>WebView 可以通过几个方法和属性来进行导航：</p>
+<ul>
+<li><strong>GoForward()</strong>——如果 <code>CanGoForward</code> 等于 true，调用 <code>GoForward</code> 导航到下一个访问页面。</li>
+<li><strong>GoBack()</strong>——如果 <code>CanGoBack</code> 等于 true，调用 <code>GoBack</code> 将会导航到最后一个访问过的页面。</li>
+<li><strong>CanGoBack</strong>——如果有页面可以返回则该值等于 <code>true</code>，如果浏览的是起始 <code>URL</code> 则该值返回 <code>false</code>。</li>
+<li><strong>CanGoForward</strong>——如果用户返回了某个页面并且可以向前访问某个已经访问过的页面则该值为 <code>true</code>。</li>
+</ul>
+<p>在页面内部，<code>WebView</code> 不支持多点触控。所以重点是需要针对移动端优化内容，使其呈现时不需要额外的缩放等操作。</p>
+<p>对于应用程序来说，在 <code>WebView</code> 中展示链接比在设备的浏览器中展示更常见。在这种情况下，允许正常的导航非常有用，但是当用户在起始页面点击返回按钮时，程序会返回到一个正常的 App 页面中。</p>
+<p>下面演示如何使用内建的方法和属性启用这种场景。</p>
+<p>首先在一个 page 页面中创建一个浏览器视图：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class=nt>&lt;ContentPage</span> <span class=na>xmlns=</span><span class=s>&#34;http://xamarin.com/schemas/2014/forms&#34;</span>
+<span class=na>xmlns:x=</span><span class=s>&#34;http://schemas.microsoft.com/winfx/2009/xaml&#34;</span>
+<span class=na>x:Class=</span><span class=s>&#34;WebViewDemo.InAppDemo&#34;</span>
+<span class=na>Title=</span><span class=s>&#34;In App Browser&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;ContentPage.Content&gt;</span>
+        <span class=nt>&lt;StackLayout&gt;</span>
+            <span class=nt>&lt;StackLayout</span> <span class=na>Orientation=</span><span class=s>&#34;Horizontal&#34;</span> <span class=na>Padding=</span><span class=s>&#34;10,10&#34;</span><span class=nt>&gt;</span>
+                <span class=nt>&lt;Button</span> <span class=na>Text=</span><span class=s>&#34;Back&#34;</span> <span class=na>HorizontalOptions=</span><span class=s>&#34;StartAndExpand&#34;</span> <span class=na>Clicked=</span><span class=s>&#34;backClicked&#34;</span> <span class=nt>/&gt;</span>
+                <span class=nt>&lt;Button</span> <span class=na>Text=</span><span class=s>&#34;Forward&#34;</span> <span class=na>HorizontalOptions=</span><span class=s>&#34;End&#34;</span> <span class=na>Clicked=</span><span class=s>&#34;forwardClicked&#34;</span> <span class=nt>/&gt;</span>
+            <span class=nt>&lt;/StackLayout&gt;</span>
+            <span class=nt>&lt;WebView</span> <span class=na>x:Name=</span><span class=s>&#34;Browser&#34;</span> <span class=na>WidthRequest=</span><span class=s>&#34;1000&#34;</span> <span class=na>HeightRequest=</span><span class=s>&#34;1000&#34;</span> <span class=nt>/&gt;</span>
+        <span class=nt>&lt;/StackLayout&gt;</span>
+    <span class=nt>&lt;/ContentPage.Content&gt;</span>
+<span class=nt>&lt;/ContentPage&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>后台代码：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>partial</span> <span class=k>class</span> <span class=nc>InAppDemo</span> <span class=p>:</span> <span class=n>ContentPage</span>
+<span class=p>{</span>
+    <span class=c1>//sets the URL for the browser in the page at creation
+</span><span class=c1></span>    <span class=k>public</span> <span class=n>InAppDemo</span><span class=p>(</span><span class=kt>string</span> <span class=n>URL</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=n>InitializeComponent</span><span class=p>();</span>
+        <span class=n>Browser</span><span class=p>.</span><span class=n>Source</span> <span class=p>=</span> <span class=n>URL</span><span class=p>;</span>
+    <span class=p>}</span>
+
+    <span class=k>private</span> <span class=k>void</span> <span class=n>backClicked</span><span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>EventArgs</span> <span class=n>e</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=c1>//check to see if there is anywhere to go back to
+</span><span class=c1></span>        <span class=k>if</span> <span class=p>(</span><span class=n>Browser</span><span class=p>.</span><span class=n>CanGoBack</span><span class=p>)</span>
+        <span class=p>{</span>
+            <span class=n>Browser</span><span class=p>.</span><span class=n>GoBack</span><span class=p>();</span>
+        <span class=p>}</span>
+        <span class=k>else</span> <span class=p>{</span> <span class=c1>//if not, leave the view
+</span><span class=c1></span>            <span class=n>Navigation</span><span class=p>.</span><span class=n>PopAsync</span><span class=p>();</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+
+    <span class=k>private</span> <span class=k>void</span> <span class=n>forwardClicked</span><span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>EventArgs</span> <span class=n>e</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>Browser</span><span class=p>.</span><span class=n>CanGoForward</span><span class=p>)</span>
+        <span class=p>{</span>
+            <span class=n>Browser</span><span class=p>.</span><span class=n>GoForward</span><span class=p>();</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最后呈现效果如下：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png title=img></p>
+<h2 id=events>Events</h2>
+<p>WebView 通过触发两个事件来帮助你响应状态变更：</p>
+<ul>
+<li><strong>Navigating</strong>——当 WebView 开始加载一个新页面时触发。</li>
+<li><strong>Navigated</strong>——当一个页面加载完毕并且导航停止时触发。</li>
+</ul>
+<p>如果你能预感到加载网页将会耗费比较长的时间，可以考虑使用这两个事件实现一个状态指示器。代码如下：</p>
+<p>界面 XAML 代码：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class=nt>&lt;ContentPage</span> <span class=na>xmlns=</span><span class=s>&#34;http://xamarin.com/schemas/2014/forms&#34;</span>
+<span class=na>xmlns:x=</span><span class=s>&#34;http://schemas.microsoft.com/winfx/2009/xaml&#34;</span>
+<span class=na>x:Class=</span><span class=s>&#34;WebViewDemo.LoadingDemo&#34;</span> <span class=na>Title=</span><span class=s>&#34;Loading Demo&#34;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;ContentPage.Content&gt;</span>
+    <span class=nt>&lt;StackLayout&gt;</span>
+      <span class=nt>&lt;Label</span> <span class=na>x:Name=</span><span class=s>&#34;LoadingLabel&#34;</span>
+        <span class=na>Text=</span><span class=s>&#34;Loading...&#34;</span>
+        <span class=na>HorizontalOptions=</span><span class=s>&#34;Center&#34;</span>
+        <span class=na>isVisible=</span><span class=s>&#34;false&#34;</span> <span class=nt>/&gt;</span>
+      <span class=nt>&lt;WebView</span> <span class=na>x:Name=</span><span class=s>&#34;Browser&#34;</span>
+      <span class=na>HeightRequest=</span><span class=s>&#34;1000&#34;</span>
+      <span class=na>WidthRequest=</span><span class=s>&#34;1000&#34;</span>
+      <span class=na>Navigating=</span><span class=s>&#34;webOnNavigating&#34;</span>
+      <span class=na>Navigated=</span><span class=s>&#34;webOnEndNavigating&#34;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;/StackLayout&gt;</span>
+    <span class=nt>&lt;/ContentPage.Content&gt;</span>
+<span class=nt>&lt;/ContentPage&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>后台两个事件处理：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>void</span> <span class=n>webOnNavigating</span> <span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>WebNavigatingEventArgs</span> <span class=n>e</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=n>LoadingLabel</span><span class=p>.</span><span class=n>IsVisible</span> <span class=p>=</span> <span class=k>true</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=k>void</span> <span class=n>webOnEndNavigating</span> <span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>WebNavigatedEventArgs</span> <span class=n>e</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=n>LoadingLabel</span><span class=p>.</span><span class=n>IsVisible</span> <span class=p>=</span> <span class=k>false</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当页面加载中时输出结果如下：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png title=img></p>
+<p>当页面加载完成时输出如下：</p>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png title=img></p>
+<h2 id=performance>Performance</h2>
+<p>最近的各大 web 浏览器都已经采用了一些被世人所熟知的流行技术，如硬件加速渲染和 JavaScript 编译。不幸的是，出于安全限制，大多数高级功能在 iOS 的 <code>WebView</code> 和 <code>UIWebView</code> 里无法使用。Xamarin.Forms 里的 <code>WebView</code> 在 iOS 平台下实际上是使用的 <code>UIWebView</code>。如果这个限制对你的使用造成了困扰，你需要在平台内部使用支持快速浏览等功能的 <code>WKWebView</code> 进行重新渲染。但是需要注意 <code>WKWebView</code> 仅支持 iOS 8 以上的系统。</p>
+<p>WebView 在 Android 的默认设置中跟内建浏览器一样快。</p>
+<p>在 Windows Phone 8 和 Windows Phone 8.1 里的 <code>WebBrowser</code> 控件不支持最新的 HTML5 相关新特性，并且它常常出现性能问题。需要注意测试网站在 Windows Phone 的 <code>WebView</code> 中究竟会怎样呈现，如果仅在 IE 浏览器中测试是不够的。</p>
+<h2 id=permissions>Permissions</h2>
+<p>为了让 <code>WebView</code> 正常工作，你必须知道各个平台的权限设置。注意在一些平台，<code>WebView</code> 在 debug 模式下可以工作，但是在最后发布时的 release 模式下却不能。这就是权限造成的问题，比如 Android 上的 internet 访问权限，在 Xamarin Studio 的调试模式下默认是打开的。</p>
+<ul>
+<li><strong>Windows Phone 8.0</strong>——需要 <code>ID_CAP_WEBBROWSERCOMPONENT</code> 权限来使用控件，需要 <code>ID_CAP_NETWORKING</code> 来访问因特网。</li>
+<li><strong>Windows Phone 8.1</strong>——需要 <code>Internet</code> 才能访问网络内容。</li>
+<li><strong>Android</strong>——需要 <code>Internet</code> 才能访问网络内容，访问本地内容不需要特殊的权限。</li>
+<li><strong>iOS</strong>——不需要特殊的权限。</li>
+</ul>
+<h2 id=layout>Layout</h2>
+<p>不像大多数其他 Xamarin.Forms 视图，在 <code>StackLayout</code> 和 <code>RelativeLayout</code> 中嵌套 <code>WebView</code> 时必须指明它的 <code>HeightRequest</code> 和 <code>WidthRequest</code> 属性。如果你没有指明这些属性，那么 <code>WebView</code> 将不会渲染。</p>
+<p>下面的例子展示了 <code>WebView</code> 的渲染布局代码：</p>
+<p>在 <code>StackLayout</code> 中指明 <code>HeightRequest</code> 和 <code>WidthRequest</code>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;StackLayout&gt;</span>
+    <span class=nt>&lt;Label</span> <span class=na>Text=</span><span class=s>&#34;test&#34;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;WebView</span> <span class=na>Source=</span><span class=s>&#34;http://www.xamarin.com/&#34;</span>
+        <span class=na>HeightRequest=</span><span class=s>&#34;1000&#34;</span>
+        <span class=na>WidthRequest=</span><span class=s>&#34;1000&#34;</span> <span class=nt>/&gt;</span>
+<span class=nt>&lt;/StackLayout&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <code>RelativeLayout</code> 中指明 <code>HeightRequest</code> 和 <code>WidthRequest</code>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;RelativeLayout&gt;</span>
+    <span class=nt>&lt;Label</span> <span class=na>Text=</span><span class=s>&#34;test&#34;</span>
+        <span class=na>RelativeLayout.XConstraint=</span> <span class=s>&#34;{ConstraintExpression
+</span><span class=s>                                      Type=Constant, Constant=10}&#34;</span>
+        <span class=na>RelativeLayout.YConstraint=</span> <span class=s>&#34;{ConstraintExpression
+</span><span class=s>                                      Type=Constant, Constant=20}&#34;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;WebView</span> <span class=na>Source=</span><span class=s>&#34;http://www.xamarin.com/&#34;</span>
+        <span class=na>RelativeLayout.XConstraint=</span><span class=s>&#34;{ConstraintExpression Type=Constant,
+</span><span class=s>                                     Constant=10}&#34;</span>
+        <span class=na>RelativeLayout.YConstraint=</span><span class=s>&#34;{ConstraintExpression Type=Constant,
+</span><span class=s>                                     Constant=50}&#34;</span>
+        <span class=na>WidthRequest=</span><span class=s>&#34;1000&#34;</span> <span class=na>HeightRequest=</span><span class=s>&#34;1000&#34;</span> <span class=nt>/&gt;</span>
+<span class=nt>&lt;/RelativeLayout&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <code>AbsoluteLayout</code> 中不用指明 <code>HeightRequest</code> 和 <code>WidthRequest</code>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;AbsoluteLayout&gt;</span>
+    <span class=nt>&lt;Label</span> <span class=na>Text=</span><span class=s>&#34;test&#34;</span> <span class=na>AbsoluteLayout.LayoutBounds=</span><span class=s>&#34;0,0,100,100&#34;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;WebView</span> <span class=na>Source=</span><span class=s>&#34;http://www.xamarin.com/&#34;</span>
+      <span class=na>AbsoluteLayout.LayoutBounds=</span><span class=s>&#34;0,150,500,500&#34;</span> <span class=nt>/&gt;</span>
+<span class=nt>&lt;/AbsoluteLayout&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <code>Grid</code> 中不用指明 <code>HeightRequest</code> 和 <code>WidthRequest</code>，<code>Grid</code> 是少数的几个不用指明宽和高的布局容器：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=nt>&lt;Grid&gt;</span>
+    <span class=nt>&lt;Grid.RowDefinitions&gt;</span>
+        <span class=nt>&lt;RowDefinition</span> <span class=na>Height=</span><span class=s>&#34;100&#34;</span> <span class=nt>/&gt;</span>
+        <span class=nt>&lt;RowDefinition</span> <span class=na>Height=</span><span class=s>&#34;*&#34;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;/Grid.RowDefinitions&gt;</span>
+    <span class=nt>&lt;Label</span> <span class=na>Text=</span><span class=s>&#34;test&#34;</span> <span class=na>Grid.Row=</span><span class=s>&#34;0&#34;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;WebView</span> <span class=na>Source=</span><span class=s>&#34;http://www.xamarin.com/&#34;</span> <span class=na>Grid.Row=</span><span class=s>&#34;1&#34;</span> <span class=nt>/&gt;</span>
+<span class=nt>&lt;/Grid&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>原文链接：
+<a href=https://developer.xamarin.com/guides/xamarin-forms/user-interface/webview/ target=_blank rel="noopener noreffer">https://developer.xamarin.com/guides/xamarin-forms/user-interface/webview/</a></p>
+<p>相关 Demo：<a href=https://developer.xamarin.com/samples/xamarin-forms/WorkingWithWebview/ target=_blank rel="noopener noreffer">Working with WebView</a></p>
+<p>WebView 的简单演示：<a href=https://developer.xamarin.com/samples/xamarin-forms/UserInterface/WebView/ target=_blank rel="noopener noreffer">WebView</a></p>
+<p>WebView 的高级演示，包括平台自定义渲染 WebView 和 JavaScript 和 C# 代码交互：
+<a href=https://github.com/xamarin/xamarin-forms-samples/tree/master/CustomRenderers/HybridWebView target=_blank rel="noopener noreffer">HybridWebView</a></p>
+</blockquote>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2016-03-13</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/index.md target=_blank>阅读原始文档</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-title="Xamarin.Forms——WebView 技术研究" data-hashtags=dotnet,xamarin><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-hashtag=dotnet><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-title="Xamarin.Forms——WebView 技术研究"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-title="Xamarin.Forms——WebView 技术研究"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-title="Xamarin.Forms——WebView 技术研究"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-title="Xamarin.Forms——WebView 技术研究"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/ data-title="Xamarin.Forms——WebView 技术研究"><i class="fab fa-evernote fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/xamarin/>xamarin</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/xamarin.forms-%E5%B0%BA%E5%AF%B8%E5%A4%A7%E5%B0%8F%E4%BA%94-dealing-with-sizes/ class=prev rel=prev title="Xamarin.Forms ——尺寸大小（五 Dealing with sizes）"><i class="fas fa-angle-left fa-fw"></i>Xamarin.Forms ——尺寸大小（五 Dealing with sizes）</a>
+<a href=/%E8%A7%A3%E5%86%B3-xamarin-android-%E5%A2%99%E7%9A%84%E9%97%AE%E9%A2%98/ class=next rel=next title="解决 Xamarin Android 墙的问题">解决 Xamarin Android 墙的问题<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id=comments><div id=gitalk class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"45b7e0bd48967978b707",clientSecret:"a809c07b23bc10c3889efc4ef584d71f37933da8",id:"2016-03-13T19:06:34+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"Xamarin.Forms——WebView 技术研究"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
