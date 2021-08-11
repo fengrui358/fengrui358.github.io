@@ -26,5 +26,9 @@ jobs:
         run: |
           sleep 30s
           curl https://frhello.com
+          curl https://frhello.com/about/
+          curl https://frhello.com/posts/
+          curl https://frhello.com/categories/
+          curl https://frhello.com/tags/
         shell: bash
 
