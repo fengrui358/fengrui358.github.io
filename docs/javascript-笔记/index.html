@@ -1,0 +1,444 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>Javascript 笔记 - free note</title><meta name=keywords content="[blog software dotnet javascript]">
+<meta name=Description content="free note"><meta property="og:title" content="Javascript 笔记">
+<meta property="og:description" content="类库 lodash：是一个通过 Lodash 限制操作频率的函数。 axios: Ajax 库。 代码片段 查看对象类型 使用 Object.prototype.toString 方法，通过第二个参数返回的构造函数判断对象类型 1 2 3 4 5">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-09-18T23:16:19+08:00">
+<meta property="article:modified_time" content="2020-09-18T23:16:19+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png">
+<meta name=twitter:title content="Javascript 笔记">
+<meta name=twitter:description content="类库 lodash：是一个通过 Lodash 限制操作频率的函数。 axios: Ajax 库。 代码片段 查看对象类型 使用 Object.prototype.toString 方法，通过第二个参数返回的构造函数判断对象类型 1 2 3 4 5">
+<meta name=application-name content="free note">
+<meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/><link rel=prev href=https://frhello.com/nuget-%E8%B5%84%E6%BA%90/><link rel=next href=https://frhello.com/%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E6%A2%85%E6%9E%97%E5%9B%BA%E4%BB%B6%E8%AE%BE%E7%BD%AE/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Javascript 笔记","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/javascript-%E7%AC%94%E8%AE%B0\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"javascript","wordcount":1295,"url":"https:\/\/frhello.com\/javascript-%E7%AC%94%E8%AE%B0\/","datePublished":"2020-09-18T23:16:19+08:00","dateModified":"2020-09-18T23:16:19+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">Javascript 笔记</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/javascript/><i class="far fa-folder fa-fw"></i>javascript</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-09-18>2020-09-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1295 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#类库>类库</a></li>
+<li><a href=#代码片段>代码片段</a>
+<ul>
+<li><a href=#查看对象类型>查看对象类型</a></li>
+<li><a href=#javascript-对象的元属性>JavaScript 对象的元属性</a></li>
+<li><a href=#将类似于数组的对象转换为数组>将类似于数组的对象转换为数组</a></li>
+<li><a href=#构造函数>构造函数</a></li>
+<li><a href=#防止脚本篡改>防止脚本篡改</a></li>
+<li><a href=#使用正则表达式提取解构值>使用正则表达式提取解构值</a></li>
+<li><a href=#匹配-unicode-属性>匹配 Unicode 属性</a></li>
+<li><a href=#尾递归优化技巧蹦床函数trampoline>尾递归优化技巧，蹦床函数（trampoline）</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=类库>类库</h2>
+<ul>
+<li>lodash：是一个通过 Lodash 限制操作频率的函数。</li>
+<li>axios: Ajax 库。</li>
+</ul>
+<h2 id=代码片段>代码片段</h2>
+<h3 id=查看对象类型>查看对象类型</h3>
+<p>使用 <code>Object.prototype.toString</code> 方法，通过第二个参数返回的构造函数判断对象类型</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span> <span class=c1>// &#34;[object Number]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>);</span> <span class=c1>// &#34;[object String]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=kc>true</span><span class=p>);</span> <span class=c1>// &#34;[object Boolean]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=kc>undefined</span><span class=p>);</span> <span class=c1>// &#34;[object Undefined]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=kc>null</span><span class=p>);</span> <span class=c1>// &#34;[object Null]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nb>Math</span><span class=p>);</span> <span class=c1>// &#34;[object Math]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>({});</span> <span class=c1>// &#34;[object Object]&#34;
+</span><span class=c1></span><span class=nb>Object</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>toString</span><span class=p>.</span><span class=nx>call</span><span class=p>([]);</span> <span class=c1>// &#34;[object Array]&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=javascript-对象的元属性>JavaScript 对象的元属性</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=p>{</span>
+  <span class=nx>value</span><span class=o>:</span> <span class=mi>123</span><span class=p>,</span>
+  <span class=nx>writable</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span>
+  <span class=nx>enumerable</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+  <span class=nx>configurable</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span>
+  <span class=nx>get</span><span class=o>:</span> <span class=kc>undefined</span><span class=p>,</span>
+  <span class=nx>set</span><span class=o>:</span> <span class=kc>undefined</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=将类似于数组的对象转换为数组>将类似于数组的对象转换为数组</h3>
+<p><code>slice()</code> 方法的一个重要应用，是将类似数组的对象转为真正的数组。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>slice</span><span class=p>.</span><span class=nx>call</span><span class=p>({</span> <span class=mi>0</span><span class=o>:</span> <span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=o>:</span> <span class=s2>&#34;b&#34;</span><span class=p>,</span> <span class=nx>length</span><span class=o>:</span> <span class=mi>2</span> <span class=p>});</span>
+<span class=c1>// [&#39;a&#39;, &#39;b&#39;]
+</span><span class=c1></span>
+<span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>slice</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s2>&#34;div&#34;</span><span class=p>));</span>
+<span class=nb>Array</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>slice</span><span class=p>.</span><span class=nx>call</span><span class=p>(</span><span class=nx>arguments</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=构造函数>构造函数</h3>
+<p>为了保证构造函数必须与 <code>new</code> 命令一起使用，一个解决办法是，构造函数内部使用严格模式，即第一行加上 <code>use strict</code>。这样的话，一旦忘了使用 <code>new</code> 命令，直接调用构造函数就会报错。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>Fubar</span><span class=p>(</span><span class=nx>foo</span><span class=p>,</span> <span class=nx>bar</span><span class=p>)</span> <span class=p>{</span>
+  <span class=s2>&#34;use strict&#34;</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>foo</span> <span class=o>=</span> <span class=nx>foo</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>bar</span> <span class=o>=</span> <span class=nx>bar</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nx>Fubar</span><span class=p>();</span>
+<span class=c1>// TypeError: Cannot set property &#39;_foo&#39; of undefined
+</span></code></pre></td></tr></table>
+</div>
+</div><p>另一个解决办法，构造函数内部判断是否使用 new 命令，如果发现没有使用，则直接返回一个实例对象。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>Fubar</span><span class=p>(</span><span class=nx>foo</span><span class=p>,</span> <span class=nx>bar</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=p>(</span><span class=k>this</span> <span class=k>instanceof</span> <span class=nx>Fubar</span><span class=p>))</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=k>new</span> <span class=nx>Fubar</span><span class=p>(</span><span class=nx>foo</span><span class=p>,</span> <span class=nx>bar</span><span class=p>);</span>
+  <span class=p>}</span>
+
+  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>foo</span> <span class=o>=</span> <span class=nx>foo</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>bar</span> <span class=o>=</span> <span class=nx>bar</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nx>Fubar</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>).</span><span class=mi>_</span><span class=nx>foo</span><span class=p>(</span>
+  <span class=c1>// 1
+</span><span class=c1></span>  <span class=k>new</span> <span class=nx>Fubar</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+<span class=p>).</span><span class=mi>_</span><span class=nx>foo</span><span class=p>;</span> <span class=c1>// 1
+</span></code></pre></td></tr></table>
+</div>
+</div><p>如果构造函数内部有 return 语句，而且 return 后面跟着一个对象，new 命令会返回 return 语句指定的对象；否则，就会不管 return 语句，返回 this 对象。</p>
+<p>函数内部可以使用 <code>new.target</code> 属性。如果当前函数是 <code>new</code> 命令调用，<code>new.target</code> 指向当前函数，否则为 <code>undefined</code>。</p>
+<h3 id=防止脚本篡改>防止脚本篡改</h3>
+<p>为了防止攻击者篡改外部脚本，<code>script</code> 标签允许设置一个 <code>integrity</code> 属性，写入该外部脚本的 <code>Hash</code> 签名，用来验证脚本的一致性。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=o>&lt;</span><span class=nx>script</span>
+  <span class=nx>src</span><span class=o>=</span><span class=s2>&#34;/assets/application.js&#34;</span>
+  <span class=nx>integrity</span><span class=o>=</span><span class=s2>&#34;sha256-TvVUHzSfftWg1rcfL6TIJ0XKEGrgLyEq6lEpcmrG9qs=&#34;</span>
+<span class=o>&gt;&lt;</span><span class=err>/script&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=使用正则表达式提取解构值>使用正则表达式提取解构值</h3>
+<p>用正则表达式的 <code>exec()</code> 方法匹配字符串会返回一个数组，该数组第一个值是完全匹配正则表达式的字符串，然后的值是匹配正则表达式括号内内容部分。解构赋值允许你轻易地提取出需要的部分，忽略完全匹配的字符串——如果不需要的话。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>parseProtocol</span><span class=p>(</span><span class=nx>url</span><span class=p>)</span> <span class=p>{</span>
+  <span class=kd>var</span> <span class=nx>parsedURL</span> <span class=o>=</span> <span class=sr>/^(\w+)\:\/\/([^\/]+)\/(.*)$/</span><span class=p>.</span><span class=nx>exec</span><span class=p>(</span><span class=nx>url</span><span class=p>);</span>
+  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>parsedURL</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+  <span class=p>}</span>
+  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>parsedURL</span><span class=p>);</span> <span class=c1>// [&#34;https://developer.mozilla.org/en-US/Web/JavaScript&#34;, &#34;https&#34;, &#34;developer.mozilla.org&#34;, &#34;en-US/Web/JavaScript&#34;]
+</span><span class=c1></span>
+  <span class=kd>var</span> <span class=p>[,</span> <span class=nx>protocol</span><span class=p>,</span> <span class=nx>fullhost</span><span class=p>,</span> <span class=nx>fullpath</span><span class=p>]</span> <span class=o>=</span> <span class=nx>parsedURL</span><span class=p>;</span>
+  <span class=k>return</span> <span class=nx>protocol</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span>
+  <span class=nx>parseProtocol</span><span class=p>(</span><span class=s2>&#34;https://developer.mozilla.org/en-US/Web/JavaScript&#34;</span><span class=p>)</span>
+<span class=p>);</span> <span class=c1>// &#34;https&#34;
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=匹配-unicode-属性>匹配 Unicode 属性</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// 匹配所有数字
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>regex</span> <span class=o>=</span> <span class=sr>/^\p{Number}+$/u</span><span class=p>;</span>
+<span class=nx>regex</span><span class=p>.</span><span class=nx>test</span><span class=p>(</span><span class=s1>&#39;²³¹¼½¾&#39;</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1></span><span class=nx>regex</span><span class=p>.</span><span class=nx>test</span><span class=p>(</span><span class=s1>&#39;㉛㉜㉝&#39;</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1></span><span class=nx>regex</span><span class=p>.</span><span class=nx>test</span><span class=p>(</span><span class=s1>&#39;ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫ&#39;</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1></span>
+<span class=c1>// 匹配所有空格
+</span><span class=c1></span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>White_Space</span><span class=p>}</span>
+
+<span class=c1>// 匹配各种文字的所有字母，等同于 Unicode 版的 \w
+</span><span class=c1></span><span class=p>[</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Alphabetic</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Mark</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Decimal_Number</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Connector_Punctuation</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Join_Control</span><span class=p>}]</span>
+
+<span class=c1>// 匹配各种文字的所有非字母的字符，等同于 Unicode 版的 \W
+</span><span class=c1></span><span class=p>[</span><span class=o>^</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Alphabetic</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Mark</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Decimal_Number</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Connector_Punctuation</span><span class=p>}</span><span class=err>\</span><span class=nx>p</span><span class=p>{</span><span class=nx>Join_Control</span><span class=p>}]</span>
+
+<span class=c1>// 匹配 Emoji
+</span><span class=c1></span><span class=sr>/\p{Emoji_Modifier_Base}\p{Emoji_Modifier}?|\p{Emoji_Presentation}|\p{Emoji}\uFE0F/gu</span>
+
+<span class=c1>// 匹配所有的箭头字符
+</span><span class=c1></span><span class=kr>const</span> <span class=nx>regexArrows</span> <span class=o>=</span> <span class=sr>/^\p{Block=Arrows}+$/u</span><span class=p>;</span>
+<span class=nx>regexArrows</span><span class=p>.</span><span class=nx>test</span><span class=p>(</span><span class=s1>&#39;←↑→↓↔↕↖↗↘↙⇏⇐⇑⇒⇓⇔⇕⇖⇗⇘⇙⇧⇩&#39;</span><span class=p>)</span> <span class=c1>// true
+</span><span class=c1></span>
+<span class=c1>//解构赋值
+</span><span class=c1></span><span class=kd>let</span> <span class=p>{</span><span class=nx>groups</span><span class=o>:</span> <span class=p>{</span><span class=nx>one</span><span class=p>,</span> <span class=nx>two</span><span class=p>}}</span> <span class=o>=</span> <span class=sr>/^(?&lt;one&gt;.*):(?&lt;two&gt;.*)$/u</span><span class=p>.</span><span class=nx>exec</span><span class=p>(</span><span class=s1>&#39;foo:bar&#39;</span><span class=p>);</span>
+<span class=nx>one</span>  <span class=c1>// foo
+</span><span class=c1></span><span class=nx>two</span>  <span class=c1>// bar
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=尾递归优化技巧蹦床函数trampoline>尾递归优化技巧，蹦床函数（trampoline）</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>trampoline</span><span class=p>(</span><span class=nx>f</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>while</span> <span class=p>(</span><span class=nx>f</span> <span class=o>&amp;&amp;</span> <span class=nx>f</span> <span class=k>instanceof</span> <span class=nb>Function</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>f</span> <span class=o>=</span> <span class=nx>f</span><span class=p>();</span>
+  <span class=p>}</span>
+  <span class=k>return</span> <span class=nx>f</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面就是蹦床函数的一个实现，它接受一个函数f作为参数。只要 <code>f</code> 执行后返回一个函数，就继续执行。注意，这里是返回一个函数，然后执行该函数，而不是函数里面调用函数，这样就避免了递归执行，从而就消除了调用栈过大的问题。</p>
+<p>然后，要做的就是将原来的递归函数，改写为每一步返回另一个函数。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>sum</span><span class=p>(</span><span class=nx>x</span><span class=p>,</span> <span class=nx>y</span><span class=p>)</span> <span class=p>{</span>
+  <span class=k>if</span> <span class=p>(</span><span class=nx>y</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>sum</span><span class=p>.</span><span class=nx>bind</span><span class=p>(</span><span class=kc>null</span><span class=p>,</span> <span class=nx>x</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>y</span> <span class=o>-</span> <span class=mi>1</span><span class=p>);</span>
+  <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>x</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面代码中，sum 函数的每次执行，都会返回自身的另一个版本。现在，使用蹦床函数执行 sum，就不会发生调用栈溢出。</p>
+<div class="details admonition warning open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>
+本文最后更新于 <span class=timeago datetime=2020-09-18T23:16:19 title="September 18, 2020">September 18, 2020</span>，文中内容可能已过时，请谨慎使用。</div>
+</div>
+</div>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2020-09-18</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/javascript-%E7%AC%94%E8%AE%B0/index.md target=_blank>阅读原始文档</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-title="Javascript 笔记" data-hashtags=javascript><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-hashtag=javascript><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-title="Javascript 笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-title="Javascript 笔记"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-title="Javascript 笔记"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-title="Javascript 笔记"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/javascript-%E7%AC%94%E8%AE%B0/ data-title="Javascript 笔记"><i class="fab fa-evernote fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/javascript/>javascript</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/nuget-%E8%B5%84%E6%BA%90/ class=prev rel=prev title="NuGet 资源"><i class="fas fa-angle-left fa-fw"></i>NuGet 资源</a>
+<a href=/%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E6%A2%85%E6%9E%97%E5%9B%BA%E4%BB%B6%E8%AE%BE%E7%BD%AE/ class=next rel=next title=华硕路由器梅林固件设置>华硕路由器梅林固件设置<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id=comments><div id=gitalk class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/_custom.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/ext.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"45b7e0bd48967978b707",clientSecret:"a809c07b23bc10c3889efc4ef584d71f37933da8",id:"2020-09-18T23:16:19+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"Javascript 笔记"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
