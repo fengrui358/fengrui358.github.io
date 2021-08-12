@@ -1,0 +1,601 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>Automapper 学习笔记 - free note</title><meta name=keywords content="[blog software dotnet javascript]">
+<meta name=Description content="free note"><meta property="og:title" content="Automapper 学习笔记">
+<meta property="og:description" content="本文基于 Automapper 9.0.0 诊断 Automapper 的属性映射过程 1 2 3 4 5 var cfg = new MapperConfigurationExpression(); cfg.CreateMap<TypeB, TypeA>(); var configuration = new MapperConfiguration(cfg); var executionPlan = configuration.BuildExecutionPlan(typeof(TypeB), typeof(TypeA)); 最关键的一行代码 var executionPlan = configuration.BuildExecutionPlan(typeof(TypeB), typeof(TypeA));，此时查看">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-01-28T23:35:38+08:00">
+<meta property="article:modified_time" content="2020-01-28T23:35:38+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png">
+<meta name=twitter:title content="Automapper 学习笔记">
+<meta name=twitter:description content="本文基于 Automapper 9.0.0 诊断 Automapper 的属性映射过程 1 2 3 4 5 var cfg = new MapperConfigurationExpression(); cfg.CreateMap<TypeB, TypeA>(); var configuration = new MapperConfiguration(cfg); var executionPlan = configuration.BuildExecutionPlan(typeof(TypeB), typeof(TypeA)); 最关键的一行代码 var executionPlan = configuration.BuildExecutionPlan(typeof(TypeB), typeof(TypeA));，此时查看">
+<meta name=application-name content="free note">
+<meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/><link rel=prev href=https://frhello.com/wpf-%E6%8A%80%E6%9C%AF%E7%82%B9/><link rel=next href=https://frhello.com/%E6%90%AD%E9%85%8D-iconfont-%E5%9C%A8-wpf-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Automapper 学习笔记","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, mapper","wordcount":1952,"url":"https:\/\/frhello.com\/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/","datePublished":"2020-01-28T23:35:38+08:00","dateModified":"2020-01-28T23:35:38+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">Automapper 学习笔记</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/dotnet/><i class="far fa-folder fa-fw"></i>dotnet</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-01-28>2020-01-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1952 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#诊断-automapper-的属性映射过程>诊断 Automapper 的属性映射过程</a></li>
+<li><a href=#自动映射属性>自动映射属性</a></li>
+<li><a href=#类的成员对象向外映射>类的成员对象向外映射</a></li>
+<li><a href=#配置校验测试映射关系>配置校验，测试映射关系</a></li>
+<li><a href=#集合映射>集合映射</a></li>
+<li><a href=#全局类型转换-type-converters>全局类型转换 Type Converters</a></li>
+<li><a href=#需要自定义源到目标之间的转换逻辑-value-resolvers>需要自定义源到目标之间的转换逻辑 Value Resolvers</a></li>
+<li><a href=#解析条件>解析条件</a></li>
+<li><a href=#value-converters>Value Converters</a></li>
+<li><a href=#值转换>值转换</a></li>
+<li><a href=#null-转换>Null 转换</a></li>
+<li><a href=#映射前后逻辑处理>映射前后逻辑处理</a></li>
+<li><a href=#构造函数映射>构造函数映射</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>本文基于 Automapper 9.0.0</p>
+<h2 id=诊断-automapper-的属性映射过程>诊断 Automapper 的属性映射过程</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>cfg</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfigurationExpression</span><span class=p>();</span>
+<span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>TypeB</span><span class=p>,</span> <span class=n>TypeA</span><span class=p>&gt;();</span>
+
+<span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span><span class=p>);</span>
+<span class=kt>var</span> <span class=n>executionPlan</span> <span class=p>=</span> <span class=n>configuration</span><span class=p>.</span><span class=n>BuildExecutionPlan</span><span class=p>(</span><span class=k>typeof</span><span class=p>(</span><span class=n>TypeB</span><span class=p>),</span> <span class=k>typeof</span><span class=p>(</span><span class=n>TypeA</span><span class=p>));</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最关键的一行代码 <code>var executionPlan = configuration.BuildExecutionPlan(typeof(TypeB), typeof(TypeA));</code>，此时查看 <code>executionPlan</code> 可以看到它对应的表达式树解析，看到属性如何映射。这里有个小技巧，安装 Visual Studio 插件 <a href="https://marketplace.visualstudio.com/items?itemName=vs-publisher-1232914.ReadableExpressionsVisualizers" target=_blank rel="noopener noreffer">ReadableExpressions VS extension</a> 可以更清晰的看到表达式树解析。需要注意应该在正式发布时移除所有的调试代码。</p>
+<blockquote>
+<p>参考<a href=http://docs.automapper.org/en/stable/Understanding-your-mapping.html target=_blank rel="noopener noreffer">http://docs.automapper.org/en/stable/Understanding-your-mapping.html</a></p>
+</blockquote>
+<h2 id=自动映射属性>自动映射属性</h2>
+<p>Automapper 会自动按照属性名去匹配映射关系，在默认映射中有以下一些特点：</p>
+<ol>
+<li>不会区分属性名大小写，只要名称一样，大小写不一致也能够转换；</li>
+<li>不会严格要求类型，字符串数值之间可以互相转换；</li>
+<li>如果没匹配对应的属性，会继续寻找带 <code>Get</code> 前缀的方法名，也可以自动对目标类型进行 PascalCase 约定的 <a href=http://docs.automapper.org/en/stable/Flattening.html target=_blank rel="noopener noreffer">分词查找</a>，按照分词的顺序可以在源类型中深度查找内部对象。</li>
+</ol>
+<h2 id=类的成员对象向外映射>类的成员对象向外映射</h2>
+<p>类型映射时想要映射的是 Source 类型的内部成员对象时，创建映射时需要加 <a href=http://docs.automapper.org/en/stable/Flattening.html target=_blank rel="noopener noreffer"><code>IncludeMembers</code></a>。</p>
+<h2 id=配置校验测试映射关系>配置校验，测试映射关系</h2>
+<p>Automapper 的映射是基于约定的，并不是强类型之间的手动映射，一个典型的应用场景是创建好映射之后，过了一段时间可能属性名变了，就会造成潜在的 Bug，这时候就需要使用配置校验 <code>Configuration Validation</code>，如下：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span>
+  <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Destination</span><span class=p>&gt;());</span>
+
+<span class=n>configuration</span><span class=p>.</span><span class=n>AssertConfigurationIsValid</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>默认的校验规则是需要检查目标的每个属性都需要在来源中有映射，否则抛出异常。
+有两种方式方式修改默认的校验规则：</p>
+<ol>
+<li>使用 <code>Ignore()</code>，<code>var configuration = new MapperConfiguration(cfg => cfg.CreateMap&lt;Source, Destination>().ForMember(dest => dest.SomeValuefff, opt => opt.Ignore()));</code></li>
+<li><code>CreateMap</code> 的时候修改校验规则，使用 <code>MemberList.Source</code> 或 <code>MemberList.None</code></li>
+</ol>
+<h2 id=集合映射>集合映射</h2>
+<p>如果要映射集合只需要映射集合对应的元素类型，支持的集合映射类型如下：</p>
+<ul>
+<li>IEnumerable</li>
+<li>IEnumerable&lt;T></li>
+<li>ICollection</li>
+<li>ICollection&lt;T></li>
+<li>IList</li>
+<li>IList&lt;T></li>
+<li>List&lt;T></li>
+<li>Arrays</li>
+</ul>
+<p>如果要映射到一个已存在的集合，目标集合首先会被清空，具体详见 <a href=https://github.com/AutoMapper/AutoMapper.Collection target=_blank rel="noopener noreffer">AutoMapper.Collection</a></p>
+<p>如果源的属性里有集合对象，并且属性为空，那么当它映射到目标时，会把属性映射为空集合，这一点符合 C# 关于集合的定义，数组、列表、集合、字典和 IEnumerables 永远不应该为 null。在配置映射器时，可以通过将 <code>AllowNullCollections</code> 属性设置为 <code>true</code> 来更改此行为。</p>
+<h2 id=全局类型转换-type-converters>全局类型转换 Type Converters</h2>
+<p>在创建配置时使用 <code>ConvertUsing</code>，这个配置是全局的，只需要调用一次，它有以下三种重载方式：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>void</span> <span class=n>ConvertUsing</span><span class=p>(</span><span class=n>Func</span><span class=p>&lt;</span><span class=n>TSource</span><span class=p>,</span> <span class=n>TDestination</span><span class=p>&gt;</span> <span class=n>mappingFunction</span><span class=p>);</span>
+<span class=k>void</span> <span class=n>ConvertUsing</span><span class=p>(</span><span class=n>ITypeConverter</span><span class=p>&lt;</span><span class=n>TSource</span><span class=p>,</span> <span class=n>TDestination</span><span class=p>&gt;</span> <span class=n>converter</span><span class=p>);</span>
+<span class=k>void</span> <span class=n>ConvertUsing</span><span class=p>&lt;</span><span class=n>TTypeConverter</span><span class=p>&gt;()</span> <span class=k>where</span> <span class=n>TTypeConverter</span> <span class=p>:</span> <span class=n>ITypeConverter</span><span class=p>&lt;</span><span class=n>TSource</span><span class=p>,</span> <span class=n>TDestination</span><span class=p>&gt;;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=需要自定义源到目标之间的转换逻辑-value-resolvers>需要自定义源到目标之间的转换逻辑 Value Resolvers</h2>
+<p>当出现需要自定义转换逻辑时，主要使用以下接口：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>interface</span> <span class=n>IValueResolver</span><span class=p>&lt;</span><span class=k>in</span> <span class=n>TSource</span><span class=p>,</span> <span class=k>in</span> <span class=n>TDestination</span><span class=p>,</span> <span class=n>TDestMember</span><span class=p>&gt;</span>
+<span class=p>{</span>
+  <span class=n>TDestMember</span> <span class=n>Resolve</span><span class=p>(</span><span class=n>TSource</span> <span class=n>source</span><span class=p>,</span> <span class=n>TDestination</span> <span class=n>destination</span><span class=p>,</span> <span class=n>TDestMember</span> <span class=n>destMember</span><span class=p>,</span> <span class=n>ResolutionContext</span> <span class=n>context</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>使用 <code>IValueResolver</code> 接口有以下三种方式：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=n>MapFrom</span><span class=p>&lt;</span><span class=n>TValueResolver</span><span class=p>&gt;</span>
+<span class=n>MapFrom</span><span class=p>(</span><span class=k>typeof</span><span class=p>(</span><span class=n>CustomValueResolver</span><span class=p>))</span>
+<span class=n>MapFrom</span><span class=p>(</span><span class=n>aValueResolverInstance</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>除以上之外还可以继承 <code>IMemberValueResolver</code> 接口，这个接口比上面那个多了来源属性的指定。</p>
+<h2 id=解析条件>解析条件</h2>
+<p>如果我们指定了属性成员的映射，那在正式转换时可能会引发异常，这时候可以进行前置条件判断。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>SourceClass</span>
+<span class=p>{</span>
+  <span class=k>public</span> <span class=kt>string</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=k>public</span> <span class=k>class</span> <span class=nc>TargetClass</span>
+<span class=p>{</span>
+  <span class=k>public</span> <span class=kt>int</span> <span class=n>ValueLength</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>// ...
+</span><span class=c1></span>
+<span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>SourceClass</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=k>null</span> <span class=p>};</span>
+<span class=kt>var</span> <span class=n>target</span> <span class=p>=</span> <span class=k>new</span> <span class=n>TargetClass</span><span class=p>;</span>
+
+<span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>SourceClass</span><span class=p>,</span> <span class=n>TargetClass</span><span class=p>&gt;()</span>
+  <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>ValueLength</span><span class=p>,</span> <span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>MapFrom</span><span class=p>(</span><span class=n>s</span> <span class=p>=&gt;</span> <span class=n>s</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>Length</span><span class=p>))</span>
+  <span class=p>.</span><span class=n>ForAllMembers</span><span class=p>(</span><span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>Condition</span><span class=p>((</span><span class=n>src</span><span class=p>,</span> <span class=n>dest</span><span class=p>,</span> <span class=k>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=k>value</span> <span class=p>!=</span> <span class=k>null</span><span class=p>));</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>ValueLength</span><span class=p>,</span> <span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>MapFrom</span><span class=p>(</span><span class=n>s</span> <span class=p>=&gt;</span> <span class=n>s</span> <span class=p>!=</span> <span class=k>null</span> <span class=p>?</span> <span class=n>s</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>Length</span> <span class=p>:</span> <span class=m>0</span><span class=p>))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=value-converters>Value Converters</h2>
+<p>介于 <code>Type Converters</code> 和 <code>Value Resolvers</code> 之间的值转换方式：</p>
+<ul>
+<li><code>Type converter = Func&lt;TSource, TDestination, TDestination></code></li>
+<li><code>Value resolver = Func&lt;TSource, TDestination, TDestinationMember></code></li>
+<li><code>Member value resolver = Func&lt;TSource, TDestination, TSourceMember, TDestinationMember></code></li>
+<li><code>Value converter = Func&lt;TSourceMember, TDestinationMember></code></li>
+</ul>
+<p>在成员级别配置该转换器</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>CurrencyFormatter</span> <span class=p>:</span> <span class=n>IValueConverter</span><span class=p>&lt;</span><span class=kt>decimal</span><span class=p>,</span> <span class=kt>string</span><span class=p>&gt;</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=kt>string</span> <span class=n>Convert</span><span class=p>(</span><span class=kt>decimal</span> <span class=n>source</span><span class=p>)</span>
+        <span class=p>=&gt;</span> <span class=n>source</span><span class=p>.</span><span class=n>ToString</span><span class=p>(</span><span class=s>&#34;c&#34;</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=p>{</span>
+   <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Order</span><span class=p>,</span> <span class=n>OrderDto</span><span class=p>&gt;()</span>
+       <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>Amount</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>ConvertUsing</span><span class=p>(</span><span class=k>new</span> <span class=n>CurrencyFormatter</span><span class=p>()));</span>
+   <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>OrderLineItem</span><span class=p>,</span> <span class=n>OrderLineItemDto</span><span class=p>&gt;()</span>
+       <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>Total</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>ConvertUsing</span><span class=p>(</span><span class=k>new</span> <span class=n>CurrencyFormatter</span><span class=p>()));</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果属性的名称不能匹配，使用以下方式</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>CurrencyFormatter</span> <span class=p>:</span> <span class=n>IValueConverter</span><span class=p>&lt;</span><span class=kt>decimal</span><span class=p>,</span> <span class=kt>string</span><span class=p>&gt;</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=kt>string</span> <span class=n>Convert</span><span class=p>(</span><span class=kt>decimal</span> <span class=n>source</span><span class=p>)</span>
+        <span class=p>=&gt;</span> <span class=n>source</span><span class=p>.</span><span class=n>ToString</span><span class=p>(</span><span class=s>&#34;c&#34;</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=p>{</span>
+   <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Order</span><span class=p>,</span> <span class=n>OrderDto</span><span class=p>&gt;()</span>
+       <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>Amount</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>ConvertUsing</span><span class=p>(</span><span class=k>new</span> <span class=n>CurrencyFormatter</span><span class=p>(),</span> <span class=n>src</span> <span class=p>=&gt;</span> <span class=n>src</span><span class=p>.</span><span class=n>OrderAmount</span><span class=p>));</span>
+   <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>OrderLineItem</span><span class=p>,</span> <span class=n>OrderLineItemDto</span><span class=p>&gt;()</span>
+       <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>Total</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>ConvertUsing</span><span class=p>(</span><span class=k>new</span> <span class=n>CurrencyFormatter</span><span class=p>(),</span> <span class=n>src</span> <span class=p>=&gt;</span> <span class=n>src</span><span class=p>.</span><span class=n>LITotal</span><span class=p>));</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=值转换>值转换</h2>
+<p>在值转换前判断是否应用了值转换器，可以在以下地方使用值转换器：</p>
+<ul>
+<li>Globally</li>
+<li>Profile</li>
+<li>Map</li>
+<li>Member</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=p>{</span>
+    <span class=n>cfg</span><span class=p>.</span><span class=n>ValueTransformers</span><span class=p>.</span><span class=n>Add</span><span class=p>&lt;</span><span class=kt>string</span><span class=p>&gt;(</span><span class=n>val</span> <span class=p>=&gt;</span> <span class=n>val</span> <span class=p>+</span> <span class=s>&#34;!!!&#34;</span><span class=p>);</span>
+<span class=p>});</span>
+
+<span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Source</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=s>&#34;Hello&#34;</span> <span class=p>};</span>
+<span class=kt>var</span> <span class=n>dest</span> <span class=p>=</span> <span class=n>mapper</span><span class=p>.</span><span class=n>Map</span><span class=p>&lt;</span><span class=n>Dest</span><span class=p>&gt;(</span><span class=n>source</span><span class=p>);</span>
+
+<span class=n>dest</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>ShouldBe</span><span class=p>(</span><span class=s>&#34;Hello!!!&#34;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=null-转换>Null 转换</h2>
+<p>如果来源值为空，可以使用空转换器来给目标属性赋值，而不是使用源值</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>config</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Dest</span><span class=p>&gt;()</span>
+    <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>destination</span> <span class=p>=&gt;</span> <span class=n>destination</span><span class=p>.</span><span class=n>Value</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>NullSubstitute</span><span class=p>(</span><span class=s>&#34;Other Value&#34;</span><span class=p>)));</span>
+
+<span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Source</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=k>null</span> <span class=p>};</span>
+<span class=kt>var</span> <span class=n>mapper</span> <span class=p>=</span> <span class=n>config</span><span class=p>.</span><span class=n>CreateMapper</span><span class=p>();</span>
+<span class=kt>var</span> <span class=n>dest</span> <span class=p>=</span> <span class=n>mapper</span><span class=p>.</span><span class=n>Map</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Dest</span><span class=p>&gt;(</span><span class=n>source</span><span class=p>);</span>
+
+<span class=n>dest</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>ShouldEqual</span><span class=p>(</span><span class=s>&#34;Other Value&#34;</span><span class=p>);</span>
+
+<span class=n>source</span><span class=p>.</span><span class=n>Value</span> <span class=p>=</span> <span class=s>&#34;Not null&#34;</span><span class=p>;</span>
+
+<span class=n>dest</span> <span class=p>=</span> <span class=n>mapper</span><span class=p>.</span><span class=n>Map</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Dest</span><span class=p>&gt;(</span><span class=n>source</span><span class=p>);</span>
+
+<span class=n>dest</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>ShouldEqual</span><span class=p>(</span><span class=s>&#34;Not null&#34;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=映射前后逻辑处理>映射前后逻辑处理</h2>
+<p>偶尔需要在映射时进行一些逻辑处理，可使用如下方式：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=p>{</span>
+  <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Dest</span><span class=p>&gt;()</span>
+    <span class=p>.</span><span class=n>BeforeMap</span><span class=p>((</span><span class=n>src</span><span class=p>,</span> <span class=n>dest</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=n>src</span><span class=p>.</span><span class=n>Value</span> <span class=p>=</span> <span class=n>src</span><span class=p>.</span><span class=n>Value</span> <span class=p>+</span> <span class=m>10</span><span class=p>)</span>
+    <span class=p>.</span><span class=n>AfterMap</span><span class=p>((</span><span class=n>src</span><span class=p>,</span> <span class=n>dest</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=n>dest</span><span class=p>.</span><span class=n>Name</span> <span class=p>=</span> <span class=s>&#34;John&#34;</span><span class=p>);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>或者继承接口 <code>IMappingAction</code>：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>NameMeJohnAction</span> <span class=p>:</span> <span class=n>IMappingAction</span><span class=p>&lt;</span><span class=n>SomePersonObject</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span><span class=p>&gt;</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>void</span> <span class=n>Process</span><span class=p>(</span><span class=n>SomePersonObject</span> <span class=n>source</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span> <span class=n>destination</span><span class=p>,</span> <span class=n>ResolutionContext</span> <span class=n>context</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=n>destination</span><span class=p>.</span><span class=n>Name</span> <span class=p>=</span> <span class=s>&#34;John&#34;</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=p>{</span>
+  <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>SomePersonObject</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span><span class=p>&gt;()</span>
+    <span class=p>.</span><span class=n>AfterMap</span><span class=p>&lt;</span><span class=n>NameMeJohnAction</span><span class=p>&gt;();</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=构造函数映射>构造函数映射</h2>
+<p>如果目标类型没有默认的构造函数，<code>Automapper</code> 支持根据构造函数的形参名称来自动匹配源属性。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>Source</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+<span class=p>}</span>
+<span class=k>public</span> <span class=k>class</span> <span class=nc>SourceDto</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=n>SourceDto</span><span class=p>(</span><span class=kt>int</span> <span class=k>value</span><span class=p>)</span> <span class=p>{</span>
+        <span class=m>_</span><span class=k>value</span> <span class=p>=</span> <span class=k>value</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>private</span> <span class=kt>int</span> <span class=m>_</span><span class=k>value</span><span class=p>;</span>
+    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span>
+        <span class=k>get</span> <span class=p>{</span> <span class=k>return</span> <span class=m>_</span><span class=k>value</span><span class=p>;</span> <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+<span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>SourceDto</span><span class=p>&gt;());</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果构造函数的参数名称无法自动匹配，可以使用 <code>ForCtorParam</code> 来手动指定</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>Source</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+<span class=p>}</span>
+<span class=k>public</span> <span class=k>class</span> <span class=nc>SourceDto</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=n>SourceDto</span><span class=p>(</span><span class=kt>int</span> <span class=n>valueParamSomeOtherName</span><span class=p>)</span> <span class=p>{</span>
+        <span class=m>_</span><span class=k>value</span> <span class=p>=</span> <span class=n>valueParamSomeOtherName</span><span class=p>;</span>
+    <span class=p>}</span>
+    <span class=k>private</span> <span class=kt>int</span> <span class=m>_</span><span class=k>value</span><span class=p>;</span>
+    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span>
+        <span class=k>get</span> <span class=p>{</span> <span class=k>return</span> <span class=m>_</span><span class=k>value</span><span class=p>;</span> <span class=p>}</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+<span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span>
+  <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>SourceDto</span><span class=p>&gt;()</span>
+    <span class=p>.</span><span class=n>ForCtorParam</span><span class=p>(</span><span class=s>&#34;valueParamSomeOtherName&#34;</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>MapFrom</span><span class=p>(</span><span class=n>src</span> <span class=p>=&gt;</span> <span class=n>src</span><span class=p>.</span><span class=n>Value</span><span class=p>))</span>
+<span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果要禁用构造函数映射</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=n>cfg</span><span class=p>.</span><span class=n>DisableConstructorMapping</span><span class=p>());</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以选择要调用的目标构造函数</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=c1>// don&#39;t map private constructors
+</span><span class=c1></span><span class=kt>var</span> <span class=n>configuration</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=n>cfg</span><span class=p>.</span><span class=n>ShouldUseConstructor</span> <span class=p>=</span> <span class=n>ci</span> <span class=p>=&gt;</span> <span class=p>!</span><span class=n>ci</span><span class=p>.</span><span class=n>IsPrivate</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>参考：<a href=http://docs.automapper.org/en/stable/index.html target=_blank rel="noopener noreffer">http://docs.automapper.org/en/stable/index.html</a></p>
+</blockquote>
+<div class="details admonition warning open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>
+本文最后更新于 <span class=timeago datetime=2020-01-28T23:35:38 title="January 28, 2020">January 28, 2020</span>，文中内容可能已过时，请谨慎使用。</div>
+</div>
+</div>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2020-01-28</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.md target=_blank>阅读原始文档</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-title="Automapper 学习笔记" data-hashtags=dotnet,mapper><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-hashtag=dotnet><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-title="Automapper 学习笔记"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-title="Automapper 学习笔记"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-title="Automapper 学习笔记"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-title="Automapper 学习笔记"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/automapper-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ data-title="Automapper 学习笔记"><i class="fab fa-evernote fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/mapper/>mapper</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/wpf-%E6%8A%80%E6%9C%AF%E7%82%B9/ class=prev rel=prev title="WPF 技术点"><i class="fas fa-angle-left fa-fw"></i>WPF 技术点</a>
+<a href=/%E6%90%AD%E9%85%8D-iconfont-%E5%9C%A8-wpf-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%96%87%E5%AD%97%E5%9B%BE%E7%89%87/ class=next rel=next title="搭配 IconFont 在 WPF 中使用文字图片">搭配 IconFont 在 WPF 中使用文字图片<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id=comments><div id=gitalk class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
+</noscript></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/_custom.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/ext.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"45b7e0bd48967978b707",clientSecret:"a809c07b23bc10c3889efc4ef584d71f37933da8",id:"2020-01-28T23:35:38+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"Automapper 学习笔记"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
