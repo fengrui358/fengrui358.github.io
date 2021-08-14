@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Sleep
         run: |
-          sleep 20s
+          sleep 24s
           curl https://frhello.com
           curl https://frhello.com/about/
           curl https://frhello.com/posts/
