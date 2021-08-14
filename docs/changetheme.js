@@ -5,41 +5,37 @@ function changeAttribute(img, reg, attributeName, newPath) {
     }
 }
 
-function changeImgDom(img, theme) {
-    img.title = 'logo';
-    img.alt = 'logo';
-    if (theme === 'dark') {
-        const reg = /\/avatar.png/g;
-        changeAttribute(img, reg, 'src', '/avatar_dark.png');
-        changeAttribute(img, reg, 'data-src', '/avatar_dark.png');
-        changeAttribute(img, reg, 'data-srcset', '/avatar_dark.png');
-        changeAttribute(img, reg, 'srcset', '/avatar_dark.png');
-    }
-    else {
-        const reg = /\/avatar_dark.png/g;
-        changeAttribute(img, reg, 'src', '/avatar.png');
-        changeAttribute(img, reg, 'data-src', '/avatar.png');
-        changeAttribute(img, reg, 'data-srcset', '/avatar.png');
-        changeAttribute(img, reg, 'srcset', '/avatar.png');
+function changeImgDom(parentClass, theme) {
+    const doms = document.getElementsByClassName(parentClass);
+    for (let index = 0; index < doms.length; index++) {
+        const imgs = doms[index].getElementsByTagName('img');
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].title = 'logo';
+            imgs[i].alt = 'logo';
+            if (theme === 'dark') {
+                const reg = /\/avatar.png/g;
+                changeAttribute(imgs[i], reg, 'src', '/avatar_dark.png');
+                changeAttribute(imgs[i], reg, 'data-src', '/avatar_dark.png');
+                changeAttribute(imgs[i], reg, 'data-srcset', '/avatar_dark.png');
+                changeAttribute(imgs[i], reg, 'srcset', '/avatar_dark.png');
+            }
+            else {
+                const reg = /\/avatar_dark.png/g;
+                changeAttribute(imgs[i], reg, 'src', '/avatar.png');
+                changeAttribute(imgs[i], reg, 'data-src', '/avatar.png');
+                changeAttribute(imgs[i], reg, 'data-srcset', '/avatar.png');
+                changeAttribute(imgs[i], reg, 'srcset', '/avatar.png');
+            }
+        }
     }
 }
 
 function loadTheme() {
     if (window.localStorage) {
         const theme = localStorage.getItem('theme');
-        if (document.getElementsByClassName('home-avatar').length > 0) {
-            const imgs = document.getElementsByClassName('home-avatar')[0].getElementsByTagName('img');
-            if (imgs.length > 0) {
-                changeImgDom(imgs[0], theme);
-            }
-        }
-
-        if (document.getElementsByClassName('header-title').length > 0) {
-            const imgs = document.getElementsByClassName('header-title')[0].getElementsByTagName('img');
-            if (imgs.length > 0) {
-                changeImgDom(imgs[0], theme);
-            }
-        }
+        changeImgDom('home-avatar', theme);
+        changeImgDom('home-title', theme);
+        changeImgDom('header-title', theme);
     }
 }
 
