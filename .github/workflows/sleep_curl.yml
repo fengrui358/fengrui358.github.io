@@ -22,9 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Sleep for 30 seconds
+      - name: Sleep
         run: |
-          sleep 30s
+          sleep 20s
           curl https://frhello.com
           curl https://frhello.com/about/
           curl https://frhello.com/posts/
