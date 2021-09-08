@@ -1,4 +1,4 @@
-# UUID 学习
+# UUID（GUID）不同版本和顺序递增探究
 
 
 ## 概念
@@ -8,6 +8,8 @@ UUIDs (Universally Unique IDentifier)，也称为 GUIDs (Globally 唯一标识�
 使用 UUID 的主要原因之一是无需集中的管理，并且 UUID 的生成算法要求它支持单台每秒超过百万次的生成速率。
 
 ## 布局和字节顺序
+
+UUID 呈现的格式为：`f81d4fae-7dec-11d0-a765-00a0c91e6bf6`
 
 | 字段 | 数据类型 | 字节 | 注释 |
 |---|---|---|---|
