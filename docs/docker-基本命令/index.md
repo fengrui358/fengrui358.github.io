@@ -37,6 +37,13 @@ docker run -d -P --rm --name web --mount type=bind,source=D:\src\webapp12345free
 - `--rm` 容器停止后自动删除容器
 - `--name` 指定容器别名
 
+## 从 Container 拷贝文件到宿主机
+
+``` bash
+# 使用 cp 命令
+docker cp f0e212661cd5:/usr/local/etc/janus ./test
+```
+
 ## 常用 Docker 镜像
 
 ### postgres
