@@ -34,3 +34,7 @@ ssl_prefer_server_ciphers on;
 
 到此，浏览器应该能够使用 https 正常访问网页，不过期间有个小插曲，因为我的 Windows 电脑安装的 VMware，这玩意有个 VMwareHostd 服务监听了 443 端口，导致我的浏览器一直在报 `NET:ERR_CERT_AUTHORITY_INVALID` 这个错误，但是我更换 nginx 代理暴露的端口后又能正常访问，这一度让我以为 443 端口对浏览器来说有某种神秘力量，好在后来停掉 nginx 后发现 443 依旧可以 telnet 通，这才知道原来是被 VMwareHostd 占用了，停掉这个服务后就一切正常了。
 
+## 复用根证书
+
+通过命令 `mkcert -CAROOT` 查看根证书的位置，查看到证书位置后取一份计算机的证书，复制到其他计算机后运行 `mkcert -install` 就可以达到不同计算机都能识别相同的自签证书的目的。
+

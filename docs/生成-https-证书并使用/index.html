@@ -18,7 +18,7 @@
 <meta name=application-name content="free note">
 <meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/><link rel=prev href=https://frhello.com/uuidguid%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%92%8C%E9%A1%BA%E5%BA%8F%E9%80%92%E5%A2%9E%E6%8E%A2%E7%A9%B6/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"生成 https 证书并使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"https, cert","wordcount":410,"url":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/","datePublished":"2021-09-10T15:30:10+08:00","dateModified":"2021-09-10T15:30:10+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/><link rel=prev href=https://frhello.com/uuidguid%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E5%92%8C%E9%A1%BA%E5%BA%8F%E9%80%92%E5%A2%9E%E6%8E%A2%E7%A9%B6/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"生成 https 证书并使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"https, cert","wordcount":486,"url":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/","datePublished":"2021-09-10T15:30:10+08:00","dateModified":"2021-09-10T15:30:10+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -86,7 +86,7 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">生成 https 证书并使用</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/deploy/><i class="far fa-folder fa-fw"></i>deploy</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-10>2021-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 410 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-10>2021-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 486 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -99,6 +99,7 @@
 <li><a href=#生成证书>生成证书</a></li>
 <li><a href=#安装证书>安装证书</a></li>
 <li><a href=#配置-nginx>配置 nginx</a></li>
+<li><a href=#复用根证书>复用根证书</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><h2 id=工具>工具</h2>
@@ -143,6 +144,8 @@ ssl_prefer_server_ciphers on;
 </code></pre></td></tr></table>
 </div>
 </div><p>到此，浏览器应该能够使用 https 正常访问网页，不过期间有个小插曲，因为我的 Windows 电脑安装的 VMware，这玩意有个 VMwareHostd 服务监听了 443 端口，导致我的浏览器一直在报 <code>NET:ERR_CERT_AUTHORITY_INVALID</code> 这个错误，但是我更换 nginx 代理暴露的端口后又能正常访问，这一度让我以为 443 端口对浏览器来说有某种神秘力量，好在后来停掉 nginx 后发现 443 依旧可以 telnet 通，这才知道原来是被 VMwareHostd 占用了，停掉这个服务后就一切正常了。</p>
+<h2 id=复用根证书>复用根证书</h2>
+<p>通过命令 <code>mkcert -CAROOT</code> 查看根证书的位置，查看到证书位置后取一份计算机的证书，复制到其他计算机后运行 <code>mkcert -install</code> 就可以达到不同计算机都能识别相同的自签证书的目的。</p>
 </div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
