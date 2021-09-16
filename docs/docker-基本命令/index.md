@@ -39,20 +39,36 @@ docker run -d -P --rm --name web --mount type=bind,source=D:\src\webapp12345free
 
 ## 从 Container 拷贝文件到宿主机
 
-``` bash
+```bash
 # 使用 cp 命令
 docker cp f0e212661cd5:/usr/local/etc/janus ./test
+```
+
+## 导出导入镜像
+
+- 导出镜像
+
+```bash
+# docker save -o 要保存的文件名  要保存的镜像
+docker save -o test.tar fengrui358/puppeteer_dotnet:aspnetcore5.0
+```
+
+- 导入镜像
+
+```bash
+# docker load --input 文件
+docker load -i test.tar
 ```
 
 ## 常用 Docker 镜像
 
 ### postgres
 
-```docker run -d --name er-db --rm -e POSTGRES_PASSWORD=1234 -v /home/free/datadir:/var/lib/postgresql/data -p 25435:5432 postgres:alpine```
+`docker run -d --name er-db --rm -e POSTGRES_PASSWORD=1234 -v /home/free/datadir:/var/lib/postgresql/data -p 25435:5432 postgres:alpine`
 
 ### rabbitmq
 
-```docker run -d --name er-mq --network er-network --rm -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_VHOST=er -e RABBITMQ_DEFAULT_USER=eruser -e RABBITMQ_DEFAULT_PASS=abc123 rabbitmq:management```
+`docker run -d --name er-mq --network er-network --rm -p 15672:15672 -p 5672:5672 -e RABBITMQ_DEFAULT_VHOST=er -e RABBITMQ_DEFAULT_USER=eruser -e RABBITMQ_DEFAULT_PASS=abc123 rabbitmq:management`
 
 ### Docker Ui Mananger
 
