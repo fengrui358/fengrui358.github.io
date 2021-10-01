@@ -17,6 +17,8 @@ docker network create -d bridge my-net
 
 - `-d` 参数指定 Docker 网络类型，有 bridge overlay。其中 overlay 网络类型用于 Swarm mode
 
+每一个 bridge 网络均为独立子网，如果要在 bridge 网络中的容器里访问宿主机网络需要使用 `host.docker.internal` 来解析宿主机真实地址
+
 ## 基本命令
 
 ```bash
