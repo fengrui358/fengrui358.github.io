@@ -23,11 +23,6 @@
 
 * 版本信息：<https://developer.xamarin.com/releases/current/>
 
-## VPN ##
-
-* <https://monocloud.net/>
-* <https://www.diycode.cc/topics/738>
-
 ## 内网穿透 ##
 
 * <https://natapp.cn/>
