@@ -119,5 +119,5 @@ nginx 中的 web 前端使用的是官网 github 项目中的演示 html 文件�
 
 最后打开 Video Room 的效果：
 
-![Video Room](https://cdn.jsdelivr.net/gh/fengrui358/img@main/20210916213559.png)
+![Video Room](https://cdn.jsdelivr.net/gh/fengrui358/img@main/20210916213559.png "Video Room")
 

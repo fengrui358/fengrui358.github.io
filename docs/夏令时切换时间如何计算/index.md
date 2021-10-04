@@ -7,7 +7,7 @@
 
 我们以墨西哥城的时间为例：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png)
+![墨西哥城的时间](https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png "墨西哥城的时间")
 
 在 2020 年的 4 月 5 日的凌晨 3 点，会进入夏令时，时间会向前调一个小时，也就是说墨西哥城不会存在 2020 年 4 月 5 日 2 点到 2020 年 4 月 5 日 2 点 59 分的任何时间值。
 

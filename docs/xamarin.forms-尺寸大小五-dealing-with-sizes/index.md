@@ -122,7 +122,7 @@ public class WhatSizePage : ContentPage
 
 下面是程序运行在各个平台下的样子：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223111710740-1503211529.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223111710740-1503211529.png "img")
 
 下面是这三张图的具体信息：
 
@@ -134,7 +134,7 @@ public class WhatSizePage : ContentPage
 
 默认情况下，三个平台都会在设备翻转时做出响应。如果将设备逆时针旋转 90 度，将呈现下面这种情况：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223115731646-1958952854.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223115731646-1958952854.png "img")
 
 为了方便排版，手机还是竖着显示，重点看状态栏来区分。可以看到，Android 度宽度为 598，这个宽度不包括按钮区域，高度为 335，这个高度包括了状态栏度高度。Windows Phone 的宽度为 728，这个宽度包括了侧边状态栏，可以看到，状态栏的图标还在相同位置，只是旋转了图标的方向。
 
@@ -199,7 +199,7 @@ public class MetricalBoxViewPage : ContentPage
 
 如果你使用直尺在手机屏幕上测量，你会发现结果跟我们希望的尺寸很接近。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223160122740-751484924.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223160122740-751484924.png "img")
 
 ## 估计字体大小（Estimated font sizes）
 
@@ -283,7 +283,7 @@ public class FontSizesPage : ContentPage
 
 这个程序提供了一个粗略的思路让你能够在三个平台上产生视觉上差不多大小的元素。括号中的数字是特定平台下的设备无关的 `FontSize` 数值。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223212525099-600700026.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160223212525099-600700026.png "img")
 
 然而在 Android 平台下有一个问题，运行 Android 的 **Settings**，进入 **Display** 页面，选择 **Font size** 项，可以看到，有 **Small**，**Normal**（默认），**Large**，**Huge** 这几个字号选择。这项设置可以给用户提供更广的字号选择，对于那些觉得字体太小感觉眼睛不舒服的用户可以将字号调大，对于那些眼睛很好想一次多看一些字的用户可以将字号设小。
 
@@ -389,11 +389,11 @@ public class EstimatedFontSizePage : ContentPage
 
 如果我们的目标是让文本尽量的大但是又不会溢出一屏的范围，那么结果会跟下面的图很接近：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229135745892-59140698.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229135745892-59140698.png "img")
 
 效果不错，虽然 iPhone 和 Android 实际上只显示了 14 行文本，但技术看起来还是可靠的。我们没必要让横屏模式计算出的 `FontSize` 值也相等，但有时候它也确实可以做到：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229140404533-1974150335.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229140404533-1974150335.png "img")
 
 ## 一个大小合适的计时器（A fit-to-size clock）
 
@@ -440,11 +440,11 @@ public class FitToSizeClockPage : ContentPage
 
 在 `StartTimer` 的方法中指定了一个 `DateTime` 的自定义格式化字符串将文本格式化为一段 10 个或 11 个的文本字符，文本都是大写字符，并且宽度比平均宽度更宽。在 `SizeChanged` 处理函数中隐藏了一个逻辑，即假设要显示的文本字符数为 12 个，那么设置它的字号应该是页面宽度的 1/6：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229171325283-1181903843.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229171325283-1181903843.png "img")
 
 当然，在横屏模式下文本会变得更大：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229171444861-1038056916.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160229171444861-1038056916.png "img")
 
 再次提醒，该技术在 Android 平台下只能用于系统设置中 **Font size** 的值设置为 **Normal** 的情况。
 
@@ -564,11 +564,11 @@ public class EmpiricalFontSizePage : ContentPage
 
 大约七次循环之后，就能得到一个比之前那个程序估算出的值更合适的值：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160306183737627-844609880.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160306183737627-844609880.png "img")
 
 旋转手机就能触发另一次重算，计算出的字号跟刚才相似（虽然没必要一样）：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160306183945143-1807059411.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160306183945143-1807059411.png "img")
 
 似乎该算法通过 `FontCalc` 作为上下限能计算出更大平均值的字号。但是字号和渲染文本之间的高度过于复杂，有时最简单的方式得到的结果也一样的好。
 

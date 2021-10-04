@@ -14,19 +14,19 @@ WPF 桌面程序中使用图片有多种方式，他们具有一些如下特点:
 
 位图是使用最多的一种方式，也是 WPF 原生 `Image` 控件支持的一种方式，性能是几种方式当中最好的，不过它的缺点是不支持改变图片颜色和大小（改变大小后会有模糊和锯齿），当一个项目大了之后项目中会有很多形状类似，但可能大小和颜色有细微差别的图片，会造成项目难以管理。（下图是性能对比，是在一个窗口中初始化 3000 个控件的耗时）
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20190610223600356-1592540144.png)
+![PNG](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20190610223600356-1592540144.png "PNG")
 
 ## SVG ##
 
 SVG 是常用的一种矢量图，浏览器对 SVG 也是可以直接支持。SVG 矢量图的好处是美工可以直接出图，程序员可以不用再进行二次转换，而且矢量图可以做出各种彩色的复杂图形。但是 WPF 对 SVG 却不能原生支持，不过我们还是能比较轻松地在网上找到很多现成的解决方案，如图，是 SVG 的性能。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20190610224735394-960759005.png)
+![SVG](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20190610224735394-960759005.png "SVG")
 
 ## Path ##
 
 Path 是 WPF 中描述矢量图的常用方式，著名的 WPF 开源项目 [MahApps.Metro](https://github.com/MahApps/MahApps.Metro) 里的有一个使用矢量图的控件 [Metro.IconPacks](https://github.com/MahApps/MahApps.Metro.IconPacks) 就是对 Path 的封装，下面是该控件的性能。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20190610230840842-610983439.png)
+![Path](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20190610230840842-610983439.png "Path")
 
 ## IconFont ##
 

@@ -12,7 +12,7 @@
 * [权限（Permissions）](#permissions)——了解在 App 中使用 WebView 的相应权限设置。
 * [布局（Layout）](#layout)——WebView 对布局有一些特别要求，了解如何恰当的显示 WebView。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png "img")
 
 ## Content
 
@@ -89,7 +89,7 @@ htmlSource.Html = @"<html><body>
 browser.Source = htmlSource;
 ```
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png "img")
 
 上面的代码中，`@` 符号用于标记 HTML 作为一串字面量的字符串，所有通用转义符都会被忽略。
 
@@ -124,7 +124,7 @@ body,p,h1 {
 
 注意上面的 CSS 中指定的特殊字体需要根据不同的平台自定义，不是所有的平台都具有相同的字体。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png "img")
 
 >**注意：** Xamarin.Forms 中当前存在一个 bug，在 Windows 中本地 HTML 内容不能被显示，但是它不会影响 Windows Phone。查看 [Bugzilla](https://bugzilla.xamarin.com/show_bug.cgi?id=32033) 获取关于这个 bug 最新状态的更多信息。
 
@@ -169,13 +169,13 @@ namespace WorkingWithWebview.iOS
 
 此时网站的位置会被定位到项目的根目录或者 **Resources** 目录，并且文件的生成操作应该修改为 *BundleResource*，如下图：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png "img")
 
 #### Android
 
 在 Android 平台下，HTML，CSS 和图片文件应该位于 **Assets** 文件夹下，并且生成操作应该修改为 *AndroidAsset*，如下图：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png "img")
 
 Android 平台下，`BaseUrl` 的值应该设置为 `"file:///android_asset/"`：
 
@@ -209,7 +209,7 @@ using (var streamReader = new StreamReader(assetManager.Open("local.html")))
 
 在 Windows Phone 平台下，HTML，CSS 和图片文件位于项目根目录，并且生成操作应该修改为 *Content*，如下图：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png "img")
 
 Windows Phone 平台下，`BaseUrl` 的值应该设置为`""`：
 
@@ -298,7 +298,7 @@ public partial class InAppDemo : ContentPage
 
 最后呈现效果如下：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png "img")
 
 ## Events
 
@@ -348,11 +348,11 @@ void webOnEndNavigating (object sender, WebNavigatedEventArgs e)
 
 当页面加载中时输出结果如下：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png "img")
 
 当页面加载完成时输出如下：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png "img")
 
 ## Performance
 

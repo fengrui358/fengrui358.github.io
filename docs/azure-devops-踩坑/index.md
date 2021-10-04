@@ -5,15 +5,15 @@
 
 - 要增加 .netCore 的测试程序集目录；
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180106102814362-1931048116.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180106102814362-1931048116.png "img")
 
 - 设置 Speceific location:`C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\TestPlatform` 设置 Other console options:`/Framework:".NETCoreApp,Version=v2.0"`
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180106102836815-515444835.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180106102836815-515444835.png "img")
 
 - 默认配置会包含 xunit（我是使用的 xunit）的测试程序集，这个是不需要的，会导致测试过程报错，需要将其排除。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180106212604346-548141091.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180106212604346-548141091.png "img")
 
 ## 将程序集打包发布到 Nuget 并支持远程调试
 
@@ -46,7 +46,7 @@
 
 - 要使用远程调试需要对 Visual Studio 做一些配置
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/Z1YY1Vc.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/Z1YY1Vc.png "img")
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/DY5fjyN.png)
+![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/DY5fjyN.png "img")
 

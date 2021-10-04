@@ -11,7 +11,7 @@
 
 下面说说为什么又关注起 NLog 了，Nlog 没有 Log4net 老牌，使用从 Nuget 下载量来看也没有 Log4net 用户量大，但是它却一直在保持高速的更新状态，从 github 主页上看它所支持的平台也相当广泛，从.net 环境到 mono 再到现在最新的 Xamarin 均支持：
 
-![nlog支持范围](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg)
+![nlog支持范围](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160114214413897-1273081438.jpg "nlog支持范围")
 
 ## 比较
 
@@ -34,7 +34,7 @@
 _这是用这两款日志框架写的一个性能比较的 Demo，暂时只比较了文件记录日志的情况(因为相对来说这种情况应该是最多的)，附上[源码地址](https://github.com/qjdev/Demo/tree/master/LogDemo/LogDemo)。
 性能比较结果如图，分别是 Debug 条件编译下的单线程和并行多线程以及独占锁和最小冲突锁的情况：_
 
-![性能比较结果](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg)
+![性能比较结果](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160116085830866-2125461439.jpg "性能比较结果")
 
 ## 2017 年 9 月 1 日更新
 

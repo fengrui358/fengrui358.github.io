@@ -18,7 +18,7 @@
 <meta name=application-name content="free note">
 <meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/><link rel=prev href=https://frhello.com/xamarin.forms-%E5%B0%BA%E5%AF%B8%E5%A4%A7%E5%B0%8F%E4%BA%94-dealing-with-sizes/><link rel=next href=https://frhello.com/%E8%A7%A3%E5%86%B3-xamarin-android-%E5%A2%99%E7%9A%84%E9%97%AE%E9%A2%98/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Xamarin.Forms——WebView 技术研究","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, xamarin","wordcount":3768,"url":"https:\/\/frhello.com\/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6\/","datePublished":"2016-03-13T19:06:34+08:00","dateModified":"2016-03-13T19:06:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/><link rel=prev href=https://frhello.com/xamarin.forms-%E5%B0%BA%E5%AF%B8%E5%A4%A7%E5%B0%8F%E4%BA%94-dealing-with-sizes/><link rel=next href=https://frhello.com/%E8%A7%A3%E5%86%B3-xamarin-android-%E5%A2%99%E7%9A%84%E9%97%AE%E9%A2%98/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Xamarin.Forms——WebView 技术研究","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, xamarin","wordcount":3795,"url":"https:\/\/frhello.com\/xamarin.formswebview-%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6\/","datePublished":"2016-03-13T19:06:34+08:00","dateModified":"2016-03-13T19:06:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -86,7 +86,7 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">Xamarin.Forms——WebView 技术研究</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/xamarin/><i class="far fa-folder fa-fw"></i>xamarin</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-03-13>2016-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3768 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-03-13>2016-03-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3795 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -129,7 +129,10 @@
 <li><a href=#permissions rel>权限（Permissions）</a>——了解在 App 中使用 WebView 的相应权限设置。</li>
 <li><a href=#layout rel>布局（Layout）</a>——WebView 对布局有一些特别要求，了解如何恰当的显示 WebView。</li>
 </ul>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311224937835-1397055104.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <h2 id=content>Content</h2>
 <p>WebView 支持下列几种内容：</p>
 <ul>
@@ -236,7 +239,10 @@
 <span class=n>browser</span><span class=p>.</span><span class=n>Source</span> <span class=p>=</span> <span class=n>htmlSource</span><span class=p>;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png title=img></p>
+</div><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311225016038-517152499.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <p>上面的代码中，<code>@</code> 符号用于标记 HTML 作为一串字面量的字符串，所有通用转义符都会被忽略。</p>
 <h3 id=本地-html-文件>本地 HTML 文件</h3>
 <p>WebView 可以直接展示嵌入在 App 中的 HTML，CSS 和 Javascript，例如：</p>
@@ -288,7 +294,10 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>注意上面的 CSS 中指定的特殊字体需要根据不同的平台自定义，不是所有的平台都具有相同的字体。</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311231030132-1051618272.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <blockquote>
 <p><strong>注意：</strong> Xamarin.Forms 中当前存在一个 bug，在 Windows 中本地 HTML 内容不能被显示，但是它不会影响 Windows Phone。查看 <a href="https://bugzilla.xamarin.com/show_bug.cgi?id=32033" target=_blank rel="noopener noreffer">Bugzilla</a> 获取关于这个 bug 最新状态的更多信息。</p>
 </blockquote>
@@ -347,10 +356,16 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>此时网站的位置会被定位到项目的根目录或者 <strong>Resources</strong> 目录，并且文件的生成操作应该修改为 <em>BundleResource</em>，如下图：</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160311235821616-1732031922.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <h4 id=android>Android</h4>
 <p>在 Android 平台下，HTML，CSS 和图片文件应该位于 <strong>Assets</strong> 文件夹下，并且生成操作应该修改为 <em>AndroidAsset</em>，如下图：</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000116397-682166478.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <p>Android 平台下，<code>BaseUrl</code> 的值应该设置为 <code>"file:///android_asset/"</code>：</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -402,7 +417,10 @@
 <p><strong>注意：</strong> 在Windows Phone 8.1 下 <code>WebView</code> 不支持本地内容，但是在 Windows Phone 8 下支持。</p>
 </blockquote>
 <p>在 Windows Phone 平台下，HTML，CSS 和图片文件位于项目根目录，并且生成操作应该修改为 <em>Content</em>，如下图：</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312000754944-897950844.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <p>Windows Phone 平台下，<code>BaseUrl</code> 的值应该设置为<code>""</code>：</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -546,7 +564,10 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>最后呈现效果如下：</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312225451741-1318967697.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <h2 id=events>Events</h2>
 <p>WebView 通过触发两个事件来帮助你响应状态变更：</p>
 <ul>
@@ -623,9 +644,15 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>当页面加载中时输出结果如下：</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232058866-1544884984.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <p>当页面加载完成时输出如下：</p>
-<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png title=img></p>
+<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png title=img data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png data-sub-html="<h2>img</h2><p>img</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160312232156100-1198256173.png>
+</a><figcaption class=image-caption>img</figcaption>
+</figure></p>
 <h2 id=performance>Performance</h2>
 <p>最近的各大 web 浏览器都已经采用了一些被世人所熟知的流行技术，如硬件加速渲染和 JavaScript 编译。不幸的是，出于安全限制，大多数高级功能在 iOS 的 <code>WebView</code> 和 <code>UIWebView</code> 里无法使用。Xamarin.Forms 里的 <code>WebView</code> 在 iOS 平台下实际上是使用的 <code>UIWebView</code>。如果这个限制对你的使用造成了困扰，你需要在平台内部使用支持快速浏览等功能的 <code>WKWebView</code> 进行重新渲染。但是需要注意 <code>WKWebView</code> 仅支持 iOS 8 以上的系统。</p>
 <p>WebView 在 Android 的默认设置中跟内建浏览器一样快。</p>

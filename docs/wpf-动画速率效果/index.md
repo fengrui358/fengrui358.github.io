@@ -7,7 +7,7 @@
 
 不同的缓动函数光看名字很难知道实际效果，样条关键帧动画的贝塞尔曲线控制也很难直观的看到效果，于是写了个小工具来展现不同的动画速率的效果以及修改配置对速率的影响，下面是工具的运行效果。
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20171204225859191-414960056.gif)
+![动画速率效果](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20171204225859191-414960056.gif "动画速率效果")
 
 > 工具代码下载地址：<https://github.com/fengrui358/WPFLabs/tree/master/EasingFunctionDemo>
 >

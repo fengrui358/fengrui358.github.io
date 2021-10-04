@@ -21,7 +21,7 @@ Xamarin 的三个优势：
 
 共享代码的关系就如下图：
 
-![共享代码的关系](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png)
+![共享代码的关系](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160224135616958-412345898.png "共享代码的关系")
 
 ## Xamarin 安装指南 ##
 
@@ -58,7 +58,7 @@ Mac 下的大体流程：
 
 关于商业证书，Xamarin 的[价格](https://store.xamarin.com/)是很昂贵的：
 
-![价格](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png)
+![价格](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160225091939349-1001403408.png "价格")
 
 上面看到的价格只是针对单用户单设备平台，通常我们使用 Xamarin 都希望至少能用于 Android 和 iOS 两个平台，所以价格还得乘以 2。
 
@@ -79,7 +79,7 @@ Mac 下的大体流程：
 
 ## Xamarin.Forms 程序结构 ##
 
-![程序结构](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png)
+![程序结构](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301171921673-1640559633.png "程序结构")
 
 程序的目录结构大致就可以参考这个图，最顶上一层表示三个特定平台的工程，第二层表示一个 PCL 或者 SAP 工程，通常也是 Forms 所在的工程，然后引用两个核心库 Xamarin.Forms.Core 和 Xamarin.Forms.Xaml，然后特定平台的工程还要引用两个特定平台的库，这个特定平台的库可以让程序集使用特定平台的 API。
 
@@ -174,7 +174,7 @@ Forms 中真正使用的不是像素，而是点数，点里面包含的像素�
 
 在 Forms 中设计各种元素布局等细节依然可以参考设计网页采用的盒模型的思想。从大的块元素的分离到小如一个文字，都可以想象成一个个小盒子。由内容区，内边距，边框，外边距组成。
 
-![UI](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg)
+![UI](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20160301183231830-2012572054.jpg "UI")
 
 Forms 中还有几个比较容易混淆的类：ContentView，Frame，BoxView。
 虽然可以按照盒模型的思想来布局元素，但是 Forms 中没有标准的 margin 的概念，Forms 的做法是在一个内容视图外面再嵌套一个 ContentView，ContentView 继承自 Layout，只多了一个 Content 属性来存放内容视图。此时，ContentView 的 Padding 属性就可以想象成盒子的 Margin。

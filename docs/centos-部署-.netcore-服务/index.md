@@ -7,11 +7,11 @@
 
 ## 跟随安装步骤进行，中途要选择磁盘
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309232456524-101259708.png)
+![选择磁盘](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309232456524-101259708.png "选择磁盘")
 
 ## 设置 Root 用户密码
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309232643970-959574733.png)
+![设置 Root 用户密码](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309232643970-959574733.png "设置 Root 用户密码")
 
 ## 安装完毕后重启，进入系统，CentOs 最小版缺少一些必要组件，首先要打开网卡设置，用`vi`编辑
 
@@ -29,13 +29,13 @@
 
 ## 使用 `ifconfig` 查看本机 IP
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309235525274-1957308678.png)
+![查看本机 IP](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309235525274-1957308678.png "查看本机 IP")
 
 ## 下载 [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
 使用IP地址可进行远程连接：
 
-![img](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309235842512-303229030.png)
+![远程连接](https://cdn.jsdelivr.net/gh/fengrui358/img@main/282687-20180309235842512-303229030.png "远程连接")
 
 ## 安装 Nginx
 
