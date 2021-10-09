@@ -14,7 +14,7 @@ npm install -g nrm
 - 添加 registry 地址
 
 ```bash
-nrm add npm http://registry.npmjs.org
+nrm add npm https://registry.npmjs.org
 nrm add taobao https://registry.npm.taobao.org
 ```
 
