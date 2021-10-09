@@ -83,58 +83,25 @@
 <main class=main>
 <div class=container><div class="page home" posts><div class=home-profile><div class=home-avatar><a href=/posts/ title=所有文章><img class=lazyload src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png></a></div><h2 class=home-subtitle><div id=id-1 class=typeit></div></h2><div class=links><a href=https://github.com/fengrui358 title=GitHub target=_blank rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href=mailto:qjdev@qq.com title=Email rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href=/index.xml title=RSS target=_blank rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/docker-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/>Docker 基本命令</a>
-</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2021-02-18>2021-02-18</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/docker/><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class=content>账号权限 创建 docker 组 sudo groupadd docker 添加用户到该组 sudo usermod -aG docker ${USER} 重新登陆系统 建立网络 1 docker network create -d bridge my-net -d 参数指定 Docker 网络类型，有 bridge overlay。其中 overlay 网络类型用于</div><div class=post-footer>
-<a href=/docker-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/>阅读全文</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/docker/>docker</a></div></div>
-</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/docker-%E5%9B%BD%E5%86%85%E6%BA%90%E5%9C%B0%E5%9D%80/>Docker 国内源地址</a>
-</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2021-02-12>2021-02-12</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/docker/><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class=content>npm 使用 nrm 管理 registry 地址 下载 nrm 1 npm install -g nrm 添加 registry 地址 1 2 nrm add npm https://registry.npmjs.org nrm add taobao https://registry.npm.taobao.org 切换 npm registry 地址 1 2 nrm use taobao nrm use npm docker 在 /etc/docker/daemon.json 中写入以下配置 1 2 3 4 5 6 7 8 9 { "registry-mirrors": [ "https://mirror.ccs.tencentyun.com", "https://registry.cn-hangzhou.aliyuncs.com",</div><div class=post-footer>
-<a href=/docker-%E5%9B%BD%E5%86%85%E6%BA%90%E5%9C%B0%E5%9D%80/>阅读全文</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/docker/>docker</a>,&nbsp;<a href=/tags/deploy/>deploy</a>,&nbsp;<a href=/tags/resource/>resource</a></div></div>
-</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/vuejs-%E7%AC%94%E8%AE%B0/>Vuejs 笔记</a>
-</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2020-11-15>2020-11-15</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/vuejs/><i class="far fa-folder fa-fw"></i>vuejs</a></span></div><div class=content>计算属性和方法的区别 计算属性是基于它们的响应式依赖进行缓存的，只在相关响应式依赖发生改变时它们才会重新求值，如下示例，因为 Date.now() 不是响应式依赖，</div><div class=post-footer>
-<a href=/vuejs-%E7%AC%94%E8%AE%B0/>阅读全文</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/vuejs/>vuejs</a></div></div>
-</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/>夏令时切换时间如何计算</a>
-</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2020-11-03>2020-11-03</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/i18n/><i class="far fa-folder fa-fw"></i>i18n</a></span></div><div class=content>夏令时切换场景 在有些国家会存在夏令时切换的情况，当这种情况出现时会凭空的多出或少去一个小时，这种情况我们的程序是如何处理？又是如何计算时常的</div><div class=post-footer>
-<a href=/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/>阅读全文</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/i18n/>i18n</a></div></div>
-</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/azure-devops-%E8%B8%A9%E5%9D%91/>Azure DevOps 踩坑</a>
-</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2020-10-21>2020-10-21</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/deploy/><i class="far fa-folder fa-fw"></i>deploy</a></span></div><div class=content>让 .netCore 2.0 的测试在 Azure DevOps 中正确运行需要注意几个地方 要增加 .netCore 的测试程序集目录； imgimg " img 设置 Speceific location:C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\TestPlatform 设置 Other console options:/Framework:".NETCoreApp,Version=v2.0" imgimg " img 默认配置会包含 xunit（我是使</div><div class=post-footer>
-<a href=/azure-devops-%E8%B8%A9%E5%9D%91/>阅读全文</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/deploy/>deploy</a></div></div>
-</article><article class="single summary" itemscope itemtype=http://schema.org/Article><h1 class=single-title itemprop="name headline">
-<a href=/%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E6%A2%85%E6%9E%97%E5%9B%BA%E4%BB%B6%E8%AE%BE%E7%BD%AE/>华硕路由器梅林固件设置</a>
-</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2020-10-19>2020-10-19</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/router/><i class="far fa-folder fa-fw"></i>router</a></span></div><div class=content>路由器型号，华硕 AC3100 梅林固件下载地址：https://www.asuswrt-merlin.net/download 具体下载地址格式：http</div><div class=post-footer>
-<a href=/%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E6%A2%85%E6%9E%97%E5%9B%BA%E4%BB%B6%E8%AE%BE%E7%BD%AE/>阅读全文</a><div class=post-tags>
-<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/router/>router</a>,&nbsp;<a href=/tags/deploy/>deploy</a></div></div>
+<a href=/xamarin-%E5%85%A5%E9%97%A8%E6%B5%85%E6%9E%90/>Xamarin 入门浅析</a>
+</h1><div class=post-meta><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-publish>发布于 <time datetime=2016-01-13>2016-01-13</time></span>&nbsp;<span class=post-category>收录于 <a href=/categories/xamarin/><i class="far fa-folder fa-fw"></i>xamarin</a></span></div><div class=content>安装 使用标准安装流程(JDK1.6 -> Android SDK -> NDK -> Xamarin Studio -> Xamarin Visual Studio) Android SDK Manager 更改源，可时刻保持最新，一个镜像源地址：mirrors.neusoft.ed</div><div class=post-footer>
+<a href=/xamarin-%E5%85%A5%E9%97%A8%E6%B5%85%E6%9E%90/>阅读全文</a><div class=post-tags>
+<i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/xamarin/>xamarin</a></div></div>
 </article><ul class=pagination><li class=page-item>
 <span class=page-link>
 <a href=/>1</a>
 </span>
 </li><li class=page-item>
-<span class=page-link>
-<a href=/page/2/>2</a>
-</span>
-</li><li class="page-item active">
-<span class=page-link>
-<a href=/page/3/>3</a>
-</span>
-</li><li class=page-item>
-<span class=page-link>
-<a href=/page/4/>4</a>
-</span>
-</li><li class=page-item>
-<span class=page-link>
-<a href=/page/5/>5</a>
-</span>
-</li><li class=page-item>
 <span class=page-link aria-hidden=true>&mldr;</span>
 </li><li class=page-item>
+<span class=page-link>
+<a href=/page/7/>7</a>
+</span>
+</li><li class=page-item>
+<span class=page-link>
+<a href=/page/8/>8</a>
+</span>
+</li><li class="page-item active">
 <span class=page-link>
 <a href=/page/9/>9</a>
 </span>
