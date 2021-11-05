@@ -197,8 +197,8 @@
 <td class=lntd>
 <pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>Fubar</span><span class=p>(</span><span class=nx>foo</span><span class=p>,</span> <span class=nx>bar</span><span class=p>)</span> <span class=p>{</span>
   <span class=s2>&#34;use strict&#34;</span><span class=p>;</span>
-  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>foo</span> <span class=o>=</span> <span class=nx>foo</span><span class=p>;</span>
-  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>bar</span> <span class=o>=</span> <span class=nx>bar</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=nx>_foo</span> <span class=o>=</span> <span class=nx>foo</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=nx>_bar</span> <span class=o>=</span> <span class=nx>bar</span><span class=p>;</span>
 <span class=p>}</span>
 
 <span class=nx>Fubar</span><span class=p>();</span>
@@ -228,14 +228,14 @@
     <span class=k>return</span> <span class=k>new</span> <span class=nx>Fubar</span><span class=p>(</span><span class=nx>foo</span><span class=p>,</span> <span class=nx>bar</span><span class=p>);</span>
   <span class=p>}</span>
 
-  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>foo</span> <span class=o>=</span> <span class=nx>foo</span><span class=p>;</span>
-  <span class=k>this</span><span class=p>.</span><span class=mi>_</span><span class=nx>bar</span> <span class=o>=</span> <span class=nx>bar</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=nx>_foo</span> <span class=o>=</span> <span class=nx>foo</span><span class=p>;</span>
+  <span class=k>this</span><span class=p>.</span><span class=nx>_bar</span> <span class=o>=</span> <span class=nx>bar</span><span class=p>;</span>
 <span class=p>}</span>
 
-<span class=nx>Fubar</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>).</span><span class=mi>_</span><span class=nx>foo</span><span class=p>(</span>
+<span class=nx>Fubar</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>).</span><span class=nx>_foo</span><span class=p>(</span>
   <span class=c1>// 1
 </span><span class=c1></span>  <span class=k>new</span> <span class=nx>Fubar</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
-<span class=p>).</span><span class=mi>_</span><span class=nx>foo</span><span class=p>;</span> <span class=c1>// 1
+<span class=p>).</span><span class=nx>_foo</span><span class=p>;</span> <span class=c1>// 1
 </span></code></pre></td></tr></table>
 </div>
 </div><p>如果构造函数内部有 return 语句，而且 return 后面跟着一个对象，new 命令会返回 return 语句指定的对象；否则，就会不管 return 语句，返回 this 对象。</p>
