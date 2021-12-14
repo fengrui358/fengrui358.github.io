@@ -146,6 +146,15 @@ ssl_prefer_server_ciphers on;
 </div><p>到此，浏览器应该能够使用 https 正常访问网页，不过期间有个小插曲，因为我的 Windows 电脑安装的 VMware，这玩意有个 VMwareHostd 服务监听了 443 端口，导致我的浏览器一直在报 <code>NET:ERR_CERT_AUTHORITY_INVALID</code> 这个错误，但是我更换 nginx 代理暴露的端口后又能正常访问，这一度让我以为 443 端口对浏览器来说有某种神秘力量，好在后来停掉 nginx 后发现 443 依旧可以 telnet 通，这才知道原来是被 VMwareHostd 占用了，停掉这个服务后就一切正常了。</p>
 <h2 id=复用根证书>复用根证书</h2>
 <p>通过命令 <code>mkcert -CAROOT</code> 查看根证书的位置，查看到证书位置后取一份计算机的证书，复制到其他计算机后运行 <code>mkcert -install</code> 就可以达到不同计算机都能识别相同的自签证书的目的。</p>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>
+本文最后更新于 <span class=timeago datetime=2021-09-10T15:30:10 title="September 10, 2021">September 10, 2021</span>，文中内容可能已过时，请谨慎使用。</div>
+</div>
+</div>
 </div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
