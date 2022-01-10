@@ -11,11 +11,11 @@
 
 #### 功能入口
 
-![EKS 入口](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101313189.png) "EKS 入口")
+![EKS 入口](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101313189.png "EKS 入口")
 
 #### 弹性集群创建
 
-![弹性集群](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101312224.png) "弹性集群")
+![弹性集群](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101312224.png "弹性集群")
 
 #### 开启 EKS 的公网访问
 
@@ -52,7 +52,7 @@ kubectl apply -k ./
 
 公网访问：
 
-![公网访问](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101312651.png) "公网访问")
+![公网访问](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101312651.png "公网访问")
 
 ### 清理
 
