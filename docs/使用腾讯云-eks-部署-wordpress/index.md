@@ -11,15 +11,15 @@
 
 #### 功能入口
 
-![EKS 入口](https://cdn.jsdelivr.net/gh/fengrui358/img@main/%E6%88%AA%E5%B1%8F2021-12-27%20%E4%B8%8B%E5%8D%8811.06.18.png "EKS 入口")
+![EKS 入口](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101313189.png) "EKS 入口")
 
 #### 弹性集群创建
 
-![弹性集群](https://cdn.jsdelivr.net/gh/fengrui358/img@main/%E6%88%AA%E5%B1%8F2021-12-31%20%E4%B8%8A%E5%8D%888.24.16.png "弹性集群")
+![弹性集群](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101312224.png) "弹性集群")
 
 #### 开启 EKS 的公网访问
 
-![公网访问](https://cdn.jsdelivr.net/gh/fengrui358/img@main/%E6%88%AA%E5%B1%8F2022-01-02%20%E4%B8%8B%E5%8D%883.25.21.png "公网访问")
+![公网访问](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101306551.png "公网访问")
 
 #### 使用公网凭据连接 EKS
 
@@ -52,7 +52,7 @@ kubectl apply -k ./
 
 公网访问：
 
-![公网访问](https://cdn.jsdelivr.net/gh/fengrui358/img@main/%E6%88%AA%E5%B1%8F2022-01-02%20%E4%B8%8B%E5%8D%883.18.44.png "公网访问")
+![公网访问](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202201101312651.png) "公网访问")
 
 ### 清理
 
