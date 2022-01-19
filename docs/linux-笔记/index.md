@@ -45,6 +45,8 @@ systemctl status firewalld
 
 ### 静态 IP
 
+#### CentOS 7 静态 IP
+
 参考 <https://www.cnblogs.com/freeweb/p/5335973.html>
 
 打开配置文件进行编辑 `vim /etc/sysconfig/network-scripts/ifcfg-${xxxx}` 把 `BOOTPROTO="dhcp"` 改成 `BOOTPROTO="static"`
@@ -64,6 +66,40 @@ nameserver 8.8.8.8
 ```
 
 重启网络 `service network restart`
+
+#### Ubuntu 18.04 静态 IP
+
+参考 <https://ld246.com/article/1593929878472>
+
+修改配置的 yaml 文件，文件位于 `/etc/netplan/` 目录下，文件名类似于 `00-installer-config.yaml`：
+
+```bash
+sudo nano /etc/netplan/00-installer-config.yaml
+```
+
+修改为如下配置：
+
+```yaml
+network:
+  ethernets:
+    ens160:     #配置的网卡的名称
+      addresses: [192.168.0.105/24]    #配置的静态ip地址和掩码
+      dhcp4: no    #关闭DHCP，如果需要打开DHCP则写yes
+      optional: true
+      gateway4: 192.168.0.1    #网关地址
+      nameservers:
+         addresses: [114.114.114.114,180.76.76.76]    #DNS服务器地址，多个DNS服务器地址需要用英文逗号分隔开
+  version: 2
+  renderer: networkd    #指定后端采用systemd-networkd或者Network Manager，可不填写则默认使用systemd-workd
+```
+
+注意修改网卡的配置名。
+
+最后重启网络生效：
+
+```bash
+sudo netplan apply
+```
 
 ## 软件
 
