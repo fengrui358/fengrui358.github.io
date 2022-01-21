@@ -21,7 +21,7 @@
 <meta name=application-name content="free note">
 <meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/><link rel=prev href=https://frhello.com/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91-eks-%E9%83%A8%E7%BD%B2-wordpress/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Docker 是什么","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"docker","wordcount":1960,"url":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/","datePublished":"2022-01-08T08:08:08+08:00","dateModified":"2022-01-08T08:08:08+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/><link rel=prev href=https://frhello.com/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91-eks-%E9%83%A8%E7%BD%B2-wordpress/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Docker 是什么","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"docker","wordcount":2325,"url":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/","datePublished":"2022-01-08T08:08:08+08:00","dateModified":"2022-01-08T08:08:08+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -89,8 +89,8 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">Docker 是什么</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/docker/><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-08>2022-01-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1960 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-08>2022-01-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2325 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -106,6 +106,10 @@
 <li><a href=#layer-分层镜像>layer 分层镜像</a></li>
 </ul>
 </li>
+<li><a href=#容器进程的-pid>容器进程的 Pid</a></li>
+<li><a href=#加入容器网络>加入容器网络</a></li>
+<li><a href=#volume-挂载>Volume 挂载</a></li>
+<li><a href=#参考>参考</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p>Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一个网络中，这样就可以让我们的应用程序在不同的环境中运行，而不需要改变程序的代码，这样就可以节省我们的开发时间。</p>
@@ -323,8 +327,91 @@ mount -t aufs -o <span class=nv>dirs</span><span class=o>=</span>./A<span class=
     <span class=o>}</span>,
 </code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<p>参考：</p>
+</div><h2 id=容器进程的-pid>容器进程的 Pid</h2>
+<p>启动一个容器后使用以下命令获取 Docker 容器的进程 Pid：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker inspect --format <span class=s1>&#39;{{.State.Pid}}&#39;</span> ee8e926d
+
+--- 输出 ---
+<span class=m>1703</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>此时，通过宿主机的 proc 文件，可以看到这个进程的所有 Namespace 对应的文件：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo ls -l /proc/1703/ns
+
+--- 输出 ---
+total <span class=m>0</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:14 cgroup -&gt; <span class=s1>&#39;cgroup:[4026531835]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:12 ipc -&gt; <span class=s1>&#39;ipc:[4026532648]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:12 mnt -&gt; <span class=s1>&#39;mnt:[4026532646]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:08 net -&gt; <span class=s1>&#39;net:[4026532651]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:12 pid -&gt; <span class=s1>&#39;pid:[4026532649]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:14 pid_for_children -&gt; <span class=s1>&#39;pid:[4026532649]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:14 user -&gt; <span class=s1>&#39;user:[4026531837]&#39;</span>
+lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:12 uts -&gt; <span class=s1>&#39;uts:[4026532647]&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=加入容器网络>加入容器网络</h2>
+<p>Docker 专门提供了一个参数，可以让你启动一个容器并“加入”到另一个容器的 Network Namespace 里，这个参数就是 &ndash;net，比如：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker run --net<span class=o>=</span>container:ee8e926d busybox:latest ifconfig
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=volume-挂载>Volume 挂载</h2>
+<p>容器中的目录可以通过 Volume 挂载到宿主机上，比如：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker run -d -it -v /test ubuntu:latest sleep <span class=m>3600</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>查看刚才创建容器挂载的宿主机目录</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker inspect --format <span class=s1>&#39;{{.Mounts}}&#39;</span> <span class=m>744</span>
+
+--- 输出 ---
+<span class=o>[{</span>volume 16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca /var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data /test <span class=nb>local</span>  <span class=nb>true</span> <span class=o>}]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其中 <code>/var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data</code> 就是容器中 <code>/test</code> 对应的宿主目录，在里面进行文件操作，在宿主机和容器里都能看到。</p>
+<h2 id=参考>参考</h2>
+<blockquote>
 <p><a href=https://time.geekbang.org/column/article/23132 target=_blank rel="noopener noreffer">https://time.geekbang.org/column/article/23132</a></p>
 </blockquote>
 </div><div class=post-footer id=post-footer>

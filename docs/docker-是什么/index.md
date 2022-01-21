@@ -155,7 +155,62 @@ docker image inspect ubuntu:latest
     },
 ```
 
-> 参考：
->
+## 容器进程的 Pid
+
+启动一个容器后使用以下命令获取 Docker 容器的进程 Pid：
+
+```bash
+docker inspect --format '{{.State.Pid}}' ee8e926d
+
+--- 输出 ---
+1703
+```
+
+此时，通过宿主机的 proc 文件，可以看到这个进程的所有 Namespace 对应的文件：
+
+```bash
+sudo ls -l /proc/1703/ns
+
+--- 输出 ---
+total 0
+lrwxrwxrwx 1 root root 0 Jan 21 08:14 cgroup -> 'cgroup:[4026531835]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:12 ipc -> 'ipc:[4026532648]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:12 mnt -> 'mnt:[4026532646]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:08 net -> 'net:[4026532651]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:12 pid -> 'pid:[4026532649]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:14 pid_for_children -> 'pid:[4026532649]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:14 user -> 'user:[4026531837]'
+lrwxrwxrwx 1 root root 0 Jan 21 08:12 uts -> 'uts:[4026532647]'
+```
+
+## 加入容器网络
+
+Docker 专门提供了一个参数，可以让你启动一个容器并“加入”到另一个容器的 Network Namespace 里，这个参数就是 --net，比如：
+
+```bash
+docker run --net=container:ee8e926d busybox:latest ifconfig
+```
+
+## Volume 挂载
+
+容器中的目录可以通过 Volume 挂载到宿主机上，比如：
+
+```bash
+docker run -d -it -v /test ubuntu:latest sleep 3600
+```
+
+查看刚才创建容器挂载的宿主机目录
+
+```bash
+docker inspect --format '{{.Mounts}}' 744
+
+--- 输出 ---
+[{volume 16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca /var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data /test local  true }]
+```
+
+其中 `/var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data` 就是容器中 `/test` 对应的宿主目录，在里面进行文件操作，在宿主机和容器里都能看到。
+
+## 参考
+
 > <https://time.geekbang.org/column/article/23132>
 
