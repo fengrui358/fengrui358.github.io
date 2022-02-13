@@ -254,11 +254,17 @@ enabled=1
 
 ## 设置常驻服务
 
-### Ubuntu
+### Ubuntu 设置常驻服务
 
 <https://www.jianshu.com/p/5ffccbd8ed1b>
 
 <https://blog.csdn.net/wojiaosha123/article/details/98784936>
+
+## sudo 免密
+
+### Ubuntu sudo 免密
+
+进入 `/etc/sudoers.d/` 目录，新建一个跟用户名同名的文件，然后在里面录入 `yourusername ALL=(ALL) NOPASSWD:ALL`
 
 ## 免密登陆
 
