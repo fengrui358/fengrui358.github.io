@@ -62,6 +62,49 @@ docker save -o test.tar fengrui358/puppeteer_dotnet:aspnetcore5.0
 docker load -i test.tar
 ```
 
+## docker 文件挂载
+
+### docker run 文件挂载
+
+```bash
+# Windows 下绝对路径目录
+docker run --rm -it -v C:/test_docker_dir:/test_docker_dir busybox /bin/sh
+
+# Linux 下绝对路径目录
+docker run --rm -it -v /home/ubuntu/test_docker_dir:/test_docker_dir busybox /bin/sh
+```
+
+```bash
+# Windows 下绝对路径文件
+docker run --rm -it -v C:/test_docker_dir/file.txt:/test_docker_dir/file.txt busybox /bin/sh
+
+# Linux 绝对路径文件
+docker run --rm -it -v /home/ubuntu/test_docker_dir/file.txt:/test_docker_dir/file.txt busybox /bin/sh
+```
+
+```bash
+# 相对路径目录
+docker run --rm -it -v ${PWD}/test_docker_dir:/test_docker_dir busybox /bin/sh
+```
+
+```bash
+# Windows 下相对路径文件
+docker run --rm -it -v ${PWD}/test_docker_dir/file.txt:/test_docker_dir/file.txt busybox /bin/sh
+```
+
+### docker compose 文件挂载
+
+```ymal
+version: '3'
+services:
+    srs:
+        image: busybox
+        volumes:
+          - ./test_docker_dir:/test_docker_dir
+          - ./test_docker_dir/file.txt:/test_docker_dir2/file.txt
+        command: ping baidu.com
+```
+
 ## 常用 Docker 镜像
 
 ### postgres
