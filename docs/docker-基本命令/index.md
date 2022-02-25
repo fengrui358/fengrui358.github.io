@@ -19,6 +19,14 @@ docker network create -d bridge my-net
 
 每一个 bridge 网络均为独立子网，如果要在 bridge 网络中的容器里访问宿主机网络需要使用 `host.docker.internal` 来解析宿主机真实地址
 
+### 加入容器网络
+
+使用以下命令加入一个运行中的容器网络，可以进行一些网络诊断
+
+```bash
+docker run --network xxxx_network -it busybox /bin/sh
+```
+
 ## 基本命令
 
 ```bash
