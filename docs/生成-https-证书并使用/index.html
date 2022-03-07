@@ -21,14 +21,12 @@
 <meta name=application-name content="free note">
 <meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/><link rel=prev href=https://frhello.com/janus-%E6%90%AD%E5%BB%BA%E4%B8%8E-webrtc-%E4%BD%BF%E7%94%A8/><link rel=next href=https://frhello.com/mutagen-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"生成 https 证书并使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"https, cert","wordcount":486,"url":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/","datePublished":"2021-09-10T15:30:10+08:00","dateModified":"2021-09-10T15:30:10+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
-<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/><link rel=prev href=https://frhello.com/janus-%E6%90%AD%E5%BB%BA%E4%B8%8E-webrtc-%E4%BD%BF%E7%94%A8/><link rel=next href=https://frhello.com/mutagen-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"生成 https 证书并使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"https, cert","wordcount":486,"url":"https:\/\/frhello.com\/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8\/","datePublished":"2021-09-10T15:30:10+08:00","dateModified":"2021-09-10T15:30:10+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div>
-<div class=menu>
+</div><div class=menu>
 <div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/shortcut/> 捷径 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
@@ -43,20 +41,14 @@
 </span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
 </a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
+</div></div></div></header><header class=mobile id=header-mobile>
 <div class=header-container>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
+</div><div class=menu-toggle id=menu-toggle-mobile>
 <span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
+</div></div><div class=menu id=menu-mobile><div class=search-wrapper>
 <div class="search mobile" id=search-mobile>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
@@ -68,67 +60,34 @@
 <span class="search-button search-loading" id=search-loading-mobile>
 <i class="fas fa-spinner fa-fw fa-spin"></i>
 </span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+</div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
 取消
 </a>
 </div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/shortcut/ title>捷径</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
+</a></div></div></header><div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div></div><main class=main>
 <div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">生成 https 证书并使用</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/deploy/><i class="far fa-folder fa-fw"></i>deploy</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-10>2021-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 486 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
+<h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">生成 https 证书并使用</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/deploy/><i class="far fa-folder fa-fw"></i>deploy</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-10>2021-09-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 486 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
 <span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#工具>工具</a></li>
-<li><a href=#生成证书>生成证书</a></li>
-<li><a href=#安装证书>安装证书</a></li>
-<li><a href=#配置-nginx>配置 nginx</a></li>
-<li><a href=#复用根证书>复用根证书</a></li>
-</ul>
-</nav></div>
-</div><div class=content id=content><h2 id=工具>工具</h2>
-<p>https 的场景运用越来越广泛，有时在开发环境中也需要使用 https 来进行开发或测试，这时自签名证书就成了快速应对这一场景的省时省力的好帮手。</p>
-<p>常见的自签名方案有通过 OpenSSL 来生成，不过现在有更快捷方便的工具 <a href=https://github.com/FiloSottile/mkcert target=_blank rel="noopener noreffer">https://github.com/FiloSottile/mkcert</a>。</p>
-<h2 id=生成证书>生成证书</h2>
-<p>Windows 下能够下载对应的工具 <a href=https://github.com/FiloSottile/mkcert/releases target=_blank rel="noopener noreffer">https://github.com/FiloSottile/mkcert/releases</a>，使用命令生成本地域名证书</p>
-<div class=highlight><div class=chroma>
+<li><a href=#工具>工具</a></li><li><a href=#生成证书>生成证书</a></li><li><a href=#安装证书>安装证书</a></li><li><a href=#配置-nginx>配置 nginx</a></li><li><a href=#复用根证书>复用根证书</a></li></ul></nav></div></div><div class=content id=content><h2 id=工具>工具</h2><p>https 的场景运用越来越广泛，有时在开发环境中也需要使用 https 来进行开发或测试，这时自签名证书就成了快速应对这一场景的省时省力的好帮手。</p><p>常见的自签名方案有通过 OpenSSL 来生成，不过现在有更快捷方便的工具 <a href=https://github.com/FiloSottile/mkcert target=_blank rel="noopener noreffer">https://github.com/FiloSottile/mkcert</a>。</p><h2 id=生成证书>生成证书</h2><p>Windows 下能够下载对应的工具 <a href=https://github.com/FiloSottile/mkcert/releases target=_blank rel="noopener noreffer">https://github.com/FiloSottile/mkcert/releases</a>，使用命令生成本地域名证书</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mkcert-v1.4.3-windows-amd64.exe localhost 127.0.0.1 ::1 10.13.69.59 192.168.1.80
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=安装证书>安装证书</h2>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkcert-v1.4.3-windows-amd64.exe localhost 127.0.0.1 ::1 10.13.69.59 192.168.1.80
+</span></span></code></pre></td></tr></table></div></div><h2 id=安装证书>安装证书</h2><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mkcert-v1.4.3-windows-amd64.exe -install
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=配置-nginx>配置 nginx</h2>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkcert-v1.4.3-windows-amd64.exe -install
+</span></span></code></pre></td></tr></table></div></div><h2 id=配置-nginx>配置 nginx</h2><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
@@ -136,64 +95,37 @@
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>ssl_certificate &#34;/etc/nginx/conf.d/localhost+4.pem&#34;;
-ssl_certificate_key &#34;/etc/nginx/conf.d/localhost+4-key.pem&#34;;
-ssl_session_cache shared:SSL:1m;
-ssl_session_timeout  10m;
-ssl_ciphers HIGH:!aNULL:!MD5;
-ssl_prefer_server_ciphers on;
-</code></pre></td></tr></table>
-</div>
-</div><p>到此，浏览器应该能够使用 https 正常访问网页，不过期间有个小插曲，因为我的 Windows 电脑安装的 VMware，这玩意有个 VMwareHostd 服务监听了 443 端口，导致我的浏览器一直在报 <code>NET:ERR_CERT_AUTHORITY_INVALID</code> 这个错误，但是我更换 nginx 代理暴露的端口后又能正常访问，这一度让我以为 443 端口对浏览器来说有某种神秘力量，好在后来停掉 nginx 后发现 443 依旧可以 telnet 通，这才知道原来是被 VMwareHostd 占用了，停掉这个服务后就一切正常了。</p>
-<h2 id=复用根证书>复用根证书</h2>
-<p>通过命令 <code>mkcert -CAROOT</code> 查看根证书的位置，查看到证书位置后取一份计算机的证书，复制到其他计算机后运行 <code>mkcert -install</code> 就可以达到不同计算机都能识别相同的自签证书的目的。</p>
-<div class="details admonition note open">
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>ssl_certificate &#34;/etc/nginx/conf.d/localhost+4.pem&#34;;
+</span></span><span class=line><span class=cl>ssl_certificate_key &#34;/etc/nginx/conf.d/localhost+4-key.pem&#34;;
+</span></span><span class=line><span class=cl>ssl_session_cache shared:SSL:1m;
+</span></span><span class=line><span class=cl>ssl_session_timeout  10m;
+</span></span><span class=line><span class=cl>ssl_ciphers HIGH:!aNULL:!MD5;
+</span></span><span class=line><span class=cl>ssl_prefer_server_ciphers on;
+</span></span></code></pre></td></tr></table></div></div><p>到此，浏览器应该能够使用 https 正常访问网页，不过期间有个小插曲，因为我的 Windows 电脑安装的 VMware，这玩意有个 VMwareHostd 服务监听了 443 端口，导致我的浏览器一直在报 <code>NET:ERR_CERT_AUTHORITY_INVALID</code> 这个错误，但是我更换 nginx 代理暴露的端口后又能正常访问，这一度让我以为 443 端口对浏览器来说有某种神秘力量，好在后来停掉 nginx 后发现 443 依旧可以 telnet 通，这才知道原来是被 VMwareHostd 占用了，停掉这个服务后就一切正常了。</p><h2 id=复用根证书>复用根证书</h2><p>通过命令 <code>mkcert -CAROOT</code> 查看根证书的位置，查看到证书位置后取一份计算机的证书，复制到其他计算机后运行 <code>mkcert -install</code> 就可以达到不同计算机都能识别相同的自签证书的目的。</p><div class="details admonition note open">
 <div class="details-summary admonition-title">
 <i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class=details-content>
+</div><div class=details-content>
 <div class=admonition-content>
-本文最后更新于 <span class=timeago datetime=2021-09-10T15:30:10 title="September 10, 2021">September 10, 2021</span>，文中内容可能已过时，请谨慎使用。</div>
-</div>
-</div>
-</div><div class=post-footer id=post-footer>
+本文最后更新于 <span class=timeago datetime=2021-09-10T15:30:10 title="September 10, 2021">September 10, 2021</span>，文中内容可能已过时，请谨慎使用。</div></div></div></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
 <span>更新于 2021-09-10</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
+</div><div class=post-info-license></div></div><div class=post-info-line>
+<div class=post-info-md></div><div class=post-info-share>
 <span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-title="生成 https 证书并使用" data-hashtags=https,cert><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-hashtag=https><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-title="生成 https 证书并使用"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-title="生成 https 证书并使用"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-title="生成 https 证书并使用"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-title="生成 https 证书并使用"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/%E7%94%9F%E6%88%90-https-%E8%AF%81%E4%B9%A6%E5%B9%B6%E4%BD%BF%E7%94%A8/ data-title="生成 https 证书并使用"><i class="fab fa-evernote fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/https/>https</a>,&nbsp;<a href=/tags/cert/>cert</a></section>
-<section>
+</div></div></div><div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/https/>https</a>,&nbsp;<a href=/tags/cert/>cert</a></section><section>
 <span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/janus-%E6%90%AD%E5%BB%BA%E4%B8%8E-webrtc-%E4%BD%BF%E7%94%A8/ class=prev rel=prev title="Janus 的搭建与 WebRTC 使用"><i class="fas fa-angle-left fa-fw"></i>Janus 的搭建与 WebRTC 使用</a>
-<a href=/mutagen-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/ class=next rel=next title="Mutagen 安装和使用">Mutagen 安装和使用<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-<div id=comments><div id=gitalk class=comment></div><noscript>
+</section></div><div class=post-nav><a href=/janus-%E6%90%AD%E5%BB%BA%E4%B8%8E-webrtc-%E4%BD%BF%E7%94%A8/ class=prev rel=prev title="Janus 的搭建与 WebRTC 使用"><i class="fas fa-angle-left fa-fw"></i>Janus 的搭建与 WebRTC 使用</a>
+<a href=/mutagen-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/ class=next rel=next title="Mutagen 安装和使用">Mutagen 安装和使用<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=gitalk class=comment></div><noscript>
 Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
-</noscript></div></article></div>
-</main><footer class=footer>
+</noscript></div></article></div></main><footer class=footer>
 <div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br>
-<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
 <i class="fas fa-arrow-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title=查看评论>
 <i class="fas fa-comment fa-fw"></i>
 </a>
-</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2021-09-10T15:30:10+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"生成 https 证书并使用"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2021-09-10T15:30:10+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"生成 https 证书并使用"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

@@ -21,14 +21,12 @@
 <meta name=application-name content="free note">
 <meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/><link rel=prev href=https://frhello.com/azure-devops-%E8%B8%A9%E5%9D%91/><link rel=next href=https://frhello.com/vuejs-%E7%AC%94%E8%AE%B0/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"夏令时切换时间如何计算","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, i18n","wordcount":252,"url":"https:\/\/frhello.com\/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97\/","datePublished":"2020-11-03T13:28:41+08:00","dateModified":"2020-11-03T13:28:41+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
-<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/><link rel=prev href=https://frhello.com/azure-devops-%E8%B8%A9%E5%9D%91/><link rel=next href=https://frhello.com/vuejs-%E7%AC%94%E8%AE%B0/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"夏令时切换时间如何计算","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, i18n","wordcount":251,"url":"https:\/\/frhello.com\/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97\/","datePublished":"2020-11-03T13:28:41+08:00","dateModified":"2020-11-03T13:28:41+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div>
-<div class=menu>
+</div><div class=menu>
 <div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/shortcut/> 捷径 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
@@ -43,20 +41,14 @@
 </span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
 </a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
+</div></div></div></header><header class=mobile id=header-mobile>
 <div class=header-container>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
+</div><div class=menu-toggle id=menu-toggle-mobile>
 <span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
+</div></div><div class=menu id=menu-mobile><div class=search-wrapper>
 <div class="search mobile" id=search-mobile>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
@@ -68,107 +60,55 @@
 <span class="search-button search-loading" id=search-loading-mobile>
 <i class="fas fa-spinner fa-fw fa-spin"></i>
 </span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+</div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
 取消
 </a>
 </div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/shortcut/ title>捷径</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
+</a></div></div></header><div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div></div><main class=main>
 <div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">夏令时切换时间如何计算</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/i18n/><i class="far fa-folder fa-fw"></i>i18n</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-11-03>2020-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 252 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
+<h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">夏令时切换时间如何计算</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/i18n/><i class="far fa-folder fa-fw"></i>i18n</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-11-03>2020-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 251 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
 <span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#夏令时切换场景>夏令时切换场景</a></li>
-<li><a href=#消失的一个小时>消失的一个小时</a>
+<li><a href=#夏令时切换场景>夏令时切换场景</a></li><li><a href=#消失的一个小时>消失的一个小时</a>
 <ul>
-<li><a href=#c>C#</a></li>
-</ul>
-</li>
-</ul>
-</nav></div>
-</div><div class=content id=content><h2 id=夏令时切换场景>夏令时切换场景</h2>
-<p>在有些国家会存在夏令时切换的情况，当这种情况出现时会凭空的多出或少去一个小时，这种情况我们的程序是如何处理？又是如何计算时常的呢？</p>
-<p>我们以墨西哥城的时间为例：</p>
-<p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png title=墨西哥城的时间 data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png data-sub-html="<h2>墨西哥城的时间</h2><p>墨西哥城的时间</p>">
+<li><a href=#c>C#</a></li></ul></li></ul></nav></div></div><div class=content id=content><h2 id=夏令时切换场景>夏令时切换场景</h2><p>在有些国家会存在夏令时切换的情况，当这种情况出现时会凭空的多出或少去一个小时，这种情况我们的程序是如何处理？又是如何计算时常的呢？</p><p>我们以墨西哥城的时间为例：</p><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png title=墨西哥城的时间 data-thumbnail=https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png data-sub-html="<h2>墨西哥城的时间</h2><p>墨西哥城的时间</p>">
 <img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png data-srcset="https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png, https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png 1.5x, https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/fengrui358/img@main/04DffMk.png>
-</a><figcaption class=image-caption>墨西哥城的时间</figcaption>
-</figure></p>
-<p>在 2020 年的 4 月 5 日的凌晨 3 点，会进入夏令时，时间会向前调一个小时，也就是说墨西哥城不会存在 2020 年 4 月 5 日 2 点到 2020 年 4 月 5 日 2 点 59 分的任何时间值。</p>
-<h2 id=消失的一个小时>消失的一个小时</h2>
-<p>下面我们用代码验证一下这个猜想</p>
-<h3 id=c>C#</h3>
-<div class=highlight><div class=chroma>
+</a><figcaption class=image-caption>墨西哥城的时间</figcaption></figure></p><p>在 2020 年的 4 月 5 日的凌晨 3 点，会进入夏令时，时间会向前调一个小时，也就是说墨西哥城不会存在 2020 年 4 月 5 日 2 点到 2020 年 4 月 5 日 2 点 59 分的任何时间值。</p><h2 id=消失的一个小时>消失的一个小时</h2><p>下面我们用代码验证一下这个猜想</p><h3 id=c>C#</h3><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>
-var miss1 = new DateTime(2020, 4, 25, 2, 0, 0, DateTimeKind.Local);
-var miss2 = new DateTime(2020, 4, 25, 2, 59, 59, DateTimeKind.Local);
-
-</code></pre></td></tr></table>
-</div>
-</div><p>这两个时间都正常生成成功</p>
-<p>（未完待续&mldr;）</p>
-</div><div class=post-footer id=post-footer>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>var miss1 = new DateTime(2020, 4, 25, 2, 0, 0, DateTimeKind.Local);
+</span></span><span class=line><span class=cl>var miss2 = new DateTime(2020, 4, 25, 2, 59, 59, DateTimeKind.Local);
+</span></span></code></pre></td></tr></table></div></div><p>这两个时间都正常生成成功</p><p>（未完待续&mldr;）</p></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
 <span>更新于 2020-11-03</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
+</div><div class=post-info-license></div></div><div class=post-info-line>
+<div class=post-info-md></div><div class=post-info-share>
 <span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-title=夏令时切换时间如何计算 data-hashtags=dotnet,i18n><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-hashtag=dotnet><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-title=夏令时切换时间如何计算><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-title=夏令时切换时间如何计算><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-title=夏令时切换时间如何计算><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-title=夏令时切换时间如何计算><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/%E5%A4%8F%E4%BB%A4%E6%97%B6%E5%88%87%E6%8D%A2%E6%97%B6%E9%97%B4%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97/ data-title=夏令时切换时间如何计算><i class="fab fa-evernote fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/i18n/>i18n</a></section>
-<section>
+</div></div></div><div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/i18n/>i18n</a></section><section>
 <span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/azure-devops-%E8%B8%A9%E5%9D%91/ class=prev rel=prev title="Azure DevOps 踩坑"><i class="fas fa-angle-left fa-fw"></i>Azure DevOps 踩坑</a>
-<a href=/vuejs-%E7%AC%94%E8%AE%B0/ class=next rel=next title="Vuejs 笔记">Vuejs 笔记<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-<div id=comments><div id=gitalk class=comment></div><noscript>
+</section></div><div class=post-nav><a href=/azure-devops-%E8%B8%A9%E5%9D%91/ class=prev rel=prev title="Azure DevOps 踩坑"><i class="fas fa-angle-left fa-fw"></i>Azure DevOps 踩坑</a>
+<a href=/vuejs-%E7%AC%94%E8%AE%B0/ class=next rel=next title="Vuejs 笔记">Vuejs 笔记<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=gitalk class=comment></div><noscript>
 Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
-</noscript></div></article></div>
-</main><footer class=footer>
+</noscript></div></article></div></main><footer class=footer>
 <div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br>
-<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
 <i class="fas fa-arrow-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title=查看评论>
 <i class="fas fa-comment fa-fw"></i>
 </a>
-</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2020-11-03T13:28:41+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"夏令时切换时间如何计算"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2020-11-03T13:28:41+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"夏令时切换时间如何计算"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

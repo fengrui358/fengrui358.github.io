@@ -21,14 +21,12 @@
 <meta name=application-name content="free note">
 <meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/><link rel=prev href=https://frhello.com/aws-vps-%E5%88%9B%E5%BB%BA-windows-server-vpn/><link rel=next href=https://frhello.com/wpf-%E9%9B%86%E5%90%88%E6%8E%A7%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%88%86%E9%9A%94%E7%AC%A6itemscontrol-separator/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"NLog 简介","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/nlog-%E7%AE%80%E4%BB%8B\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, log","wordcount":1634,"url":"https:\/\/frhello.com\/nlog-%E7%AE%80%E4%BB%8B\/","datePublished":"2017-03-16T15:23:41+08:00","dateModified":"2017-03-16T15:23:41+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head>
-<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/><link rel=prev href=https://frhello.com/aws-vps-%E5%88%9B%E5%BB%BA-windows-server-vpn/><link rel=next href=https://frhello.com/wpf-%E9%9B%86%E5%90%88%E6%8E%A7%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%88%86%E9%9A%94%E7%AC%A6itemscontrol-separator/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"NLog 简介","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/nlog-%E7%AE%80%E4%BB%8B\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"dotnet, log","wordcount":1634,"url":"https:\/\/frhello.com\/nlog-%E7%AE%80%E4%BB%8B\/","datePublished":"2017-03-16T15:23:41+08:00","dateModified":"2017-03-16T15:23:41+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div>
-<div class=menu>
+</div><div class=menu>
 <div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/shortcut/> 捷径 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
@@ -43,20 +41,14 @@
 </span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
 </a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
+</div></div></div></header><header class=mobile id=header-mobile>
 <div class=header-container>
 <div class=header-wrapper>
 <div class=header-title>
 <a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
+</div><div class=menu-toggle id=menu-toggle-mobile>
 <span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
+</div></div><div class=menu id=menu-mobile><div class=search-wrapper>
 <div class="search mobile" id=search-mobile>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
@@ -68,68 +60,28 @@
 <span class="search-button search-loading" id=search-loading-mobile>
 <i class="fas fa-spinner fa-fw fa-spin"></i>
 </span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+</div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
 取消
 </a>
 </div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/shortcut/ title>捷径</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
+</a></div></div></header><div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div></div><main class=main>
 <div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">NLog 简介</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/dotnet/><i class="far fa-folder fa-fw"></i>dotnet</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2017-03-16>2017-03-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1634 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
+<h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">NLog 简介</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/dotnet/><i class="far fa-folder fa-fw"></i>dotnet</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2017-03-16>2017-03-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1634 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
 <span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#安装-nlog>安装 Nlog</a></li>
-<li><a href=#日志等级>日志等级</a></li>
-<li><a href=#创建日志记录对象>创建日志记录对象</a></li>
-<li><a href=#记录日志信息>记录日志信息</a></li>
-<li><a href=#配置>配置</a></li>
-<li><a href=#其他知识点>其他知识点</a>
+<li><a href=#安装-nlog>安装 Nlog</a></li><li><a href=#日志等级>日志等级</a></li><li><a href=#创建日志记录对象>创建日志记录对象</a></li><li><a href=#记录日志信息>记录日志信息</a></li><li><a href=#配置>配置</a></li><li><a href=#其他知识点>其他知识点</a>
 <ul>
-<li><a href=#内部诊断日志>内部诊断日志</a></li>
-<li><a href=#性能优化>性能优化</a></li>
-</ul>
-</li>
-</ul>
-</nav></div>
-</div><div class=content id=content><h2 id=安装-nlog>安装 Nlog</h2>
-<p>通过 NuGet 安装，可以看到排名靠前的有两个，一个是 NLog，还有一个是 NLog.Config，推荐安装第二个，除了安装 NLog 程序集以外还会安装它的配置文件和一个配置文件 XML 结构的描述文件（让 Visual Studio 支持配置文件的智能提示）。
-也可以通过 NuGet Console 用命令行安装：<code>Install-Package NLog.Config</code>。</p>
-<h2 id=日志等级>日志等级</h2>
-<p>跟大多数日志框架一样，NLog 也有很多内置的日志等级，使用时可以根据日志名称和等级通过配置筛选想看到的日志。</p>
-<p>NLog 支持的日志等级如下：</p>
-<ul>
-<li><code>Trace</code> - 最细的调试等级，比如要调试很细微的通讯协议可以用该等级。该等级一般只用于开发阶段。</li>
-<li><code>Debug</code> - 调试等级，没有 Trace 等级细，用于调试系统的运行流程。该等级一般不用于生产环境。</li>
-<li><code>Info</code> - 一般信息。该等级一般用于生产环境。</li>
-<li><code>Warn</code> - 警告等级，一般是一些不会引起严重问题的警告，可以恢复或只是一些临时性的故障。</li>
-<li><code>Error</code> - 错误，大多数时候用于显示程序捕获到的 <code>Excetion</code>。</li>
-<li><code>Fatal</code> - 崩溃，非常严重的错误。</li>
-</ul>
-<h2 id=创建日志记录对象>创建日志记录对象</h2>
-<p>NLog 有两个最常用的类，一个是：<code>Logger</code>，另一个是：<code>LogManager</code>。<code>Logger</code> 提供一系列记录日志的 API，而 <code>LogManager</code> 负责创建 <code>Logger</code> 对象。</p>
-<h2 id=记录日志信息>记录日志信息</h2>
-<p>通过 <code>Logger</code> 对象调用不同的日志等级名称命名的 API 来记录日志，也可以使用 <code>Log()</code> 方法传入日志等级的枚举作为参数来记录日志。</p>
-<div class=highlight><div class=chroma>
+<li><a href=#内部诊断日志>内部诊断日志</a></li><li><a href=#性能优化>性能优化</a></li></ul></li></ul></nav></div></div><div class=content id=content><h2 id=安装-nlog>安装 Nlog</h2><p>通过 NuGet 安装，可以看到排名靠前的有两个，一个是 NLog，还有一个是 NLog.Config，推荐安装第二个，除了安装 NLog 程序集以外还会安装它的配置文件和一个配置文件 XML 结构的描述文件（让 Visual Studio 支持配置文件的智能提示）。
+也可以通过 NuGet Console 用命令行安装：<code>Install-Package NLog.Config</code>。</p><h2 id=日志等级>日志等级</h2><p>跟大多数日志框架一样，NLog 也有很多内置的日志等级，使用时可以根据日志名称和等级通过配置筛选想看到的日志。</p><p>NLog 支持的日志等级如下：</p><ul>
+<li><code>Trace</code> - 最细的调试等级，比如要调试很细微的通讯协议可以用该等级。该等级一般只用于开发阶段。</li><li><code>Debug</code> - 调试等级，没有 Trace 等级细，用于调试系统的运行流程。该等级一般不用于生产环境。</li><li><code>Info</code> - 一般信息。该等级一般用于生产环境。</li><li><code>Warn</code> - 警告等级，一般是一些不会引起严重问题的警告，可以恢复或只是一些临时性的故障。</li><li><code>Error</code> - 错误，大多数时候用于显示程序捕获到的 <code>Excetion</code>。</li><li><code>Fatal</code> - 崩溃，非常严重的错误。</li></ul><h2 id=创建日志记录对象>创建日志记录对象</h2><p>NLog 有两个最常用的类，一个是：<code>Logger</code>，另一个是：<code>LogManager</code>。<code>Logger</code> 提供一系列记录日志的 API，而 <code>LogManager</code> 负责创建 <code>Logger</code> 对象。</p><h2 id=记录日志信息>记录日志信息</h2><p>通过 <code>Logger</code> 对象调用不同的日志等级名称命名的 API 来记录日志，也可以使用 <code>Log()</code> 方法传入日志等级的枚举作为参数来记录日志。</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -151,32 +103,28 @@
 </span><span class=lnt>18
 </span><span class=lnt>19
 </span><span class=lnt>20
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
-
-<span class=k>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
-<span class=p>{</span>
-  <span class=k>private</span> <span class=k>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
-
-  <span class=k>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
-  <span class=p>{</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;Sample trace message&#34;</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Debug</span><span class=p>(</span><span class=s>&#34;Sample debug message&#34;</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Info</span><span class=p>(</span><span class=s>&#34;Sample informational message&#34;</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Warn</span><span class=p>(</span><span class=s>&#34;Sample warning message&#34;</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Error</span><span class=p>(</span><span class=s>&#34;Sample error message&#34;</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Fatal</span><span class=p>(</span><span class=s>&#34;Sample fatal error message&#34;</span><span class=p>);</span>
-
-    <span class=c1>// alternatively you can call the Log() method
-</span><span class=c1></span>    <span class=c1>// and pass log level as the parameter.
-</span><span class=c1></span>    <span class=n>logger</span><span class=p>.</span><span class=n>Log</span><span class=p>(</span><span class=n>LogLevel</span><span class=p>.</span><span class=n>Info</span><span class=p>,</span> <span class=s>&#34;Sample informational message&#34;</span><span class=p>);</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>你可以直接使用这些日志 API 来格式化字符串，就跟使用 <code>Console.WriteLine()</code> 和 <code>String.Format()</code> 一样。</p>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>private</span> <span class=k>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;Sample trace message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Debug</span><span class=p>(</span><span class=s>&#34;Sample debug message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Info</span><span class=p>(</span><span class=s>&#34;Sample informational message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Warn</span><span class=p>(</span><span class=s>&#34;Sample warning message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Error</span><span class=p>(</span><span class=s>&#34;Sample error message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Fatal</span><span class=p>(</span><span class=s>&#34;Sample fatal error message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// alternatively you can call the Log() method</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// and pass log level as the parameter.</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Log</span><span class=p>(</span><span class=n>LogLevel</span><span class=p>.</span><span class=n>Info</span><span class=p>,</span> <span class=s>&#34;Sample informational message&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>你可以直接使用这些日志 API 来格式化字符串，就跟使用 <code>Console.WriteLine()</code> 和 <code>String.Format()</code> 一样。</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -198,36 +146,29 @@
 </span><span class=lnt>18
 </span><span class=lnt>19
 </span><span class=lnt>20
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
-
-<span class=k>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
-<span class=p>{</span>
-  <span class=k>private</span> <span class=k>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
-
-  <span class=k>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
-  <span class=p>{</span>
-    <span class=kt>int</span> <span class=n>k</span> <span class=p>=</span> <span class=m>42</span><span class=p>;</span>
-    <span class=kt>int</span> <span class=n>l</span> <span class=p>=</span> <span class=m>100</span><span class=p>;</span>
-
-    <span class=n>logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;Sample trace message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Debug</span><span class=p>(</span><span class=s>&#34;Sample debug message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Info</span><span class=p>(</span><span class=s>&#34;Sample informational message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Warn</span><span class=p>(</span><span class=s>&#34;Sample warning message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Error</span><span class=p>(</span><span class=s>&#34;Sample error message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Fatal</span><span class=p>(</span><span class=s>&#34;Sample fatal error message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-    <span class=n>logger</span><span class=p>.</span><span class=n>Log</span><span class=p>(</span><span class=n>LogLevel</span><span class=p>.</span><span class=n>Info</span><span class=p>,</span> <span class=s>&#34;Sample informational message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>提示：</strong> 但是要避免使用 <code>String.Format()</code> 来直接格式化日志内容，而要使用 NLog 自己的 API 来格式化，主要原因是出于性能考虑。
-如果使用 NLog 的 API 来格式化，那么 NLog 只会在在这段日志确定会被输出到某个目标时才执行格式化操作，而如果使用 <code>String.Format()</code>，那么每当代码运行到这里都会执行字符串格式化。</p>
-<h2 id=配置>配置</h2>
-<p>NLog 的配置比起 log4net 就要简单清晰得多来，而且在 Visual Studio 里加载配置的 XML 架构描述文件后还有智能提示，对于入门选手来说可谓是相当的简单。</p>
-<p>NLog 的配置主要有两个方面，第一个是要配置输出日志的目标，就是定义一个存储日志的地方；第二个就是定义一个日志对象，日志对象需要定义要输出的日志的级别，再关联一个输出目标就可以来。如下是一个最简单的输出到文本文件的配置：</p>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>private</span> <span class=k>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>k</span> <span class=p>=</span> <span class=m>42</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>l</span> <span class=p>=</span> <span class=m>100</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;Sample trace message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Debug</span><span class=p>(</span><span class=s>&#34;Sample debug message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Info</span><span class=p>(</span><span class=s>&#34;Sample informational message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Warn</span><span class=p>(</span><span class=s>&#34;Sample warning message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Error</span><span class=p>(</span><span class=s>&#34;Sample error message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Fatal</span><span class=p>(</span><span class=s>&#34;Sample fatal error message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Log</span><span class=p>(</span><span class=n>LogLevel</span><span class=p>.</span><span class=n>Info</span><span class=p>,</span> <span class=s>&#34;Sample informational message, k={0}, l={1}&#34;</span><span class=p>,</span> <span class=n>k</span><span class=p>,</span> <span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>提示：</strong> 但是要避免使用 <code>String.Format()</code> 来直接格式化日志内容，而要使用 NLog 自己的 API 来格式化，主要原因是出于性能考虑。
+如果使用 NLog 的 API 来格式化，那么 NLog 只会在在这段日志确定会被输出到某个目标时才执行格式化操作，而如果使用 <code>String.Format()</code>，那么每当代码运行到这里都会执行字符串格式化。</p><h2 id=配置>配置</h2><p>NLog 的配置比起 log4net 就要简单清晰得多来，而且在 Visual Studio 里加载配置的 XML 架构描述文件后还有智能提示，对于入门选手来说可谓是相当的简单。</p><p>NLog 的配置主要有两个方面，第一个是要配置输出日志的目标，就是定义一个存储日志的地方；第二个就是定义一个日志对象，日志对象需要定义要输出的日志的级别，再关联一个输出目标就可以来。如下是一个最简单的输出到文本文件的配置：</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -242,34 +183,22 @@
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-XML data-lang=XML><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
-<span class=nt>&lt;nlog</span> <span class=na>xmlns=</span><span class=s>&#34;http://www.nlog-project.org/schemas/NLog.xsd&#34;</span>
-      <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class=nt>&gt;</span>
-
-    <span class=nt>&lt;targets&gt;</span>
-        <span class=nt>&lt;target</span> <span class=na>name=</span><span class=s>&#34;logfile&#34;</span> <span class=na>xsi:type=</span><span class=s>&#34;File&#34;</span> <span class=na>fileName=</span><span class=s>&#34;file.txt&#34;</span> <span class=nt>/&gt;</span>
-    <span class=nt>&lt;/targets&gt;</span>
-
-    <span class=nt>&lt;rules&gt;</span>
-        <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;SomeNamespace.Component.*&#34;</span> <span class=na>minlevel=</span><span class=s>&#34;Trace&#34;</span> <span class=na>writeTo=</span><span class=s>&#34;logfile&#34;</span> <span class=na>final=</span><span class=s>&#34;true&#34;</span> <span class=nt>/&gt;</span>
-        <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;*&#34;</span> <span class=na>minlevel=</span><span class=s>&#34;Info&#34;</span> <span class=na>writeTo=</span><span class=s>&#34;logfile&#34;</span> <span class=nt>/&gt;</span>
-    <span class=nt>&lt;/rules&gt;</span>
-<span class=nt>&lt;/nlog&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=其他知识点>其他知识点</h2>
-<h3 id=内部诊断日志>内部诊断日志</h3>
-<p>内部诊断日志是 NLog 自身的调试日志，一般情况下不必打开，主要用来调试 NLog 不正常工作的情况，比如日志没有按照配置输出到指定地方，或者 NLog 扩展没有正常工作等情况。打开内部诊断日志很简单，需要在配置的根节点 <code>&lt;nlog></code> 下面配置以下几个特性：</p>
-<ul>
-<li><code>internalLogFile="file.txt"</code> - 指定内部诊断日志的输出路径。</li>
-<li><code>internalLogLevel="Trace|Debug|Info|Warn|Error|Fatal|Off"</code> – 决定内部诊断日志输出的最小等级，跟我们外部调用者一样，内部诊断日志对象也是分等级的。</li>
-<li><code>internalLogToConsole="false|true"</code> – 是否输出内部诊断日志到控制台。</li>
-<li><code>internalLogToConsoleError="false|true"</code> – 是否输出内部诊断日志到控制台的错误输出。（stderr，不太明白跟上一个的区别）</li>
-</ul>
-<p>下面是一个比较完整的配置：</p>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-XML data-lang=XML><span class=line><span class=cl><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;nlog</span> <span class=na>xmlns=</span><span class=s>&#34;http://www.nlog-project.org/schemas/NLog.xsd&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;targets&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;target</span> <span class=na>name=</span><span class=s>&#34;logfile&#34;</span> <span class=na>xsi:type=</span><span class=s>&#34;File&#34;</span> <span class=na>fileName=</span><span class=s>&#34;file.txt&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/targets&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;rules&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;SomeNamespace.Component.*&#34;</span> <span class=na>minlevel=</span><span class=s>&#34;Trace&#34;</span> <span class=na>writeTo=</span><span class=s>&#34;logfile&#34;</span> <span class=na>final=</span><span class=s>&#34;true&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;logger</span> <span class=na>name=</span><span class=s>&#34;*&#34;</span> <span class=na>minlevel=</span><span class=s>&#34;Info&#34;</span> <span class=na>writeTo=</span><span class=s>&#34;logfile&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/rules&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/nlog&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=其他知识点>其他知识点</h2><h3 id=内部诊断日志>内部诊断日志</h3><p>内部诊断日志是 NLog 自身的调试日志，一般情况下不必打开，主要用来调试 NLog 不正常工作的情况，比如日志没有按照配置输出到指定地方，或者 NLog 扩展没有正常工作等情况。打开内部诊断日志很简单，需要在配置的根节点 <code>&lt;nlog></code> 下面配置以下几个特性：</p><ul>
+<li><code>internalLogFile="file.txt"</code> - 指定内部诊断日志的输出路径。</li><li><code>internalLogLevel="Trace|Debug|Info|Warn|Error|Fatal|Off"</code> – 决定内部诊断日志输出的最小等级，跟我们外部调用者一样，内部诊断日志对象也是分等级的。</li><li><code>internalLogToConsole="false|true"</code> – 是否输出内部诊断日志到控制台。</li><li><code>internalLogToConsoleError="false|true"</code> – 是否输出内部诊断日志到控制台的错误输出。（stderr，不太明白跟上一个的区别）</li></ul><p>下面是一个比较完整的配置：</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
@@ -279,20 +208,16 @@
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-XML data-lang=XML><span class=nt>&lt;nlog</span> <span class=na>internalLogFile=</span><span class=s>&#34;c:\log.txt&#34;</span> <span class=na>internalLogLevel=</span><span class=s>&#34;Trace&#34;</span><span class=nt>&gt;</span>
-   <span class=nt>&lt;targets&gt;</span>
-      <span class=c>&lt;!-- target configuration here --&gt;</span>
-   <span class=nt>&lt;/targets&gt;</span>
-   <span class=nt>&lt;rules&gt;</span>
-      <span class=c>&lt;!-- log routing rules --&gt;</span>
-   <span class=nt>&lt;/rules&gt;</span>
-<span class=nt>&lt;/nlog&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>当然，使用程序代码也能配置内部日志参数：</p>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-XML data-lang=XML><span class=line><span class=cl><span class=nt>&lt;nlog</span> <span class=na>internalLogFile=</span><span class=s>&#34;c:\log.txt&#34;</span> <span class=na>internalLogLevel=</span><span class=s>&#34;Trace&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>   <span class=nt>&lt;targets&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=c>&lt;!-- target configuration here --&gt;</span>
+</span></span><span class=line><span class=cl>   <span class=nt>&lt;/targets&gt;</span>
+</span></span><span class=line><span class=cl>   <span class=nt>&lt;rules&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=c>&lt;!-- log routing rules --&gt;</span>
+</span></span><span class=line><span class=cl>   <span class=nt>&lt;/rules&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/nlog&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>当然，使用程序代码也能配置内部日志参数：</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -311,98 +236,59 @@
 </span><span class=lnt>15
 </span><span class=lnt>16
 </span><span class=lnt>17
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
-<span class=k>using</span> <span class=nn>NLog.Common</span><span class=p>;</span>
-
-<span class=k>class</span> <span class=nc>Program</span>
-<span class=p>{</span>
-  <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
-  <span class=p>{</span>
-    <span class=c1>// enable internal logging to the console
-</span><span class=c1></span>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogToConsole</span> <span class=p>=</span> <span class=k>true</span><span class=p>;</span>
-
-    <span class=c1>// enable internal logging to a file
-</span><span class=c1></span>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogFile</span> <span class=p>=</span> <span class=s>&#34;c:\\log.txt&#34;</span><span class=p>;</span>
-
-    <span class=c1>// set internal log level
-</span><span class=c1></span>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogLevel</span> <span class=p>=</span> <span class=n>LogLevel</span><span class=p>.</span><span class=n>Trace</span><span class=p>;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=性能优化>性能优化</h3>
-<p>之前比较过 NLog 和 Log4Net 的性能，NLog 略胜一筹，但是在使用的过程当中还是有几点需要注意。</p>
-<ul>
-<li>不要使用 <code>string.format</code> 来格式化字符串参数，而是将字符串参数直接传给 NLog 的方法。</li>
-<li>不要使用多线程去写多个文件。</li>
-<li>可以使用条件日志 &ldquo;Conditional logging&rdquo;，用法如下：</li>
-</ul>
-<p><strong>Conditional logging</strong> 当存在使用大量诊断日志的情况下，从 NLog4.0 开始可以使用这种方法来优化：</p>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>using</span> <span class=nn>NLog.Common</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Program</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// enable internal logging to the console</span>
+</span></span><span class=line><span class=cl>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogToConsole</span> <span class=p>=</span> <span class=k>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// enable internal logging to a file</span>
+</span></span><span class=line><span class=cl>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogFile</span> <span class=p>=</span> <span class=s>&#34;c:\\log.txt&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// set internal log level</span>
+</span></span><span class=line><span class=cl>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogLevel</span> <span class=p>=</span> <span class=n>LogLevel</span><span class=p>.</span><span class=n>Trace</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=性能优化>性能优化</h3><p>之前比较过 NLog 和 Log4Net 的性能，NLog 略胜一筹，但是在使用的过程当中还是有几点需要注意。</p><ul>
+<li>不要使用 <code>string.format</code> 来格式化字符串参数，而是将字符串参数直接传给 NLog 的方法。</li><li>不要使用多线程去写多个文件。</li><li>可以使用条件日志 &ldquo;Conditional logging&rdquo;，用法如下：</li></ul><p><strong>Conditional logging</strong> 当存在使用大量诊断日志的情况下，从 NLog4.0 开始可以使用这种方法来优化：</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=n>Logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;entering method {0}&#34;</span><span class=p>,</span> <span class=n>methodname</span><span class=p>);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>替换为</p>
-<div class=highlight><div class=chroma>
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=n>Logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;entering method {0}&#34;</span><span class=p>,</span> <span class=n>methodname</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>替换为</p><div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=n>Logger</span><span class=p>.</span><span class=n>ConditionalTrace</span><span class=p>(</span><span class=s>&#34;entering method {0}&#34;</span><span class=p>,</span> <span class=n>methodname</span><span class=p>);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这段日志的调用只会在 .Net 编译器添加 <code>DEBUG</code> 条件的时候才会包含进去。</p>
-<div class="details admonition warning open">
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=n>Logger</span><span class=p>.</span><span class=n>ConditionalTrace</span><span class=p>(</span><span class=s>&#34;entering method {0}&#34;</span><span class=p>,</span> <span class=n>methodname</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><p>这段日志的调用只会在 .Net 编译器添加 <code>DEBUG</code> 条件的时候才会包含进去。</p><div class="details admonition warning open">
 <div class="details-summary admonition-title">
 <i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class=details-content>
+</div><div class=details-content>
 <div class=admonition-content>
-本文最后更新于 <span class=timeago datetime=2017-03-16T15:23:41 title="March 16, 2017">March 16, 2017</span>，文中内容可能已过时，请谨慎使用。</div>
-</div>
-</div>
-</div><div class=post-footer id=post-footer>
+本文最后更新于 <span class=timeago datetime=2017-03-16T15:23:41 title="March 16, 2017">March 16, 2017</span>，文中内容可能已过时，请谨慎使用。</div></div></div></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
 <span>更新于 2017-03-16</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
+</div><div class=post-info-license></div></div><div class=post-info-line>
+<div class=post-info-md></div><div class=post-info-share>
 <span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-title="NLog 简介" data-hashtags=dotnet,log><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-hashtag=dotnet><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-title="NLog 简介"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-title="NLog 简介"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-title="NLog 简介"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-title="NLog 简介"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/nlog-%E7%AE%80%E4%BB%8B/ data-title="NLog 简介"><i class="fab fa-evernote fa-fw"></i></a></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/log/>log</a></section>
-<section>
+</div></div></div><div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/dotnet/>dotnet</a>,&nbsp;<a href=/tags/log/>log</a></section><section>
 <span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/aws-vps-%E5%88%9B%E5%BB%BA-windows-server-vpn/ class=prev rel=prev title="AWS VPS 创建 Windows Server VPN"><i class="fas fa-angle-left fa-fw"></i>AWS VPS 创建 Windows Server VPN</a>
-<a href=/wpf-%E9%9B%86%E5%90%88%E6%8E%A7%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%88%86%E9%9A%94%E7%AC%A6itemscontrol-separator/ class=next rel=next title="WPF 集合控件实现分隔符（ItemsControl Separator）">WPF 集合控件实现分隔符（ItemsControl Separator）<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-<div id=comments><div id=gitalk class=comment></div><noscript>
+</section></div><div class=post-nav><a href=/aws-vps-%E5%88%9B%E5%BB%BA-windows-server-vpn/ class=prev rel=prev title="AWS VPS 创建 Windows Server VPN"><i class="fas fa-angle-left fa-fw"></i>AWS VPS 创建 Windows Server VPN</a>
+<a href=/wpf-%E9%9B%86%E5%90%88%E6%8E%A7%E4%BB%B6%E5%AE%9E%E7%8E%B0%E5%88%86%E9%9A%94%E7%AC%A6itemscontrol-separator/ class=next rel=next title="WPF 集合控件实现分隔符（ItemsControl Separator）">WPF 集合控件实现分隔符（ItemsControl Separator）<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=gitalk class=comment></div><noscript>
 Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
-</noscript></div></article></div>
-</main><footer class=footer>
+</noscript></div></article></div></main><footer class=footer>
 <div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br>
-<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
 <i class="fas fa-arrow-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title=查看评论>
 <i class="fas fa-comment fa-fw"></i>
 </a>
-</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2017-03-16T15:23:41+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"NLog 简介"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2017-03-16T15:23:41+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"NLog 简介"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
