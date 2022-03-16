@@ -1,111 +1,33 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>Docker 是什么 - free note</title><meta name=keywords content="[blog software dotnet javascript]">
-<meta name=Description content="free note">
-<meta http-equiv=x-dns-prefetch-control content="on">
-<link rel=preconnect href=https://cdn.jsdelivr.net/ crossorigin>
-<link rel=dns-prefetch href=https://cdn.jsdelivr.net/><meta property="og:title" content="Docker 是什么">
-<meta property="og:description" content="Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-01-08T08:08:08+08:00">
-<meta property="article:modified_time" content="2022-01-08T08:08:08+08:00">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png">
-<meta name=twitter:title content="Docker 是什么">
-<meta name=twitter:description content="Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一">
-<meta name=application-name content="free note">
-<meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/><link rel=prev href=https://frhello.com/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91-eks-%E9%83%A8%E7%BD%B2-wordpress/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Docker 是什么","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"docker","wordcount":2319,"url":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/","datePublished":"2022-01-08T08:08:08+08:00","dateModified":"2022-01-08T08:08:08+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div><div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/shortcut/> 捷径 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Docker 是什么 - free note</title><meta name=keywords content="[blog software dotnet javascript]"><meta name=Description content="free note"><meta http-equiv=x-dns-prefetch-control content="on"><link rel=preconnect href=https://cdn.jsdelivr.net/ crossorigin><link rel=dns-prefetch href=https://cdn.jsdelivr.net/><meta property="og:title" content="Docker 是什么"><meta property="og:description" content="Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一"><meta property="og:type" content="article"><meta property="og:url" content="https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/"><meta property="og:image" content="https://frhello.com/android-chrome-512x512.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-01-08T08:08:08+08:00"><meta property="article:modified_time" content="2022-01-08T08:08:08+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://frhello.com/android-chrome-512x512.png"><meta name=twitter:title content="Docker 是什么"><meta name=twitter:description content="Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一"><meta name=application-name content="free note"><meta name=apple-mobile-web-app-title content="free note"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/><link rel=prev href=https://frhello.com/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91-eks-%E9%83%A8%E7%BD%B2-wordpress/><link rel=next href=https://frhello.com/git-%E7%AC%94%E8%AE%B0/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Docker 是什么","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/"},"image":["https:\/\/frhello.com\/android-chrome-192x192.png"],"genre":"posts","keywords":"docker","wordcount":2319,"url":"https:\/\/frhello.com\/docker-%E6%98%AF%E4%BB%80%E4%B9%88\/","datePublished":"2022-01-08T08:08:08+08:00","dateModified":"2022-01-08T08:08:08+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"fengrui","logo":"https:\/\/frhello.com\/android-chrome-192x192.png"},"author":{"@type":"Person","name":"free"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/shortcut/>捷径 </a><a class=menu-item href=/about/>关于 </a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div></div></div></header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a>
-</div><div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div></div><div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/shortcut/ title>捷径</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a></div></div></header><div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div></div><main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Docker 是什么</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/docker/><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-08>2022-01-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2319 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#站在进程的角度看下-docker>站在进程的角度看下 Docker</a></li><li><a href=#cgroups-资源限制>Cgroups 资源限制</a></li><li><a href=#mount-namespace>Mount Namespace</a>
-<ul>
-<li><a href=#rootfs-根目录>rootfs 根目录</a></li><li><a href=#layer-分层镜像>layer 分层镜像</a></li></ul></li><li><a href=#容器进程的-pid>容器进程的 Pid</a></li><li><a href=#加入容器网络>加入容器网络</a></li><li><a href=#volume-挂载>Volume 挂载</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=content id=content><p>Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一个网络中，这样就可以让我们的应用程序在不同的环境中运行，而不需要改变程序的代码，这样就可以节省我们的开发时间。</p><p>Docker 的本质是什么？它是利用 Linux 的 Cgroups 和 Namespace 技术实现的程序进程隔离环境，它是一个轻量级的应用程序级别的隔离技术，无论是运行性能和部署效率都高于传统的虚拟机，但是它的隔离完备性还是不如传统的虚拟机，它的底层内核还是和宿主机共用一套。利用 Cgroups 和 Namespace 实现容器化的技术还有很多，但最后 Docker 成为了受众最广泛的技术得益于它设计的这一套镜像机制，通过 rootfs 和联合文件系统实现了镜像的分层设计，将镜像设计得易于搬运和使用。</p><p>上面提到 Docker 是利用 Linux 的相关技术实现的环境隔离，那为什么 Windows 和 MacOS 也可以使用 Docker？这是因为 Docker 容器并不是直接运行在 Windows 或 MacOS 上的，在它们之间还隔着一个 Linux 虚拟机，所以在 Windows 和 MacOS 上选择 Host 网络模式时并不生效，因为 Docker 无法直接联通到宿主机的网络。</p><h2 id=站在进程的角度看下-docker>站在进程的角度看下 Docker</h2><p>当一个进程运行在 Docker 中时，很大程度上，它都会看到一个假象，那就是这个系统环境下只有自己一个进程。</p><p>为了验证这个问题，我们启动一个容器，仅运行一个 <code>sh</code> 进程：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="free note"><img class="lazyload logo" src=/svg/loading.min.svg data-src=/avatar.png data-srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" data-sizes=auto alt=/avatar.png title=/avatar.png>free note</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/shortcut/ title>捷径</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/fengrui358 title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Docker 是什么</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/fengrui358 title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>free</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/docker/><i class="far fa-folder fa-fw"></i>docker</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-01-08>2022-01-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2319 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#站在进程的角度看下-docker>站在进程的角度看下 Docker</a></li><li><a href=#cgroups-资源限制>Cgroups 资源限制</a></li><li><a href=#mount-namespace>Mount Namespace</a><ul><li><a href=#rootfs-根目录>rootfs 根目录</a></li><li><a href=#layer-分层镜像>layer 分层镜像</a></li></ul></li><li><a href=#容器进程的-pid>容器进程的 Pid</a></li><li><a href=#加入容器网络>加入容器网络</a></li><li><a href=#volume-挂载>Volume 挂载</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=content id=content><p>Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一个网络中，这样就可以让我们的应用程序在不同的环境中运行，而不需要改变程序的代码，这样就可以节省我们的开发时间。</p><p>Docker 的本质是什么？它是利用 Linux 的 Cgroups 和 Namespace 技术实现的程序进程隔离环境，它是一个轻量级的应用程序级别的隔离技术，无论是运行性能和部署效率都高于传统的虚拟机，但是它的隔离完备性还是不如传统的虚拟机，它的底层内核还是和宿主机共用一套。利用 Cgroups 和 Namespace 实现容器化的技术还有很多，但最后 Docker 成为了受众最广泛的技术得益于它设计的这一套镜像机制，通过 rootfs 和联合文件系统实现了镜像的分层设计，将镜像设计得易于搬运和使用。</p><p>上面提到 Docker 是利用 Linux 的相关技术实现的环境隔离，那为什么 Windows 和 MacOS 也可以使用 Docker？这是因为 Docker 容器并不是直接运行在 Windows 或 MacOS 上的，在它们之间还隔着一个 Linux 虚拟机，所以在 Windows 和 MacOS 上选择 Host 网络模式时并不生效，因为 Docker 无法直接联通到宿主机的网络。</p><h2 id=站在进程的角度看下-docker>站在进程的角度看下 Docker</h2><p>当一个进程运行在 Docker 中时，很大程度上，它都会看到一个假象，那就是这个系统环境下只有自己一个进程。</p><p>为了验证这个问题，我们启动一个容器，仅运行一个 <code>sh</code> 进程：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 启动容器命令</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 启动容器命令</span>
 </span></span><span class=line><span class=cl>docker run -it --rm busybox sh
-</span></span></code></pre></td></tr></table></div></div><p>在容器中输入命令，查看进程信息：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>在容器中输入命令，查看进程信息：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ps
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ps
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>--- 输出 ---
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>PID   USER     TIME  COMMAND
 </span></span><span class=line><span class=cl>    <span class=m>1</span> root      0:00 sh
 </span></span><span class=line><span class=cl>    <span class=m>9</span> root      0:00 ps
-</span></span></code></pre></td></tr></table></div></div><p>我们看到这个 PID 为 1 的进程就是我们进入容器运行的 <code>sh</code> 进程，但是它看到的1并不是宿主机上真正的 1 号进程，只是它在容器中受到 Namespace 隔离机制看到的“障眼法”。</p><h2 id=cgroups-资源限制>Cgroups 资源限制</h2><p>如果说 Namespace 对容器起到了隔离作用，那么还需要一个东西来对容器进行限制，否则容器内的进程可以无限制的使用宿主机的资源肯定会对宿主机或运行在宿主机上的其他容器造成影响。</p><p>因此，承担这个职责的就是 Linux Cgroups，它的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够使用的资源上限，包括 CPU、内存、磁盘、网络等。</p><p>使用 <code>mount</code> 指令可以把 Cgroups 的文件操作接口展示出来：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div><p>我们看到这个 PID 为 1 的进程就是我们进入容器运行的 <code>sh</code> 进程，但是它看到的1并不是宿主机上真正的 1 号进程，只是它在容器中受到 Namespace 隔离机制看到的“障眼法”。</p><h2 id=cgroups-资源限制>Cgroups 资源限制</h2><p>如果说 Namespace 对容器起到了隔离作用，那么还需要一个东西来对容器进行限制，否则容器内的进程可以无限制的使用宿主机的资源肯定会对宿主机或运行在宿主机上的其他容器造成影响。</p><p>因此，承担这个职责的就是 Linux Cgroups，它的全称是 Linux Control Group。它最主要的作用，就是限制一个进程组能够使用的资源上限，包括 CPU、内存、磁盘、网络等。</p><p>使用 <code>mount</code> 指令可以把 Cgroups 的文件操作接口展示出来：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -118,8 +40,7 @@
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ mount -t cgroup
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ mount -t cgroup
 </span></span><span class=line><span class=cl>cgroup on /sys/fs/cgroup/systemd <span class=nb>type</span> cgroup <span class=o>(</span>rw,nosuid,nodev,noexec,relatime,xattr,name<span class=o>=</span>systemd<span class=o>)</span>
 </span></span><span class=line><span class=cl>cgroup on /sys/fs/cgroup/perf_event <span class=nb>type</span> cgroup <span class=o>(</span>rw,nosuid,nodev,noexec,relatime,perf_event<span class=o>)</span>
 </span></span><span class=line><span class=cl>cgroup on /sys/fs/cgroup/freezer <span class=nb>type</span> cgroup <span class=o>(</span>rw,nosuid,nodev,noexec,relatime,freezer<span class=o>)</span>
@@ -132,70 +53,47 @@
 </span></span><span class=line><span class=cl>cgroup on /sys/fs/cgroup/devices <span class=nb>type</span> cgroup <span class=o>(</span>rw,nosuid,nodev,noexec,relatime,devices<span class=o>)</span>
 </span></span><span class=line><span class=cl>cgroup on /sys/fs/cgroup/net_cls,net_prio <span class=nb>type</span> cgroup <span class=o>(</span>rw,nosuid,nodev,noexec,relatime,net_cls,net_prio<span class=o>)</span>
 </span></span><span class=line><span class=cl>cgroup on /sys/fs/cgroup/hugetlb <span class=nb>type</span> cgroup <span class=o>(</span>rw,nosuid,nodev,noexec,relatime,hugetlb<span class=o>)</span>
-</span></span></code></pre></td></tr></table></div></div><p>它的输出结果，是一系列文件系统目录。在 /sys/fs/cgroup 下面有很多诸如 cpuset、cpu、memory 这样的子目录，也叫子系统。这些都是这台机器可以被 Cgroups 管理的系统组，每个系统组都有自己的资源限制。比如 CPU 子系统，我们就可以看到如下几个配置文件：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>它的输出结果，是一系列文件系统目录。在 /sys/fs/cgroup 下面有很多诸如 cpuset、cpu、memory 这样的子目录，也叫子系统。这些都是这台机器可以被 Cgroups 管理的系统组，每个系统组都有自己的资源限制。比如 CPU 子系统，我们就可以看到如下几个配置文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ls /sys/fs/cgroup/cpu
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ls /sys/fs/cgroup/cpu
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>--- 输出 ---
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>cgroup.clone_children  cgroup.sane_behavior  cpuacct.usage      cpuacct.usage_percpu      cpuacct.usage_percpu_user  cpuacct.usage_user  cpu.cfs_quota_us  cpu.stat  notify_on_release  system.slice  user.slice
 </span></span><span class=line><span class=cl>cgroup.procs           cpuacct.stat          cpuacct.usage_all  cpuacct.usage_percpu_sys  cpuacct.usage_sys          cpu.cfs_period_us   cpu.shares        docker    release_agent      tasks
-</span></span></code></pre></td></tr></table></div></div><p>使用资源限制的方式，在 cpu 目录下，新建一个文件夹来限制进程资源，当新建一个文件夹时，操作系统会在这个子文件夹下生成对应的资源限制文件，有如下两个重要文件：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>使用资源限制的方式，在 cpu 目录下，新建一个文件夹来限制进程资源，当新建一个文件夹时，操作系统会在这个子文件夹下生成对应的资源限制文件，有如下两个重要文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>$ cat cpu.cfs_quota_us
 </span></span><span class=line><span class=cl>-1
 </span></span><span class=line><span class=cl>$ cat cpu.cfs_period_us
 </span></span><span class=line><span class=cl><span class=m>100000</span>
-</span></span></code></pre></td></tr></table></div></div><p><code>cpu.cfs_quota_us</code> 文件里的 -1 表示无限制，<code>cpu.cfs_period_us</code> 文件里的 100000 表示每个时间片的时间长度为 100ms（100000us）。</p><p>在不限制资源的情况下可以使用如下命令来执行一个死循环，可以用 <code>top</code> 指令看到会有一个进程占满了一个 CPU 核心：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p><code>cpu.cfs_quota_us</code> 文件里的 -1 表示无限制，<code>cpu.cfs_period_us</code> 文件里的 100000 表示每个时间片的时间长度为 100ms（100000us）。</p><p>在不限制资源的情况下可以使用如下命令来执行一个死循环，可以用 <code>top</code> 指令看到会有一个进程占满了一个 CPU 核心：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>while</span> : <span class=p>;</span> <span class=k>do</span> : <span class=p>;</span> <span class=k>done</span> <span class=p>&amp;</span>
-</span></span></code></pre></td></tr></table></div></div><p>可以通过向 <code>cpu.cfs_period_us</code> 文件写入数字来改变时间片的长度，比如，向 container 组里的 <code>cpu.cfs_period_us</code> 写入 20ms（20000us），即意味着每 100ms的时间片，进程只能获得 20ms 的时间片：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>可以通过向 <code>cpu.cfs_period_us</code> 文件写入数字来改变时间片的长度，比如，向 container 组里的 <code>cpu.cfs_period_us</code> 写入 20ms（20000us），即意味着每 100ms的时间片，进程只能获得 20ms 的时间片：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=m>20000</span> &gt; /sys/fs/cgroup/cpu/docker/cpu.cfs_period_us
-</span></span></code></pre></td></tr></table></div></div><p>然后在文件夹下的 tasks 文件中写入要限制的进程的 PID，上面的设置就会对该进程生效了，如果写入多个进程，意思是这个多个进程共享这一个限制：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>然后在文件夹下的 tasks 文件中写入要限制的进程的 PID，上面的设置就会对该进程生效了，如果写入多个进程，意思是这个多个进程共享这一个限制：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=m>226</span> &gt; /sys/fs/cgroup/cpu/container/tasks
-</span></span></code></pre></td></tr></table></div></div><p>在 <code>docker run</code> 容器时，使用 <code>--cpu-quota</code> 和 <code>--cpu-period</code> 参数可以用同样的方式来限制容器的 <code>CPU</code> 资源使用。</p><p>限制以后在宿主机的 /sys/fs/cgroup/cpu/docker 目录下可以看到相同容器 Id 的子文件夹，进入后查看 <code>cpu.cfs_period_us</code> 和 <code>cpu.cfs_period_us</code> 可以看见 <code>docker run</code> 时写入的限制就在这两个文件中。</p><h2 id=mount-namespace>Mount Namespace</h2><p>除了限制 CPU，docker 利用 Mount Namespace 对容器的文件系统也进行了限制。</p><h3 id=rootfs-根目录>rootfs 根目录</h3><p>docker 隔离文件系统的方式是使用 <code>rootfs</code> 改变了应用程序的根目录，这样进程在容器中运行时就能看见一个专为它定制的根目录，这个根目录会包括一些常见的目录和文件，比如 /bin，/etc，/proc 等。而这个虚拟的根目录在宿主机那里不过是一个被 <code>rootfs</code> 指定的普通的子目录。</p><p><code>rootfs</code> 解决了容器随处部署都能实现环境一致的效果，而另一方 docker 在此基础上使用分层的概念创建出了镜像，使得容器的易用性得到极大提升。</p><h3 id=layer-分层镜像>layer 分层镜像</h3><p><code>layer</code> 利用到了 linux 的一种叫做联合文件系统（Union File System）的能力。</p><p>Union File System 也叫 UnionFS，主要功能是将多个不同位置的目录联合挂载到同一目录下。</p><p>比如要将 A 录下的文件和 B 目录下的文件挂载到 C 目录下，可以使用命令：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><p>在 <code>docker run</code> 容器时，使用 <code>--cpu-quota</code> 和 <code>--cpu-period</code> 参数可以用同样的方式来限制容器的 <code>CPU</code> 资源使用。</p><p>限制以后在宿主机的 /sys/fs/cgroup/cpu/docker 目录下可以看到相同容器 Id 的子文件夹，进入后查看 <code>cpu.cfs_period_us</code> 和 <code>cpu.cfs_period_us</code> 可以看见 <code>docker run</code> 时写入的限制就在这两个文件中。</p><h2 id=mount-namespace>Mount Namespace</h2><p>除了限制 CPU，docker 利用 Mount Namespace 对容器的文件系统也进行了限制。</p><h3 id=rootfs-根目录>rootfs 根目录</h3><p>docker 隔离文件系统的方式是使用 <code>rootfs</code> 改变了应用程序的根目录，这样进程在容器中运行时就能看见一个专为它定制的根目录，这个根目录会包括一些常见的目录和文件，比如 /bin，/etc，/proc 等。而这个虚拟的根目录在宿主机那里不过是一个被 <code>rootfs</code> 指定的普通的子目录。</p><p><code>rootfs</code> 解决了容器随处部署都能实现环境一致的效果，而另一方 docker 在此基础上使用分层的概念创建出了镜像，使得容器的易用性得到极大提升。</p><h3 id=layer-分层镜像>layer 分层镜像</h3><p><code>layer</code> 利用到了 linux 的一种叫做联合文件系统（Union File System）的能力。</p><p>Union File System 也叫 UnionFS，主要功能是将多个不同位置的目录联合挂载到同一目录下。</p><p>比如要将 A 录下的文件和 B 目录下的文件挂载到 C 目录下，可以使用命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkdir C
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mkdir C
 </span></span><span class=line><span class=cl>mount -t aufs -o <span class=nv>dirs</span><span class=o>=</span>./A<span class=o>=</span>rw:./B<span class=o>=</span>ro none ./C
-</span></span></code></pre></td></tr></table></div></div><p>知道了原理，我们再回过头来看看 docker 镜像的构成，使用命令启动一个 Ubuntu 容器：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d ubuntu:latest sleep <span class=m>3600</span>
-</span></span></code></pre></td></tr></table></div></div><p>查看该镜像详情，可以看见 Layers 信息：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div><p>知道了原理，我们再回过头来看看 docker 镜像的构成，使用命令启动一个 Ubuntu 容器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d ubuntu:latest sleep <span class=m>3600</span>
+</span></span></code></pre></td></tr></table></div></div><p>查看该镜像详情，可以看见 Layers 信息：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -206,8 +104,7 @@
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker image inspect ubuntu:latest
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker image inspect ubuntu:latest
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>--- 输出 ---
 </span></span><span class=line><span class=cl>
@@ -218,20 +115,15 @@
 </span></span><span class=line><span class=cl>            <span class=s2>&#34;sha256:0eba131dffd015134cb310c284b776c1e44d330146cd2f0e30c4e464d0b76d24&#34;</span>
 </span></span><span class=line><span class=cl>        <span class=o>]</span>
 </span></span><span class=line><span class=cl>    <span class=o>}</span>,
-</span></span></code></pre></td></tr></table></div></div><h2 id=容器进程的-pid>容器进程的 Pid</h2><p>启动一个容器后使用以下命令获取 Docker 容器的进程 Pid：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><h2 id=容器进程的-pid>容器进程的 Pid</h2><p>启动一个容器后使用以下命令获取 Docker 容器的进程 Pid：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker inspect --format <span class=s1>&#39;{{.State.Pid}}&#39;</span> ee8e926d
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker inspect --format <span class=s1>&#39;{{.State.Pid}}&#39;</span> ee8e926d
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>--- 输出 ---
 </span></span><span class=line><span class=cl><span class=m>1703</span>
-</span></span></code></pre></td></tr></table></div></div><p>此时，通过宿主机的 proc 文件，可以看到这个进程的所有 Namespace 对应的文件：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div><p>此时，通过宿主机的 proc 文件，可以看到这个进程的所有 Namespace 对应的文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -243,8 +135,7 @@
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ls -l /proc/1703/ns
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo ls -l /proc/1703/ns
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>--- 输出 ---
 </span></span><span class=line><span class=cl>total <span class=m>0</span>
@@ -256,46 +147,18 @@
 </span></span><span class=line><span class=cl>lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:14 pid_for_children -&gt; <span class=s1>&#39;pid:[4026532649]&#39;</span>
 </span></span><span class=line><span class=cl>lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:14 user -&gt; <span class=s1>&#39;user:[4026531837]&#39;</span>
 </span></span><span class=line><span class=cl>lrwxrwxrwx <span class=m>1</span> root root <span class=m>0</span> Jan <span class=m>21</span> 08:12 uts -&gt; <span class=s1>&#39;uts:[4026532647]&#39;</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=加入容器网络>加入容器网络</h2><p>Docker 专门提供了一个参数，可以让你启动一个容器并“加入”到另一个容器的 Network Namespace 里，这个参数就是 &ndash;net，比如：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run --net<span class=o>=</span>container:ee8e926d busybox:latest ifconfig
-</span></span></code></pre></td></tr></table></div></div><h2 id=volume-挂载>Volume 挂载</h2><p>容器中的目录可以通过 Volume 挂载到宿主机上，比如：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d -it -v /test ubuntu:latest sleep <span class=m>3600</span>
-</span></span></code></pre></td></tr></table></div></div><p>查看刚才创建容器挂载的宿主机目录</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div><h2 id=加入容器网络>加入容器网络</h2><p>Docker 专门提供了一个参数，可以让你启动一个容器并“加入”到另一个容器的 Network Namespace 里，这个参数就是 &ndash;net，比如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run --net<span class=o>=</span>container:ee8e926d busybox:latest ifconfig
+</span></span></code></pre></td></tr></table></div></div><h2 id=volume-挂载>Volume 挂载</h2><p>容器中的目录可以通过 Volume 挂载到宿主机上，比如：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run -d -it -v /test ubuntu:latest sleep <span class=m>3600</span>
+</span></span></code></pre></td></tr></table></div></div><p>查看刚才创建容器挂载的宿主机目录</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker inspect --format <span class=s1>&#39;{{.Mounts}}&#39;</span> <span class=m>744</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker inspect --format <span class=s1>&#39;{{.Mounts}}&#39;</span> <span class=m>744</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>--- 输出 ---
 </span></span><span class=line><span class=cl><span class=o>[{</span>volume 16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca /var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data /test <span class=nb>local</span>  <span class=nb>true</span> <span class=o>}]</span>
-</span></span></code></pre></td></tr></table></div></div><p>其中 <code>/var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data</code> 就是容器中 <code>/test</code> 对应的宿主目录，在里面进行文件操作，在宿主机和容器里都能看到。</p><h2 id=参考>参考</h2><blockquote>
-<p><a href=https://time.geekbang.org/column/article/23132 target=_blank rel="noopener noreffer">https://time.geekbang.org/column/article/23132</a></p></blockquote></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>更新于 2022-01-08</span>
-</div><div class=post-info-license></div></div><div class=post-info-line>
-<div class=post-info-md></div><div class=post-info-share>
-<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么" data-hashtags=docker><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-hashtag=docker><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i class="fab fa-evernote fa-fw"></i></a></span>
-</div></div></div><div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/docker/>docker</a></section><section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section></div><div class=post-nav><a href=/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91-eks-%E9%83%A8%E7%BD%B2-wordpress/ class=prev rel=prev title="使用腾讯云 EKS 部署 WordPress"><i class="fas fa-angle-left fa-fw"></i>使用腾讯云 EKS 部署 WordPress</a></div></div><div id=comments><div id=gitalk class=comment></div><noscript>
-Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.
-</noscript></div></article></div></main><footer class=footer>
-<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br>
-<span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2022-01-08T08:08:08+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"Docker 是什么"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
+</span></span></code></pre></td></tr></table></div></div><p>其中 <code>/var/lib/docker/volumes/16c3ad909ee3a43f42fded7424299830dd4a5c36ccbba0e2e2af701394801dca/_data</code> 就是容器中 <code>/test</code> 对应的宿主目录，在里面进行文件操作，在宿主机和容器里都能看到。</p><h2 id=参考>参考</h2><blockquote><p><a href=https://time.geekbang.org/column/article/23132 target=_blank rel="noopener noreffer">https://time.geekbang.org/column/article/23132</a></p></blockquote></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-01-08</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么" data-hashtags=docker><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-hashtag=docker><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 百度" data-sharer=baidu data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/ data-title="Docker 是什么"><i class="fab fa-evernote fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/docker/>docker</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91-eks-%E9%83%A8%E7%BD%B2-wordpress/ class=prev rel=prev title="使用腾讯云 EKS 部署 WordPress"><i class="fas fa-angle-left fa-fw"></i>使用腾讯云 EKS 部署 WordPress</a>
+<a href=/git-%E7%AC%94%E8%AE%B0/ class=next rel=next title="git 笔记">git 笔记<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=gitalk class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://github.com/gitalk/gitalk></a>Gitalk</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2016 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/fengrui358 target=_blank>feng rui</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a href=https://beian.miit.gov.cn/ target=_blank>蜀ICP备20008641号-1</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><link rel=stylesheet href=/reward.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript src=/changetheme.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{gitalk:{admin:["fengrui358"],clientID:"3456dafd03581d90ae6e",clientSecret:"10609d7e4ad6014c1581c03a8466b8e03212dea1",id:"2022-01-08T08:08:08+08:00",owner:"fengrui358",repo:"fengrui358.github.io",title:"Docker 是什么"}},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{algoliaAppID:"AB5IIIMH3V",algoliaIndex:"frhello",algoliaSearchKey:"17b14fee85ab5b8a2f9356765e6609ab",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
