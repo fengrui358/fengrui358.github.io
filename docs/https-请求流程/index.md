@@ -31,4 +31,6 @@ https 是在 http 的基础上，利用 TLS/SSL 加密的方式，实现了安�
 > 参考：
 >
 > <https://www.jianshu.com/p/ecbae815baf2>
+>
+> <https://zhuanlan.zhihu.com/p/43789231>
 
