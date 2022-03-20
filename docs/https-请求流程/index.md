@@ -7,7 +7,7 @@ https 是在 http 的基础上，利用 TLS/SSL 加密的方式，实现了安�
 
 ## 流程图
 
-![https 请求流程图](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202203161213431.png)
+![https 请求流程图](https://cdn.jsdelivr.net/gh/fengrui358/img@main/1647793067801-https%20%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B.webp "https 请求流程图")
 
 ## 证书
 
