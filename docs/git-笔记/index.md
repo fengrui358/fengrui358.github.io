@@ -7,6 +7,14 @@
 git config --global credential.helper store
 ```
 
+## 获取 git 子模块
+
+下载完主仓库后再执行一次以下命令获取子模块
+
+```bash
+git submodule update --init --recursive
+```
+
 ## git 换行符设置
 
 跨平台协作开发是常有的，不统一的换行符确实对跨平台的文件交换带来了麻烦。最大的问题是，在不同平台上，换行符发生改变时，Git 会认为整个文件被修改，这就造成我们没法 diff，不能正确反映本次的修改。还好 Git 在设计时就考虑了这一点，其提供了一个 autocrlf 的配置项，用于在提交和检出时自动转换换行符，该配置有三个可选项：
