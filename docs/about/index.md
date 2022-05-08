@@ -1,7 +1,7 @@
 # 关于 free 笔记
 
 
-![free 笔记](https://cdn.jsdelivr.net/gh/fengrui358/img@main/%E6%AF%95%E6%A3%9A%E6%B2%9F.jpg "路的尽头是风景")
+![free 笔记](https://cdn.jsdelivr.net/gh/fengrui358/img@main/202205081718914.jpg "路的尽头是风景")
 
 ### 介绍
 
