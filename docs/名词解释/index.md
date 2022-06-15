@@ -9,6 +9,8 @@
 
 我们可以把云计算理解成一栋大楼，而这栋楼又可以分为顶楼、中间、低层三大块。那么我们就可以把Iass(基础设施)、Pass(平台)、Sass(软件)理解成这栋楼的三部分。基础设施在最下端，平台在中间，软件在顶端。别的一些“软”的层可以在这些层上面添加。
 
+![Iaas、Paas、SaaS](https://cdn.jsdelivr.net/gh/fengrui358/img@main/saas.webp "Iaas、Paas、SaaS")
+
 #### IaaS
 
 IaaS：Infrastructure-as-a-Service（基础设施即服务），是云服务的最底层，主要提供一些基础资源。它与 PaaS 的区别是，用户需要自己控制底层，实现基础设施的使用逻辑。
