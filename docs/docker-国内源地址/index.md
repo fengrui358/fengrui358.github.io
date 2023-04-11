@@ -1,31 +1,27 @@
-# Docker 国内源地址
+# Docker 相关配置
 
 
-## npm
+## docker 容器使用宿主机代理
 
-### 使用 nrm 管理 registry 地址
+在容器运行阶段，如果需要代理上网，则需要配置 `~/.docker/config.json`。以下配置，只在Docker 17.07及以上版本生效。
 
-- 下载 nrm
-
-```bash
-npm install -g nrm
+```json
+{
+ "proxies":
+ {
+   "default":
+   {
+     "httpProxy": "http://host.docker.internal:8080",
+     "httpsProxy": "https://host.docker.internal:8080",
+     "noProxy": "localhost,127.0.0.1,.example.com"
+   }
+ }
+}
 ```
 
-- 添加 registry 地址
+其中的 `host.docker.internal` 为 Docker Host 的主机域名。
 
-```bash
-nrm add npm https://registry.npmjs.org
-nrm add taobao https://registry.npm.taobao.org
-```
-
-- 切换 npm registry 地址
-
-```bash
-nrm use taobao
-nrm use npm
-```
-
-## docker
+## docker 源镜像地址
 
 在 `/etc/docker/daemon.json` 中写入以下配置
 
