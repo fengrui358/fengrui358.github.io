@@ -19,7 +19,7 @@
 }
 ```
 
-其中的 `host.docker.internal` 为 Docker Host 的主机域名。
+其中的 `host.docker.internal` 为 Docker Host 的主机域名。还可以设置单个容器代理，具体可参考：<https://docs.docker.com/network/proxy/>
 
 ## docker 源镜像地址
 
