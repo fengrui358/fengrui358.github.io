@@ -6,9 +6,7 @@
 使用第三方的包管理系统和环境管理系统 `conda`，通过 `Anaconda` 官网下载安装，安装完成后 WindowsPowerShell 由于权限原因无法直接初始化 `conda`，可运行如下命令：
 
 ```cmd
-
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
-
 ```
 
 参考：<https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3>
