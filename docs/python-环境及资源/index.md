@@ -15,7 +15,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 
 - 更新 conda：`conda update -n base conda`
 - 创建一个新环境：`conda create --name myenv python=3.11.2 numpy=1.23.5`
-- 复制一个环境：
+- 复制一个环境：#环境复制命令：`conda create -n traget_env_name --clone source_env_name`
 - 删除一个环境：`conda remove -n myenv --all`
 - 切换环境：激活新环境：`conda activate myenv`，退出当前环境：`conda deactivate`
 - 列出当前所有环境：`conda env list`
