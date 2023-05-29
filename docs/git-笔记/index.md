@@ -51,13 +51,24 @@ git config --global core.safecrlf false
 git config --global core.safecrlf warn
 ```
 
-## 最佳设置合并
+### 最佳设置合并
 
 ```bash
 git config --global credential.helper store
 git config --global core.autocrlf false
 git config --global core.safecrlf true
 ```
+
+## 使用 curl 获取私有文件
+
+```bash
+curl -H 'Authorization: token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
+  -H 'Accept: application/vnd.github.v3.raw' \
+  -O \
+  -L https://github.com/repos/owner/repo/contents/path
+```
+
+替换为自己的 token，`-O` 更换下载后的本地文件名，`-L` 要下载的文件路径。
 
 > 参考
 >
