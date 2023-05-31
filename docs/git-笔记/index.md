@@ -62,10 +62,10 @@ git config --global core.safecrlf true
 ## 使用 curl 获取私有文件
 
 ```bash
-curl -H 'Authorization: token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
-  -H 'Accept: application/vnd.github.v3.raw' \
+curl -H "Authorization: token <your_personal_access_token>" \
+  -H "Accept: application/vnd.github.v3.raw" \
   -O \
-  -L https://github.com/repos/owner/repo/contents/path
+  -L https://raw.githubusercontent.com/<username>/<repo>/<branch>/<file_path>
 ```
 
 替换为自己的 token，`-O` 更换下载后的本地文件名，`-L` 要下载的文件路径。
@@ -73,4 +73,5 @@ curl -H 'Authorization: token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
 > 参考
 >
 > <http://kuanghy.github.io/2017/03/19/git-lf-or-crlf>
+> <https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#get-contents>
 
