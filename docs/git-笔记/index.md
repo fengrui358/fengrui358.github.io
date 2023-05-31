@@ -66,9 +66,14 @@ curl -H "Authorization: token <your_personal_access_token>" \
   -H "Accept: application/vnd.github.v3.raw" \
   -O \
   -L https://raw.githubusercontent.com/<username>/<repo>/<branch>/<file_path>
+
+curl -H "Authorization: token <your_personal_access_token>" \
+  -H "Accept: application/vnd.github.v3.raw" \
+  -o subdir/test.txt \
+  -L https://raw.githubusercontent.com/<username>/<repo>/<branch>/<file_path>
 ```
 
-替换为自己的 token，`-O` 更换下载后的本地文件名，`-L` 要下载的文件路径。
+替换为自己的 token，`-O` 更换下载后的本地文件名，`-L` 要下载的文件路径，`-o` 可以另存到指定目录的指定文件。
 
 > 参考
 >
