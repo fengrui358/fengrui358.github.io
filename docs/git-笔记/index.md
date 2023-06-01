@@ -62,11 +62,13 @@ git config --global core.safecrlf true
 ## 使用 curl 获取私有文件
 
 ```bash
+# 下载文件到当前目录
 curl -H "Authorization: token <your_personal_access_token>" \
   -H "Accept: application/vnd.github.v3.raw" \
   -O \
   -L https://raw.githubusercontent.com/<username>/<repo>/<branch>/<file_path>
 
+# 下载文件到指定目录
 curl -H "Authorization: token <your_personal_access_token>" \
   -H "Accept: application/vnd.github.v3.raw" \
   -o subdir/test.txt \
