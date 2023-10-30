@@ -32,11 +32,11 @@
 </span><span class=lnt>20
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>private</span> <span class=k>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kd>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=k>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=kd>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>  <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Trace</span><span class=p>(</span><span class=s>&#34;Sample trace message&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=n>logger</span><span class=p>.</span><span class=n>Debug</span><span class=p>(</span><span class=s>&#34;Sample debug message&#34;</span><span class=p>);</span>
@@ -72,11 +72,11 @@
 </span><span class=lnt>20
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>using</span> <span class=nn>NLog</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>MyClass</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>private</span> <span class=k>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=kd>private</span> <span class=kd>static</span> <span class=n>Logger</span> <span class=n>logger</span> <span class=p>=</span> <span class=n>LogManager</span><span class=p>.</span><span class=n>GetCurrentClassLogger</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=k>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=kd>public</span> <span class=k>void</span> <span class=n>MyMethod1</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>  <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>k</span> <span class=p>=</span> <span class=m>42</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>l</span> <span class=p>=</span> <span class=m>100</span><span class=p>;</span>
@@ -155,10 +155,10 @@
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Program</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=kd>static</span> <span class=k>void</span> <span class=n>Main</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>  <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=c1>// enable internal logging to the console</span>
-</span></span><span class=line><span class=cl>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogToConsole</span> <span class=p>=</span> <span class=k>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogToConsole</span> <span class=p>=</span> <span class=kc>true</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=c1>// enable internal logging to a file</span>
 </span></span><span class=line><span class=cl>    <span class=n>InternalLogger</span><span class=p>.</span><span class=n>LogFile</span> <span class=p>=</span> <span class=s>&#34;c:\\log.txt&#34;</span><span class=p>;</span>

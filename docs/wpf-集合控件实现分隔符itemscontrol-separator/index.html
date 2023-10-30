@@ -185,28 +185,28 @@
 </span><span class=lnt>101
 </span><span class=lnt>102
 </span><span class=lnt>103
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=cp>#region MarkIndex</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=cp>#region</span> <span class=n>MarkIndex</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>readonly</span> <span class=n>DependencyProperty</span> <span class=n>MarkIndexProperty</span> <span class=p>=</span> <span class=n>DependencyProperty</span><span class=p>.</span><span class=n>RegisterAttached</span><span class=p>(</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=k>readonly</span> <span class=n>DependencyProperty</span> <span class=n>MarkIndexProperty</span> <span class=p>=</span> <span class=n>DependencyProperty</span><span class=p>.</span><span class=n>RegisterAttached</span><span class=p>(</span>
 </span></span><span class=line><span class=cl>    <span class=s>&#34;MarkIndex&#34;</span><span class=p>,</span> <span class=k>typeof</span><span class=p>(</span><span class=kt>bool</span><span class=p>),</span> <span class=k>typeof</span><span class=p>(</span><span class=n>ItemsControlHelper</span><span class=p>),</span> <span class=k>new</span> <span class=n>PropertyMetadata</span><span class=p>(</span><span class=k>default</span><span class=p>(</span><span class=kt>bool</span><span class=p>),</span> <span class=n>OnMarkIndexPropertyChanged</span><span class=p>));</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=kt>bool</span> <span class=n>GetMarkIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=kt>bool</span> <span class=n>GetMarkIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span><span class=kt>bool</span><span class=p>)</span><span class=n>obj</span><span class=p>.</span><span class=n>GetValue</span><span class=p>(</span><span class=n>MarkIndexProperty</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>void</span> <span class=n>SetMarkIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>bool</span> <span class=k>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=k>void</span> <span class=n>SetMarkIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>bool</span> <span class=k>value</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=n>obj</span><span class=p>.</span><span class=n>SetValue</span><span class=p>(</span><span class=n>MarkIndexProperty</span><span class=p>,</span> <span class=k>value</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>private</span> <span class=k>static</span> <span class=k>void</span> <span class=n>OnMarkIndexPropertyChanged</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>dependencyObject</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=kd>private</span> <span class=kd>static</span> <span class=k>void</span> <span class=n>OnMarkIndexPropertyChanged</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>dependencyObject</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>    <span class=n>DependencyPropertyChangedEventArgs</span> <span class=n>args</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>((</span><span class=kt>bool</span><span class=p>)</span><span class=n>args</span><span class=p>.</span><span class=n>NewValue</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=kt>var</span> <span class=n>itemsControl</span> <span class=p>=</span> <span class=n>dependencyObject</span> <span class=k>as</span> <span class=n>ItemsControl</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>itemsControl</span> <span class=p>!=</span> <span class=k>null</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>itemsControl</span> <span class=p>!=</span> <span class=kc>null</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>        <span class=p>{</span>
 </span></span><span class=line><span class=cl>            <span class=n>itemsControl</span><span class=p>.</span><span class=n>ItemContainerGenerator</span><span class=p>.</span><span class=n>StatusChanged</span> <span class=p>-=</span> <span class=n>ItemContainerGeneratorOnStatusChanged</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>            <span class=n>itemsControl</span><span class=p>.</span><span class=n>ItemContainerGenerator</span><span class=p>.</span><span class=n>ItemsChanged</span> <span class=p>-=</span> <span class=n>ItemContainerGeneratorOnItemsChanged</span><span class=p>;</span>
@@ -218,7 +218,7 @@
 </span></span><span class=line><span class=cl>    <span class=k>else</span>
 </span></span><span class=line><span class=cl>    <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=kt>var</span> <span class=n>itemsControl</span> <span class=p>=</span> <span class=n>dependencyObject</span> <span class=k>as</span> <span class=n>ItemsControl</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>itemsControl</span> <span class=p>!=</span> <span class=k>null</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>itemsControl</span> <span class=p>!=</span> <span class=kc>null</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>        <span class=p>{</span>
 </span></span><span class=line><span class=cl>            <span class=n>itemsControl</span><span class=p>.</span><span class=n>ItemContainerGenerator</span><span class=p>.</span><span class=n>StatusChanged</span> <span class=p>-=</span> <span class=n>ItemContainerGeneratorOnStatusChanged</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>            <span class=n>itemsControl</span><span class=p>.</span><span class=n>ItemContainerGenerator</span><span class=p>.</span><span class=n>ItemsChanged</span> <span class=p>-=</span> <span class=n>ItemContainerGeneratorOnItemsChanged</span><span class=p>;</span>
@@ -226,7 +226,7 @@
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>private</span> <span class=k>static</span> <span class=k>void</span> <span class=n>ItemContainerGeneratorOnItemsChanged</span><span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>ItemsChangedEventArgs</span> <span class=n>itemsChangedEventArgs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>private</span> <span class=kd>static</span> <span class=k>void</span> <span class=n>ItemContainerGeneratorOnItemsChanged</span><span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>ItemsChangedEventArgs</span> <span class=n>itemsChangedEventArgs</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=kt>var</span> <span class=n>itemContainerGenerator</span> <span class=p>=</span> <span class=p>(</span><span class=n>ItemContainerGenerator</span><span class=p>)</span><span class=n>sender</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
@@ -236,7 +236,7 @@
 </span></span><span class=line><span class=cl>        <span class=p>{</span>
 </span></span><span class=line><span class=cl>            <span class=kt>var</span> <span class=n>dp</span> <span class=p>=</span> <span class=n>itemContainerGenerator</span><span class=p>.</span><span class=n>ContainerFromIndex</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>dp</span> <span class=p>!=</span> <span class=k>null</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>dp</span> <span class=p>!=</span> <span class=kc>null</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>            <span class=p>{</span>
 </span></span><span class=line><span class=cl>                <span class=kt>var</span> <span class=n>oldIndex</span> <span class=p>=</span> <span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=n>dp</span><span class=p>.</span><span class=n>GetValue</span><span class=p>(</span><span class=n>ItemIndexProperty</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=n>oldIndex</span> <span class=p>!=</span> <span class=n>i</span><span class=p>)</span>
@@ -248,7 +248,7 @@
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>private</span> <span class=k>static</span> <span class=k>void</span> <span class=n>ItemContainerGeneratorOnStatusChanged</span><span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>EventArgs</span> <span class=n>eventArgs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>private</span> <span class=kd>static</span> <span class=k>void</span> <span class=n>ItemContainerGeneratorOnStatusChanged</span><span class=p>(</span><span class=kt>object</span> <span class=n>sender</span><span class=p>,</span> <span class=n>EventArgs</span> <span class=n>eventArgs</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=kt>var</span> <span class=n>itemContainerGenerator</span> <span class=p>=</span> <span class=p>(</span><span class=n>ItemContainerGenerator</span><span class=p>)</span><span class=n>sender</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
@@ -258,7 +258,7 @@
 </span></span><span class=line><span class=cl>        <span class=p>{</span>
 </span></span><span class=line><span class=cl>            <span class=kt>var</span> <span class=n>dp</span> <span class=p>=</span> <span class=n>itemContainerGenerator</span><span class=p>.</span><span class=n>ContainerFromIndex</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>dp</span> <span class=p>!=</span> <span class=k>null</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>dp</span> <span class=p>!=</span> <span class=kc>null</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>            <span class=p>{</span>
 </span></span><span class=line><span class=cl>                <span class=kt>var</span> <span class=n>oldIndex</span> <span class=p>=</span> <span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=n>dp</span><span class=p>.</span><span class=n>GetValue</span><span class=p>(</span><span class=n>ItemIndexProperty</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=n>oldIndex</span> <span class=p>!=</span> <span class=n>i</span><span class=p>)</span>
@@ -270,24 +270,24 @@
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=err>#</span><span class=n>endregion</span>
+</span></span><span class=line><span class=cl><span class=cp>#endregion</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=cp>#region ItemIndex</span>
+</span></span><span class=line><span class=cl><span class=cp>#region</span> <span class=n>ItemIndex</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>readonly</span> <span class=n>DependencyProperty</span> <span class=n>ItemIndexProperty</span> <span class=p>=</span> <span class=n>DependencyProperty</span><span class=p>.</span><span class=n>RegisterAttached</span><span class=p>(</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=k>readonly</span> <span class=n>DependencyProperty</span> <span class=n>ItemIndexProperty</span> <span class=p>=</span> <span class=n>DependencyProperty</span><span class=p>.</span><span class=n>RegisterAttached</span><span class=p>(</span>
 </span></span><span class=line><span class=cl>    <span class=s>&#34;ItemIndex&#34;</span><span class=p>,</span> <span class=k>typeof</span><span class=p>(</span><span class=kt>int</span><span class=p>),</span> <span class=k>typeof</span><span class=p>(</span><span class=n>ItemsControlHelper</span><span class=p>),</span> <span class=k>new</span> <span class=n>PropertyMetadata</span><span class=p>(</span><span class=k>default</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=kt>int</span> <span class=n>GetItemIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=kt>int</span> <span class=n>GetItemIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=n>obj</span><span class=p>.</span><span class=n>GetValue</span><span class=p>(</span><span class=n>ItemIndexProperty</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>static</span> <span class=k>void</span> <span class=n>SetItemIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>bool</span> <span class=k>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kd>static</span> <span class=k>void</span> <span class=n>SetItemIndex</span><span class=p>(</span><span class=n>DependencyObject</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>bool</span> <span class=k>value</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=n>obj</span><span class=p>.</span><span class=n>SetValue</span><span class=p>(</span><span class=n>ItemIndexProperty</span><span class=p>,</span> <span class=k>value</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=err>#</span><span class=n>endregion</span>
+</span></span><span class=line><span class=cl><span class=cp>#endregion</span>
 </span></span></code></pre></td></tr></table></div></div><p>使用方式如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3

@@ -38,7 +38,7 @@
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>interface</span> <span class=nc>IValueResolver</span><span class=p>&lt;</span><span class=k>in</span> <span class=n>TSource</span><span class=p>,</span> <span class=k>in</span> <span class=n>TDestination</span><span class=p>,</span> <span class=n>TDestMember</span><span class=p>&gt;</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>interface</span> <span class=nc>IValueResolver</span><span class=p>&lt;</span><span class=k>in</span> <span class=n>TSource</span><span class=p>,</span> <span class=k>in</span> <span class=n>TDestination</span><span class=p>,</span> <span class=n>TDestMember</span><span class=p>&gt;</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=n>TDestMember</span> <span class=n>Resolve</span><span class=p>(</span><span class=n>TSource</span> <span class=n>source</span><span class=p>,</span> <span class=n>TDestination</span> <span class=n>destination</span><span class=p>,</span> <span class=n>TDestMember</span> <span class=n>destMember</span><span class=p>,</span> <span class=n>ResolutionContext</span> <span class=n>context</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
@@ -66,26 +66,26 @@
 </span><span class=lnt>16
 </span><span class=lnt>17
 </span><span class=lnt>18
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>SourceClass</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>SourceClass</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>public</span> <span class=kt>string</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>public</span> <span class=kt>string</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>TargetClass</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>TargetClass</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=k>public</span> <span class=kt>int</span> <span class=n>ValueLength</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>public</span> <span class=kt>int</span> <span class=n>ValueLength</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// ...</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>SourceClass</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=k>null</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>SourceClass</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=kc>null</span> <span class=p>};</span>
 </span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>target</span> <span class=p>=</span> <span class=k>new</span> <span class=n>TargetClass</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>SourceClass</span><span class=p>,</span> <span class=n>TargetClass</span><span class=p>&gt;()</span>
 </span></span><span class=line><span class=cl>  <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>ValueLength</span><span class=p>,</span> <span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>MapFrom</span><span class=p>(</span><span class=n>s</span> <span class=p>=&gt;</span> <span class=n>s</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>Length</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=n>ForAllMembers</span><span class=p>(</span><span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>Condition</span><span class=p>((</span><span class=n>src</span><span class=p>,</span> <span class=n>dest</span><span class=p>,</span> <span class=k>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=k>value</span> <span class=p>!=</span> <span class=k>null</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=n>ForAllMembers</span><span class=p>(</span><span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>Condition</span><span class=p>((</span><span class=n>src</span><span class=p>,</span> <span class=n>dest</span><span class=p>,</span> <span class=k>value</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=k>value</span> <span class=p>!=</span> <span class=kc>null</span><span class=p>));</span>
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>ValueLength</span><span class=p>,</span> <span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>MapFrom</span><span class=p>(</span><span class=n>s</span> <span class=p>=&gt;</span> <span class=n>s</span> <span class=p>!=</span> <span class=k>null</span> <span class=p>?</span> <span class=n>s</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>Length</span> <span class=p>:</span> <span class=m>0</span><span class=p>))</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>d</span> <span class=p>=&gt;</span> <span class=n>d</span><span class=p>.</span><span class=n>ValueLength</span><span class=p>,</span> <span class=n>o</span> <span class=p>=&gt;</span> <span class=n>o</span><span class=p>.</span><span class=n>MapFrom</span><span class=p>(</span><span class=n>s</span> <span class=p>=&gt;</span> <span class=n>s</span> <span class=p>!=</span> <span class=kc>null</span> <span class=p>?</span> <span class=n>s</span><span class=p>.</span><span class=n>Value</span><span class=p>.</span><span class=n>Length</span> <span class=p>:</span> <span class=m>0</span><span class=p>))</span>
 </span></span></code></pre></td></tr></table></div></div><h2 id=value-converters>Value Converters</h2><p>介于 <code>Type Converters</code> 和 <code>Value Resolvers</code> 之间的值转换方式：</p><ul><li><code>Type converter = Func&lt;TSource, TDestination, TDestination></code></li><li><code>Value resolver = Func&lt;TSource, TDestination, TDestinationMember></code></li><li><code>Member value resolver = Func&lt;TSource, TDestination, TSourceMember, TDestinationMember></code></li><li><code>Value converter = Func&lt;TSourceMember, TDestinationMember></code></li></ul><p>在成员级别配置该转换器</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -97,8 +97,8 @@
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>CurrencyFormatter</span> <span class=p>:</span> <span class=n>IValueConverter</span><span class=p>&lt;</span><span class=kt>decimal</span><span class=p>,</span> <span class=kt>string</span><span class=p>&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=kt>string</span> <span class=n>Convert</span><span class=p>(</span><span class=kt>decimal</span> <span class=n>source</span><span class=p>)</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>CurrencyFormatter</span> <span class=p>:</span> <span class=n>IValueConverter</span><span class=p>&lt;</span><span class=kt>decimal</span><span class=p>,</span> <span class=kt>string</span><span class=p>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>string</span> <span class=n>Convert</span><span class=p>(</span><span class=kt>decimal</span> <span class=n>source</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>        <span class=p>=&gt;</span> <span class=n>source</span><span class=p>.</span><span class=n>ToString</span><span class=p>(</span><span class=s>&#34;c&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
@@ -119,8 +119,8 @@
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>CurrencyFormatter</span> <span class=p>:</span> <span class=n>IValueConverter</span><span class=p>&lt;</span><span class=kt>decimal</span><span class=p>,</span> <span class=kt>string</span><span class=p>&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=kt>string</span> <span class=n>Convert</span><span class=p>(</span><span class=kt>decimal</span> <span class=n>source</span><span class=p>)</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>CurrencyFormatter</span> <span class=p>:</span> <span class=n>IValueConverter</span><span class=p>&lt;</span><span class=kt>decimal</span><span class=p>,</span> <span class=kt>string</span><span class=p>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>string</span> <span class=n>Convert</span><span class=p>(</span><span class=kt>decimal</span> <span class=n>source</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>        <span class=p>=&gt;</span> <span class=n>source</span><span class=p>.</span><span class=n>ToString</span><span class=p>(</span><span class=s>&#34;c&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
@@ -163,7 +163,7 @@
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kt>var</span> <span class=n>config</span> <span class=p>=</span> <span class=k>new</span> <span class=n>MapperConfiguration</span><span class=p>(</span><span class=n>cfg</span> <span class=p>=&gt;</span> <span class=n>cfg</span><span class=p>.</span><span class=n>CreateMap</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Dest</span><span class=p>&gt;()</span>
 </span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>ForMember</span><span class=p>(</span><span class=n>destination</span> <span class=p>=&gt;</span> <span class=n>destination</span><span class=p>.</span><span class=n>Value</span><span class=p>,</span> <span class=n>opt</span> <span class=p>=&gt;</span> <span class=n>opt</span><span class=p>.</span><span class=n>NullSubstitute</span><span class=p>(</span><span class=s>&#34;Other Value&#34;</span><span class=p>)));</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Source</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=k>null</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>source</span> <span class=p>=</span> <span class=k>new</span> <span class=n>Source</span> <span class=p>{</span> <span class=n>Value</span> <span class=p>=</span> <span class=kc>null</span> <span class=p>};</span>
 </span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>mapper</span> <span class=p>=</span> <span class=n>config</span><span class=p>.</span><span class=n>CreateMapper</span><span class=p>();</span>
 </span></span><span class=line><span class=cl><span class=kt>var</span> <span class=n>dest</span> <span class=p>=</span> <span class=n>mapper</span><span class=p>.</span><span class=n>Map</span><span class=p>&lt;</span><span class=n>Source</span><span class=p>,</span> <span class=n>Dest</span><span class=p>&gt;(</span><span class=n>source</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
@@ -196,9 +196,9 @@
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>NameMeJohnAction</span> <span class=p>:</span> <span class=n>IMappingAction</span><span class=p>&lt;</span><span class=n>SomePersonObject</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span><span class=p>&gt;</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>NameMeJohnAction</span> <span class=p>:</span> <span class=n>IMappingAction</span><span class=p>&lt;</span><span class=n>SomePersonObject</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span><span class=p>&gt;</span>
 </span></span><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=k>void</span> <span class=n>Process</span><span class=p>(</span><span class=n>SomePersonObject</span> <span class=n>source</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span> <span class=n>destination</span><span class=p>,</span> <span class=n>ResolutionContext</span> <span class=n>context</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=k>void</span> <span class=n>Process</span><span class=p>(</span><span class=n>SomePersonObject</span> <span class=n>source</span><span class=p>,</span> <span class=n>SomeOtherPersonObject</span> <span class=n>destination</span><span class=p>,</span> <span class=n>ResolutionContext</span> <span class=n>context</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=n>destination</span><span class=p>.</span><span class=n>Name</span> <span class=p>=</span> <span class=s>&#34;John&#34;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
@@ -221,15 +221,15 @@
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>Source</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>Source</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>SourceDto</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=n>SourceDto</span><span class=p>(</span><span class=kt>int</span> <span class=k>value</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>SourceDto</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>SourceDto</span><span class=p>(</span><span class=kt>int</span> <span class=k>value</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=n>_value</span> <span class=p>=</span> <span class=k>value</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=kt>int</span> <span class=n>_value</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>int</span> <span class=n>_value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=k>get</span> <span class=p>{</span> <span class=k>return</span> <span class=n>_value</span><span class=p>;</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
@@ -250,15 +250,15 @@
 </span><span class=lnt>14
 </span><span class=lnt>15
 </span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>Source</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>Source</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span> <span class=k>get</span><span class=p>;</span> <span class=k>set</span><span class=p>;</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=k>public</span> <span class=k>class</span> <span class=nc>SourceDto</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=n>SourceDto</span><span class=p>(</span><span class=kt>int</span> <span class=n>valueParamSomeOtherName</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=k>class</span> <span class=nc>SourceDto</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=n>SourceDto</span><span class=p>(</span><span class=kt>int</span> <span class=n>valueParamSomeOtherName</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=n>_value</span> <span class=p>=</span> <span class=n>valueParamSomeOtherName</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=kt>int</span> <span class=n>_value</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>int</span> <span class=n>_value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>int</span> <span class=n>Value</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=k>get</span> <span class=p>{</span> <span class=k>return</span> <span class=n>_value</span><span class=p>;</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
