@@ -9,6 +9,14 @@
 
 - 表格岔色：`条件格式`中选择`自定义公式`，输入`=MOD(ROW(),2)=0`，再选择对应颜色
 
+## 快速查找
+
+- 在 Excel 中，比 VLOOKUP 更强大且灵活的函数是 INDEX 和 MATCH 的组合。这两个函数一起使用时可以提供 VLOOKUP 的所有功能，并解决 VLOOKUP 的一些限制，如只能向右查找。
+
+``` script
+=INDEX(返回值的范围, MATCH(查找值, 查找值的范围, 0))
+```
+
 ## 参考文章
 
 <https://www.cnblogs.com/myzony/p/11312928.html>
