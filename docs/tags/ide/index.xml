@@ -1,1 +1,42 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ide - 标签 - free note</title><link>https://frhello.com/tags/ide/</link><description>Ide - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Oct 2019 19:51:52 +0800</lastBuildDate><atom:link href="https://frhello.com/tags/ide/" rel="self" type="application/rss+xml"/><item><title>Visual Studio Code 专栏学习笔记</title><link>https://frhello.com/visual-studio-code-%E4%B8%93%E6%A0%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 13 Oct 2019 19:51:52 +0800</pubDate><author>作者</author><guid>https://frhello.com/visual-studio-code-%E4%B8%93%E6%A0%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description>专栏地址：https://time.geekbang.org/column/article/40098 常用命令 打开命令面板：Ctrl+Shi</description></item><item><title>Visual Studio Code 学习笔记</title><link>https://frhello.com/visual-studio-code-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Sat, 21 Sep 2019 10:25:04 +0800</pubDate><author>作者</author><guid>https://frhello.com/visual-studio-code-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description>主框架 隐藏、开启侧边栏：Ctrl+B 交互式演习场 Help -Interactive Playground 可以帮助学习 VS Code 编辑区分栏 创建一个新的分栏：Ctrl+\ 关闭当前选中的分栏：Ctrl+</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ide - 标签 - free note</title><link>https://blog.frhello.com/tags/ide/</link><description>Ide - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Oct 2019 19:51:52 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/tags/ide/" rel="self" type="application/rss+xml"/><item><title>Visual Studio Code 专栏学习笔记</title><link>https://blog.frhello.com/visual-studio-code-%E4%B8%93%E6%A0%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 13 Oct 2019 19:51:52 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/visual-studio-code-%E4%B8%93%E6%A0%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description><![CDATA[<p>专栏地址：<a href="https://time.geekbang.org/column/article/40098" target="_blank" rel="noopener noreffer">https://time.geekbang.org/column/article/40098</a></p>
+<h2 id="常用命令">常用命令</h2>
+<ul>
+<li>打开命令面板：<code>Ctrl+Shift+P</code> <code>F1</code></li>
+<li>Cmd 窗口命令：<code>Code</code>，<code>Code --help</code>查看命令帮助，Cmd 命令加<code>| Code -</code>可直接将 Cmd 命令的结果输出到 VS Code 的一个页面中，方便后续操作</li>
+<li>编辑操作：</li>
+</ul>
+<ol>
+<li>删除当前行：<code>Ctrl+Shift+K</code></li>
+<li>剪切当前行：<code>Ctrl+Shift+X</code></li>
+<li>复制当前行：<code>Ctrl+Shift+C</code></li>
+<li>新起一行到下一行：<code>Ctrl+Enter</code></li>
+<li>新起一行到上一行：<code>Ctrl+Shift+Enter</code></li>
+<li>当前行向上\下移动：<code>Alt+↑\↓</code></li>
+<li>向上\下复制当前行：<code>Alt+Shift+↑\↓</code></li>
+<li>添加行注释：<code>Ctrl+/</code></li>
+<li>添加块注释：<code>Alt+Shift+A</code></li>
+<li>代码格式化（需安装各个语言对应的插件）：<code>Alt+Shift+F</code></li>
+<li>选中段代码格式化：<code>Ctrl+K Ctrl+F</code></li>
+<li>光标回退到之前位置：<code>Ctrl+U</code></li>
+<li>在一个函数的括号中跳转：<code>Ctrl+Shift+\</code></li>
+</ol>
+<ul>
+<li>
+<p>多光标：<code>Ctrl+Alt+鼠标</code> <code>Ctrl+Alt+↑\↓</code> <code>Ctrl+D Ctrl+D(选中重复的单词为他们生成多光标)</code> <code>Alt+Shift+I</code></p>]]></description></item><item><title>Visual Studio Code 学习笔记</title><link>https://blog.frhello.com/visual-studio-code-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link><pubDate>Sat, 21 Sep 2019 10:25:04 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/visual-studio-code-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid><description><![CDATA[<h2 id="主框架">主框架</h2>
+<ul>
+<li>隐藏、开启侧边栏：<code>Ctrl+B</code></li>
+<li>交互式演习场 <code>Help -Interactive Playground</code> 可以帮助学习 VS Code</li>
+</ul>
+<h2 id="编辑区分栏">编辑区分栏</h2>
+<ul>
+<li>创建一个新的分栏：<code>Ctrl+\</code></li>
+<li>关闭当前选中的分栏：<code>Ctrl+W</code></li>
+<li>在三个分栏间切换：<code>Ctrl+1,2,3</code></li>
+</ul>
+<h2 id="资源管理器">资源管理器</h2>
+<ul>
+<li>移动选中文件后快速打开该文件到编辑区：<code>Ctrl+Enter</code></li>
+<li>快速搜索一个文件（执行其他命令）：<code>Ctrl+P</code></li>
+</ul>
+<h2 id="配置编辑器">配置编辑器</h2>
+<p>VS Code 给予了我们很灵活的配置项，可以通过 <strong>user settings</strong> 设置全局项，或通过 <strong>workspace settings</strong> 设置每一个项目或文件夹的配置。设置的值保存在一个 <code>setting.json</code> 文件中。</p>]]></description></item></channel></rss>

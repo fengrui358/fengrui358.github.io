@@ -1,1 +1,125 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Linux - 标签 - free note</title><link>https://frhello.com/tags/linux/</link><description>Linux - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 18 Aug 2021 13:36:51 +0800</lastBuildDate><atom:link href="https://frhello.com/tags/linux/" rel="self" type="application/rss+xml"/><item><title>Linux 文件操作</title><link>https://frhello.com/linux-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</link><pubDate>Wed, 18 Aug 2021 13:36:51 +0800</pubDate><author>作者</author><guid>https://frhello.com/linux-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</guid><description>文件夹新建 1 mkdir test 文件新建 1 touch test.st 查看文件或文件夹信息 1 ls -l test.st 修改权限 1 2 # 递归修改为最高权限 chmod -R 777 test 删除文件 1 rm -rf test 压缩文件夹 1 tar zcvf ./t1.tar.gz test 解压文</description></item><item><title>Linux 笔记</title><link>https://frhello.com/linux-%E7%AC%94%E8%AE%B0/</link><pubDate>Fri, 28 May 2021 23:56:39 +0800</pubDate><author>作者</author><guid>https://frhello.com/linux-%E7%AC%94%E8%AE%B0/</guid><description>安装 CentOS 下载对应版本 http://centos.01link.hk/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso 虚拟机安装，注意安装以太网并设置自动对时，使用 ip addr 可查看 ip 更新 yum，然后安装 net-tools 1 2 3 yum update yum -y install epel-release yum install net-tool 网络 防火墙 查看防</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Linux - 标签 - free note</title><link>https://blog.frhello.com/tags/linux/</link><description>Linux - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 18 Aug 2021 13:36:51 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/tags/linux/" rel="self" type="application/rss+xml"/><item><title>Linux 文件操作</title><link>https://blog.frhello.com/linux-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</link><pubDate>Wed, 18 Aug 2021 13:36:51 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/linux-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</guid><description><![CDATA[<h2 id="文件夹新建">文件夹新建</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir <span class="nb">test</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="文件新建">文件新建</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch test.st
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查看文件或文件夹信息">查看文件或文件夹信息</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -l test.st
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="修改权限">修改权限</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 递归修改为最高权限</span>
+</span></span><span class="line"><span class="cl">chmod -R <span class="m">777</span> <span class="nb">test</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="删除文件">删除文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -rf <span class="nb">test</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="压缩文件夹">压缩文件夹</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar zcvf ./t1.tar.gz <span class="nb">test</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="解压文件">解压文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 解压到当前目录</span>
+</span></span><span class="line"><span class="cl">tar zxvf t1.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解压到指定目录</span>
+</span></span><span class="line"><span class="cl">tar zxvf t1.tar.gz -C /test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="拷贝文件">拷贝文件</h2>
+<h3 id="本地拷贝">本地拷贝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 拷贝文件</span>
+</span></span><span class="line"><span class="cl">scp t1.tar.gz t2.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 拷贝文件夹</span>
+</span></span><span class="line"><span class="cl">scp -r <span class="nb">test</span> test2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="远程拷贝">远程拷贝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 拷贝文件</span>
+</span></span><span class="line"><span class="cl">scp ubuntu@txy.frhello.com:/home/ubuntu/t1.tar.gz d:<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="c1"># 递归拷贝文件夹</span>
+</span></span><span class="line"><span class="cl">scp -r ubuntu@txy.frhello.com:/home/ubuntu d:<span class="se">\
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Linux 笔记</title><link>https://blog.frhello.com/linux-%E7%AC%94%E8%AE%B0/</link><pubDate>Fri, 28 May 2021 23:56:39 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/linux-%E7%AC%94%E8%AE%B0/</guid><description><![CDATA[<h2 id="安装-centos">安装 CentOS</h2>
+<p>下载对应版本 <a href="http://centos.01link.hk/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso" target="_blank" rel="noopener noreffer">http://centos.01link.hk/7.9.2009/isos/x86_64/CentOS-7-x86_64-Minimal-2009.iso</a></p>
+<p>虚拟机安装，注意安装以太网并设置自动对时，使用 <code>ip addr</code> 可查看 ip</p>
+<p>更新 <code>yum</code>，然后安装 <code>net-tools</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yum update
+</span></span><span class="line"><span class="cl">yum -y install epel-release
+</span></span><span class="line"><span class="cl">yum install net-tool
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="网络">网络</h2>
+<h3 id="防火墙">防火墙</h3>
+<p>查看防火墙状态 <code>systemctl status firewalld</code></p>]]></description></item></channel></rss>

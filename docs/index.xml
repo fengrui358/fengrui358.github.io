@@ -1,1 +1,92 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>free note</title><link>https://frhello.com/</link><description>free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 30 Dec 2023 09:13:44 +0800</lastBuildDate><atom:link href="https://frhello.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Python 环境及资源</title><link>https://frhello.com/python-%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%B5%84%E6%BA%90/</link><pubDate>Sat, 29 Apr 2023 10:00:00 +0800</pubDate><author>作者</author><guid>https://frhello.com/python-%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%B5%84%E6%BA%90/</guid><description>Python 环境 使用第三方的包管理系统和环境管理系统 conda，通过 Anaconda 官网下载安装，安装完成后 WindowsPowerShell 由于权限原因无法直接初始化 conda，可运行如下命令：</description></item><item><title>ChatGPT 服务部署</title><link>https://frhello.com/chatgpt-%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</link><pubDate>Thu, 20 Apr 2023 15:30:10 +0800</pubDate><author>作者</author><guid>https://frhello.com/chatgpt-%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</guid><description>网站搭建 使用开源项目：https://github.com/Chanzhaoyu/chatgpt-web API 反向代理地址 参照这个项目自己部署了</description></item><item><title>私有配置文件存储方案</title><link>https://frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</link><pubDate>Wed, 18 Jan 2023 20:30:04 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</guid><description>有时为了方便使用配置文件，想把文件存储在公网上，使用 curl 工具搭配脚本使用，但是由于配置文件中的信息涉及到机密性，因此授权访问是必须的，下面是考</description></item><item><title>添加操作系统例外端口</title><link>https://frhello.com/%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BE%8B%E5%A4%96%E7%AB%AF%E5%8F%A3/</link><pubDate>Mon, 12 Dec 2022 19:25:54 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BE%8B%E5%A4%96%E7%AB%AF%E5%8F%A3/</guid><description>问题 windows 操作系统启动 wsl 后会导致部分较小的端口被占用，例如 ss 常用的端口 1080。 通常情况，如果通过命令 netstat -ano|findstr &amp;quot;1080&amp;quot; 无法查找的端口号是被进程占用的那很可</description></item><item><title>SSH 客户端选择</title><link>https://frhello.com/ssh-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%80%89%E6%8B%A9/</link><pubDate>Thu, 10 Nov 2022 21:32:09 +0800</pubDate><author>作者</author><guid>https://frhello.com/ssh-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%80%89%E6%8B%A9/</guid><description>功能比较 跨平台 软件 是否具备 描述 tabby ✅ 支持 Windows、Mac、Linux，界面简洁，功能丰富 electerm ✅ 支持 Windows、Mac、Linux，界面</description></item><item><title>常用工具资源汇总</title><link>https://frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</link><pubDate>Mon, 10 Oct 2022 20:30:04 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</guid><description>知识图谱 Dendron: 通过 VSCode 插件的方式将 markdown 文件组织为知识图谱的工具，截至 2022-10-10 github 4.6k star，链接: https://github.com/dendronhq/dendron Obsidian: 知识图谱工具，链接: https://obsidian.md 开发辅助 DevToys: 集合很多开发功能的工具</description></item><item><title>使用 AutoRest 生成接口类型代码</title><link>https://frhello.com/%E4%BD%BF%E7%94%A8-autorest-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E4%BB%A3%E7%A0%81/</link><pubDate>Thu, 07 Apr 2022 08:00:00 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E4%BD%BF%E7%94%A8-autorest-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E4%BB%A3%E7%A0%81/</guid><description>概念 AutoRest 工具生成用于访问 RESTful Web 服务的客户端库。 AutoRest 的输入是使用 OpenAPI 规范格式描述 REST API 的规范。 流程图 流程图 生成客户端代码 下载 swagger.json 文件，执行以下命令： 1 autorest --input-file=swagger.json</description></item><item><title>https 请求流程</title><link>https://frhello.com/https-%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B/</link><pubDate>Wed, 16 Mar 2022 08:00:00 +0800</pubDate><author>作者</author><guid>https://frhello.com/https-%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B/</guid><description>概念 https 是在 http 的基础上，利用 TLS/SSL 加密的方式，实现了安全的通信。 流程图 https 请求流程图 证书 服务器下发的数字证书可以是向某个可靠机构申请的，也可以是自制</description></item><item><title>git 笔记</title><link>https://frhello.com/git-%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 08 Mar 2022 08:08:08 +0800</pubDate><author>作者</author><guid>https://frhello.com/git-%E7%AC%94%E8%AE%B0/</guid><description>git 保存用户名密码 1 git config --global credential.helper store 获取 git 子模块 下载完主仓库后再执行一次以下命令获取子模块 1 git submodule update --init --recursive git 换行符设置 跨平台协作开发是常有的，不统一的换</description></item><item><title>Docker 是什么</title><link>https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/</link><pubDate>Sat, 08 Jan 2022 08:08:08 +0800</pubDate><author>作者</author><guid>https://frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/</guid><description>Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>free note</title><link>https://blog.frhello.com/</link><description>free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 May 2026 11:17:00 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/index.xml" rel="self" type="application/rss+xml"/><item><title>华硕路由器固件修改</title><link>https://blog.frhello.com/%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6%E4%BF%AE%E6%94%B9/</link><pubDate>Thu, 18 Sep 2025 21:58:19 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E5%8D%8E%E7%A1%95%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9B%BA%E4%BB%B6%E4%BF%AE%E6%94%B9/</guid><description><![CDATA[<p>路由器型号，华硕 BE88u</p>
+<p>开始刷机前的准备工作参考：<a href="https://doc.asusgo.com/zh/guide/asus/flash/flash_start.html" target="_blank" rel="noopener noreffer">https://doc.asusgo.com/zh/guide/asus/flash/flash_start.html</a></p>
+<h2 id="信息记录">信息记录</h2>
+<p>Guest Wifi：Free_Home_2G</p>
+<p>内部网络：10.34.40.1
+255.255.255.0</p>
+<p>DHCP：10.34.40.51 - 10.34.40.229
+固定IP：Mercury（44:F9:71:F0:76:EF）10.34.40.10
+Nuc11（1C:69:7A:A5:96:FE）10.34.40.3
+打印机：HP2606sdw（E8:65:38:E4:BE:6C）10.34.40.4
+NAS：DXP4800Plus-Lan1（6C:1F:F7:8E:0E:28）10.34.40.5
+NAS：DXP4800Plus-Lan2（6C:1F:F7:8E:0E:29）10.34.40.6</p>]]></description></item><item><title>Python 环境及资源</title><link>https://blog.frhello.com/python-%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%B5%84%E6%BA%90/</link><pubDate>Sat, 29 Apr 2023 10:00:00 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/python-%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%B5%84%E6%BA%90/</guid><description><![CDATA[<h2 id="python-环境">Python 环境</h2>
+<p>使用第三方的包管理系统和环境管理系统 <code>conda</code>，通过 <code>Anaconda</code> 官网下载安装，安装完成后 WindowsPowerShell 由于权限原因无法直接初始化 <code>conda</code>，可运行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参考：<a href="https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3" target="_blank" rel="noopener noreffer">https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3</a></p>]]></description></item><item><title>ChatGPT 服务部署</title><link>https://blog.frhello.com/chatgpt-%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</link><pubDate>Thu, 20 Apr 2023 15:30:10 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/chatgpt-%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</guid><description><![CDATA[<h2 id="网站搭建">网站搭建</h2>
+<p>使用开源项目：<a href="https://github.com/Chanzhaoyu/chatgpt-web" target="_blank" rel="noopener noreffer">https://github.com/Chanzhaoyu/chatgpt-web</a></p>
+<h2 id="api-反向代理地址">API 反向代理地址</h2>
+<p>参照这个项目自己部署了一个反向代理：<a href="https://github.com/justjavac/openai-proxy" target="_blank" rel="noopener noreffer">https://github.com/justjavac/openai-proxy</a></p>
+<blockquote>
+<p>参考：</p>
+<p><a href="https://github.com/Chanzhaoyu/chatgpt-web" target="_blank" rel="noopener noreffer">https://github.com/Chanzhaoyu/chatgpt-web</a>
+<a href="https://github.com/stulzq/azure-openai-proxy" target="_blank" rel="noopener noreffer">https://github.com/stulzq/azure-openai-proxy</a>
+<a href="https://www.cnblogs.com/stulzq/p/17271937.html" target="_blank" rel="noopener noreffer">https://www.cnblogs.com/stulzq/p/17271937.html</a>
+<a href="https://github.com/justjavac/openai-proxy" target="_blank" rel="noopener noreffer">https://github.com/justjavac/openai-proxy</a></p>
+</blockquote>]]></description></item><item><title>私有配置文件存储方案</title><link>https://blog.frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</link><pubDate>Wed, 18 Jan 2023 20:30:04 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</guid><description>&lt;p>有时为了方便使用配置文件，想把文件存储在公网上，使用 &lt;code>curl&lt;/code> 工具搭配脚本使用，但是由于配置文件中的信息涉及到机密性，因此授权访问是必须的，下面是考虑的几种方案：&lt;/p></description></item><item><title>添加操作系统例外端口</title><link>https://blog.frhello.com/%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BE%8B%E5%A4%96%E7%AB%AF%E5%8F%A3/</link><pubDate>Mon, 12 Dec 2022 19:25:54 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E6%B7%BB%E5%8A%A0%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BE%8B%E5%A4%96%E7%AB%AF%E5%8F%A3/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>windows 操作系统启动 wsl 后会导致部分较小的端口被占用，例如 ss 常用的端口 1080。</p>
+<p>通常情况，如果通过命令 <code>netstat -ano|findstr &quot;1080&quot;</code> 无法查找的端口号是被进程占用的那很可能就是被 windows 保留端口占用了。</p>]]></description></item><item><title>常用工具资源汇总</title><link>https://blog.frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</link><pubDate>Mon, 10 Oct 2022 20:30:04 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</guid><description><![CDATA[<h2 id="知识图谱">知识图谱</h2>
+<ul>
+<li>
+<p><strong>Dendron</strong>: 通过 VSCode 插件的方式将 markdown 文件组织为知识图谱的工具，截至 2022-10-10 github 4.6k star，链接: <a href="https://github.com/dendronhq/dendron" target="_blank" rel="noopener noreffer">https://github.com/dendronhq/dendron</a></p>
+</li>
+<li>
+<p><strong>Obsidian</strong>: 知识图谱工具，链接: <a href="https://obsidian.md" target="_blank" rel="noopener noreffer">https://obsidian.md</a></p>
+</li>
+</ul>
+<h2 id="开发辅助">开发辅助</h2>
+<ul>
+<li><strong>DevToys</strong>: 集合很多开发功能的工具，通过 Microsoft Store 下载</li>
+</ul>
+<h2 id="ssh">SSH</h2>
+<ul>
+<li><strong>WindTerm</strong>: 更快更好的 SSH/Telnet/Serial/Shell/Sftp 客户端，截至 2022-10-11 github 9.4k star，链接: <a href="https://github.com/kingToolbox/WindTerm" target="_blank" rel="noopener noreffer">https://github.com/kingToolbox/WindTerm</a></li>
+</ul>
+<h2 id="操作系统辅组工具">操作系统辅组工具</h2>
+<ul>
+<li><strong>Wgestures</strong>: 全局鼠标手势工具，链接: <a href="https://www.yingdev.com/projects/wgestures" target="_blank" rel="noopener noreffer">https://www.yingdev.com/projects/wgestures</a></li>
+</ul>
+<h2 id="图床工具">图床工具</h2>
+<ul>
+<li><strong>PicGo</strong>: 一个用于快速上传图片并获取图片 URL 链接的工具，截至 2022-10-11 github 18.4k star，链接: <a href="https://picgo.github.io/PicGo-Doc/zh/guide" target="_blank" rel="noopener noreffer">https://picgo.github.io/PicGo-Doc/zh/guide</a></li>
+</ul>]]></description></item><item><title>使用 AutoRest 生成接口类型代码</title><link>https://blog.frhello.com/%E4%BD%BF%E7%94%A8-autorest-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E4%BB%A3%E7%A0%81/</link><pubDate>Thu, 07 Apr 2022 08:00:00 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E4%BD%BF%E7%94%A8-autorest-%E7%94%9F%E6%88%90%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B%E4%BB%A3%E7%A0%81/</guid><description><![CDATA[<h2 id="概念">概念</h2>
+<p>AutoRest 工具生成用于访问 RESTful Web 服务的客户端库。 AutoRest 的输入是使用 OpenAPI 规范格式描述 REST API 的规范。</p>
+<h2 id="流程图">流程图</h2>
+<p><figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/fengrui358/img@main/202204071129603.png" title="流程图" data-thumbnail="https://cdn.jsdelivr.net/gh/fengrui358/img@main/202204071129603.png" data-sub-html="<h2>流程图</h2><p>流程图</p>">
+        
+    </a><figcaption class="image-caption">流程图</figcaption>
+    </figure></p>]]></description></item><item><title>https 请求流程</title><link>https://blog.frhello.com/https-%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B/</link><pubDate>Wed, 16 Mar 2022 08:00:00 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/https-%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B/</guid><description><![CDATA[<h2 id="概念">概念</h2>
+<p>https 是在 http 的基础上，利用 TLS/SSL 加密的方式，实现了安全的通信。</p>
+<h2 id="流程图">流程图</h2>
+<p><figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/fengrui358/img@main/1647793067801-https%20%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B.webp" title="https 请求流程图" data-thumbnail="https://cdn.jsdelivr.net/gh/fengrui358/img@main/1647793067801-https%20%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B.webp" data-sub-html="<h2>https 请求流程图</h2><p>https 请求流程图</p>">
+        
+    </a><figcaption class="image-caption">https 请求流程图</figcaption>
+    </figure></p>
+<h2 id="证书">证书</h2>
+<p>服务器下发的数字证书可以是向某个可靠机构申请的，也可以是自制的，证书包含以下这些内容：</p>]]></description></item><item><title>git 笔记</title><link>https://blog.frhello.com/git-%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 08 Mar 2022 08:08:08 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/git-%E7%AC%94%E8%AE%B0/</guid><description><![CDATA[<h2 id="git-保存用户名密码">git 保存用户名密码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global credential.helper store
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获取-git-子模块">获取 git 子模块</h2>
+<p>下载完主仓库后再执行一次以下命令获取子模块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule update --init --recursive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="git-换行符设置">git 换行符设置</h2>
+<p>跨平台协作开发是常有的，不统一的换行符确实对跨平台的文件交换带来了麻烦。最大的问题是，在不同平台上，换行符发生改变时，Git 会认为整个文件被修改，这就造成我们没法 diff，不能正确反映本次的修改。还好 Git 在设计时就考虑了这一点，其提供了一个 autocrlf 的配置项，用于在提交和检出时自动转换换行符，该配置有三个可选项：</p>]]></description></item><item><title>Docker 是什么</title><link>https://blog.frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/</link><pubDate>Sat, 08 Jan 2022 08:08:08 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/docker-%E6%98%AF%E4%BB%80%E4%B9%88/</guid><description>&lt;p>Docker 是什么？按作用来描述，它是我们日常开发运维离不开的容器化技术，它的核心是一个镜像，它的作用是将一个应用程序包装成一个容器，然后将容器放到一个网络中，这样就可以让我们的应用程序在不同的环境中运行，而不需要改变程序的代码，这样就可以节省我们的开发时间。&lt;/p></description></item></channel></rss>

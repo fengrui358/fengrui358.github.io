@@ -140,3 +140,7 @@ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v porta
 docker run -d -p 10086:10086 -v /var/run/docker.sock:/var/run/docker.sock tobegit3hub/seagull
 ```
 
+## openEuler 安装 docker
+
+参考：<https://blog.csdn.net/weixin_45344701/article/details/146344480>
+

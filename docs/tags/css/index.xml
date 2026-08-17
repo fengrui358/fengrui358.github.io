@@ -1,1 +1,197 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Css - 标签 - free note</title><link>https://frhello.com/tags/css/</link><description>Css - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 15 Nov 2019 19:55:25 +0800</lastBuildDate><atom:link href="https://frhello.com/tags/css/" rel="self" type="application/rss+xml"/><item><title>CSS 资源</title><link>https://frhello.com/css-%E8%B5%84%E6%BA%90/</link><pubDate>Fri, 15 Nov 2019 19:55:25 +0800</pubDate><author>作者</author><guid>https://frhello.com/css-%E8%B5%84%E6%BA%90/</guid><description><![CDATA[文本与段落 加载本地字体，通常按照从特殊到一般 1 font-family: Arial, &#39;Microsoft Yahei&#39;, sans-serif; 加载 web 字体 1 2 3 4 5 6 @font-face { font-family: &#39;webfont&#39;; src: url(&#39;webfont.woff&#39;); } font-family: &#39;webfont&#39;, Arial, &#39;Microsoft Yahei&#39;, sans-serif; 颜色 1 color: #077f3c; 大小 1 font-size: 28px; 字符间距 1 letter-spacing: 4px; 文]]></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Css - 标签 - free note</title><link>https://blog.frhello.com/tags/css/</link><description>Css - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 15 Nov 2019 19:55:25 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/tags/css/" rel="self" type="application/rss+xml"/><item><title>CSS 资源</title><link>https://blog.frhello.com/css-%E8%B5%84%E6%BA%90/</link><pubDate>Fri, 15 Nov 2019 19:55:25 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/css-%E8%B5%84%E6%BA%90/</guid><description><![CDATA[<h2 id="文本与段落">文本与段落</h2>
+<ul>
+<li>加载本地字体，通常按照从特殊到一般</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">font-family</span><span class="o">:</span> <span class="nt">Arial</span><span class="o">,</span> <span class="s1">&#39;Microsoft Yahei&#39;</span><span class="o">,</span> <span class="nt">sans-serif</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>加载 web 字体</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;webfont&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;webfont.woff&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;webfont&#39;</span><span class="o">,</span> <span class="nt">Arial</span><span class="o">,</span> <span class="s1">&#39;Microsoft Yahei&#39;</span><span class="o">,</span> <span class="nt">sans-serif</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>颜色</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">color</span><span class="o">:</span> <span class="p">#</span><span class="nn">077f3c</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>大小</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">font-size</span><span class="o">:</span> <span class="nt">28px</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>字符间距</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">letter-spacing</span><span class="o">:</span> <span class="nt">4px</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>文本方向</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">writing-mode</span><span class="o">:</span> <span class="nt">vertical-rl</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">text-orientation</span><span class="o">:</span> <span class="nt">mixed</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>文本样式</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">text-decoration</span><span class="o">:</span> <span class="nt">underline</span> <span class="nt">line-through</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>行间距</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">line-height</span><span class="o">:</span> <span class="nt">36px</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>缩进</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">text-indent</span><span class="o">:</span> <span class="nt">2em</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>折行</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">white-space</span><span class="o">:</span> <span class="nt">nowrap</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>省略</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">white-space</span><span class="o">:</span> <span class="nt">nowrap</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">overflow</span><span class="o">:</span> <span class="nt">hidden</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">text-overflow</span><span class="o">:</span> <span class="nt">ellipsis</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>对齐</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">text-align</span><span class="o">:</span> <span class="nt">justify</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>设置背景颜色</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-color</span><span class="o">:</span> <span class="p">#</span><span class="nn">8be5ac</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>加载背景图片</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-image</span><span class="o">:</span> <span class="nt">url</span><span class="o">(./</span><span class="nt">bg</span><span class="p">.</span><span class="nc">jpg</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>调整背景尺寸</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">50px</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>调整背景填充</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span><span class="o">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>调整背景位置</li>
+</ul>
+<p>雪碧图通常使用该属性实现</p>]]></description></item></channel></rss>

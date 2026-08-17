@@ -1,1 +1,57 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Package - 分类 - free note</title><link>https://frhello.com/categories/package/</link><description>Package - 分类 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 09 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://frhello.com/categories/package/" rel="self" type="application/rss+xml"/><item><title>使用 jslib 创建发布 npm 包</title><link>https://frhello.com/%E4%BD%BF%E7%94%A8-jslib-%E5%88%9B%E5%BB%BA%E5%8F%91%E5%B8%83-npm-%E5%8C%85/</link><pubDate>Sat, 09 Oct 2021 10:00:00 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E4%BD%BF%E7%94%A8-jslib-%E5%88%9B%E5%BB%BA%E5%8F%91%E5%B8%83-npm-%E5%8C%85/</guid><description>创建 npm 包 为了创建全平台适用的 npm 包，这里使用了一个第三方的脚手架 jslib 来创建项目工程。 使用 npm 全局安装 jslib，npm i -g @js-lib/cli。</description></item><item><title>webpack 笔记</title><link>https://frhello.com/webpack-%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 21 Mar 2021 19:25:54 +0800</pubDate><author>作者</author><guid>https://frhello.com/webpack-%E7%AC%94%E8%AE%B0/</guid><description>loader 处理特定后缀名的模块称为 loader thread-loader: 使用线程池加速打包过程 占位符 占位符名称 含义 [ext] 资源后缀名 [name] 文件名称 [path] 文件相对路径 [folder] 文件所在的文件夹 [contenthash] 文件的内容 h</description></item><item><title>NuGet 资源</title><link>https://frhello.com/nuget-%E8%B5%84%E6%BA%90/</link><pubDate>Wed, 15 Jul 2020 11:28:24 +0800</pubDate><author>作者</author><guid>https://frhello.com/nuget-%E8%B5%84%E6%BA%90/</guid><description>客户端下载，nuget.exe：https://www.nuget.org/downloads NuGetPackageExplorer（可视</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Package - 分类 - free note</title><link>https://blog.frhello.com/categories/package/</link><description>Package - 分类 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 09 Oct 2021 10:00:00 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/categories/package/" rel="self" type="application/rss+xml"/><item><title>使用 jslib 创建发布 npm 包</title><link>https://blog.frhello.com/%E4%BD%BF%E7%94%A8-jslib-%E5%88%9B%E5%BB%BA%E5%8F%91%E5%B8%83-npm-%E5%8C%85/</link><pubDate>Sat, 09 Oct 2021 10:00:00 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E4%BD%BF%E7%94%A8-jslib-%E5%88%9B%E5%BB%BA%E5%8F%91%E5%B8%83-npm-%E5%8C%85/</guid><description><![CDATA[<h2 id="创建-npm-包">创建 npm 包</h2>
+<p>为了创建全平台适用的 npm 包，这里使用了一个第三方的脚手架 <a href="https://github.com/yanhaijing/jslib-base" target="_blank" rel="noopener noreffer">jslib</a> 来创建项目工程。</p>
+<p>使用 npm 全局安装 jslib，<code>npm i -g @js-lib/cli</code>。</p>
+<p>运行 <code>jslib new mylib</code> 创建新的工程，会有一段交互式输入，按需填写。</p>]]></description></item><item><title>webpack 笔记</title><link>https://blog.frhello.com/webpack-%E7%AC%94%E8%AE%B0/</link><pubDate>Sun, 21 Mar 2021 19:25:54 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/webpack-%E7%AC%94%E8%AE%B0/</guid><description><![CDATA[<h2 id="loader">loader</h2>
+<p>处理特定后缀名的模块称为 loader</p>
+<ul>
+<li>thread-loader: 使用线程池加速打包过程</li>
+</ul>
+<h3 id="占位符">占位符</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">占位符名称</th>
+          <th style="text-align: left">含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">[ext]</td>
+          <td style="text-align: left">资源后缀名</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">[name]</td>
+          <td style="text-align: left">文件名称</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">[path]</td>
+          <td style="text-align: left">文件相对路径</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">[folder]</td>
+          <td style="text-align: left">文件所在的文件夹</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">[contenthash]</td>
+          <td style="text-align: left">文件的内容 hash，默认是 MD5 生成</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">[hash]</td>
+          <td style="text-align: left">文件内容的 hash，默认是 MD5 生成</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">[emoji]</td>
+          <td style="text-align: left">一个随机的指代文件内容的 emoji</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="plugins">plugins</h2>
+<p>插件用于 bundle 文件的优化，资源管理和环境变量的注入</p>]]></description></item><item><title>NuGet 资源</title><link>https://blog.frhello.com/nuget-%E8%B5%84%E6%BA%90/</link><pubDate>Wed, 15 Jul 2020 11:28:24 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/nuget-%E8%B5%84%E6%BA%90/</guid><description><![CDATA[<ul>
+<li>
+<p>客户端下载，nuget.exe：<a href="https://www.nuget.org/downloads" target="_blank" rel="noopener noreffer">https://www.nuget.org/downloads</a></p>
+</li>
+<li>
+<p>NuGetPackageExplorer（可视化的创建包管理器）：<a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer" target="_blank" rel="noopener noreffer">https://github.com/NuGetPackageExplorer/NuGetPackageExplorer</a></p>
+</li>
+<li>
+<p>nuspec.xsd 创建包的文件清单的 XML 架构文件：<a href="https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Packaging/compiler/resources/nuspec.xsd" target="_blank" rel="noopener noreffer">https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Packaging/compiler/resources/nuspec.xsd</a></p>]]></description></item></channel></rss>

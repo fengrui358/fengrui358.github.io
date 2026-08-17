@@ -1,1 +1,81 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Resource - 分类 - free note</title><link>https://frhello.com/categories/resource/</link><description>Resource - 分类 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 18 Jan 2023 20:30:04 +0800</lastBuildDate><atom:link href="https://frhello.com/categories/resource/" rel="self" type="application/rss+xml"/><item><title>私有配置文件存储方案</title><link>https://frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</link><pubDate>Wed, 18 Jan 2023 20:30:04 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</guid><description>有时为了方便使用配置文件，想把文件存储在公网上，使用 curl 工具搭配脚本使用，但是由于配置文件中的信息涉及到机密性，因此授权访问是必须的，下面是考</description></item><item><title>SSH 客户端选择</title><link>https://frhello.com/ssh-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%80%89%E6%8B%A9/</link><pubDate>Thu, 10 Nov 2022 21:32:09 +0800</pubDate><author>作者</author><guid>https://frhello.com/ssh-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%80%89%E6%8B%A9/</guid><description>功能比较 跨平台 软件 是否具备 描述 tabby ✅ 支持 Windows、Mac、Linux，界面简洁，功能丰富 electerm ✅ 支持 Windows、Mac、Linux，界面</description></item><item><title>常用工具资源汇总</title><link>https://frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</link><pubDate>Mon, 10 Oct 2022 20:30:04 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</guid><description>知识图谱 Dendron: 通过 VSCode 插件的方式将 markdown 文件组织为知识图谱的工具，截至 2022-10-10 github 4.6k star，链接: https://github.com/dendronhq/dendron Obsidian: 知识图谱工具，链接: https://obsidian.md 开发辅助 DevToys: 集合很多开发功能的工具</description></item><item><title>NPM 和 Yarn 使用国内淘宝镜像源提升各依赖安装速度</title><link>https://frhello.com/npm-%E5%92%8C-yarn-%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E6%BA%90%E6%8F%90%E5%8D%87%E5%90%84%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85%E9%80%9F%E5%BA%A6/</link><pubDate>Tue, 12 May 2020 10:00:00 +0800</pubDate><author>作者</author><guid>https://frhello.com/npm-%E5%92%8C-yarn-%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E6%BA%90%E6%8F%90%E5%8D%87%E5%90%84%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85%E9%80%9F%E5%BA%A6/</guid><description>因受国内的环境影响，导致了很多速度起不来，所以需要安装国内镜像。 配置 NPM 的淘宝镜像源加速 打开 poweshell 或 cmd 工具，输入以下命令： 1 2 3 4 5 npm config set registry https://registry.npm.taobao.org npm config</description></item><item><title>常用 Dotnet 资源整合</title><link>https://frhello.com/%E5%B8%B8%E7%94%A8-dotnet-%E8%B5%84%E6%BA%90%E6%95%B4%E5%90%88/</link><pubDate>Wed, 31 Aug 2016 20:30:04 +0800</pubDate><author>作者</author><guid>https://frhello.com/%E5%B8%B8%E7%94%A8-dotnet-%E8%B5%84%E6%BA%90%E6%95%B4%E5%90%88/</guid><description>微软相关平台资源 国内的微软相关资源：http://www.itellyou.cn/ Dotnet 相关资源：https://www.microsoft.c</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Resource - 分类 - free note</title><link>https://blog.frhello.com/categories/resource/</link><description>Resource - 分类 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 18 Jan 2023 20:30:04 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/categories/resource/" rel="self" type="application/rss+xml"/><item><title>私有配置文件存储方案</title><link>https://blog.frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</link><pubDate>Wed, 18 Jan 2023 20:30:04 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E7%A7%81%E6%9C%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</guid><description>&lt;p>有时为了方便使用配置文件，想把文件存储在公网上，使用 &lt;code>curl&lt;/code> 工具搭配脚本使用，但是由于配置文件中的信息涉及到机密性，因此授权访问是必须的，下面是考虑的几种方案：&lt;/p></description></item><item><title>常用工具资源汇总</title><link>https://blog.frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</link><pubDate>Mon, 10 Oct 2022 20:30:04 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E5%B7%A5%E5%85%B7%E8%B5%84%E6%BA%90%E6%B1%87%E6%80%BB/</guid><description><![CDATA[<h2 id="知识图谱">知识图谱</h2>
+<ul>
+<li>
+<p><strong>Dendron</strong>: 通过 VSCode 插件的方式将 markdown 文件组织为知识图谱的工具，截至 2022-10-10 github 4.6k star，链接: <a href="https://github.com/dendronhq/dendron" target="_blank" rel="noopener noreffer">https://github.com/dendronhq/dendron</a></p>
+</li>
+<li>
+<p><strong>Obsidian</strong>: 知识图谱工具，链接: <a href="https://obsidian.md" target="_blank" rel="noopener noreffer">https://obsidian.md</a></p>
+</li>
+</ul>
+<h2 id="开发辅助">开发辅助</h2>
+<ul>
+<li><strong>DevToys</strong>: 集合很多开发功能的工具，通过 Microsoft Store 下载</li>
+</ul>
+<h2 id="ssh">SSH</h2>
+<ul>
+<li><strong>WindTerm</strong>: 更快更好的 SSH/Telnet/Serial/Shell/Sftp 客户端，截至 2022-10-11 github 9.4k star，链接: <a href="https://github.com/kingToolbox/WindTerm" target="_blank" rel="noopener noreffer">https://github.com/kingToolbox/WindTerm</a></li>
+</ul>
+<h2 id="操作系统辅组工具">操作系统辅组工具</h2>
+<ul>
+<li><strong>Wgestures</strong>: 全局鼠标手势工具，链接: <a href="https://www.yingdev.com/projects/wgestures" target="_blank" rel="noopener noreffer">https://www.yingdev.com/projects/wgestures</a></li>
+</ul>
+<h2 id="图床工具">图床工具</h2>
+<ul>
+<li><strong>PicGo</strong>: 一个用于快速上传图片并获取图片 URL 链接的工具，截至 2022-10-11 github 18.4k star，链接: <a href="https://picgo.github.io/PicGo-Doc/zh/guide" target="_blank" rel="noopener noreffer">https://picgo.github.io/PicGo-Doc/zh/guide</a></li>
+</ul>]]></description></item><item><title>NPM 和 Yarn 使用国内淘宝镜像源提升各依赖安装速度</title><link>https://blog.frhello.com/npm-%E5%92%8C-yarn-%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E6%BA%90%E6%8F%90%E5%8D%87%E5%90%84%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85%E9%80%9F%E5%BA%A6/</link><pubDate>Tue, 12 May 2020 10:00:00 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/npm-%E5%92%8C-yarn-%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E6%BA%90%E6%8F%90%E5%8D%87%E5%90%84%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85%E9%80%9F%E5%BA%A6/</guid><description><![CDATA[<p>因受国内的环境影响，导致了很多速度起不来，所以需要安装国内镜像。</p>
+<h2 id="配置-npm-的淘宝镜像源加速">配置 NPM 的淘宝镜像源加速</h2>
+<p>打开 <code>poweshell</code> 或 <code>cmd</code> 工具，输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">npm config set registry https://registry.npm.taobao.org
+</span></span><span class="line"><span class="cl">npm config set disturl https://npm.taobao.org/dist
+</span></span><span class="line"><span class="cl">npm config set electron_mirror https://npm.taobao.org/mirrors/electron/
+</span></span><span class="line"><span class="cl">npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+</span></span><span class="line"><span class="cl">npm config set phantomjs_cdnurl https://npm.taobao.org/mirrors/phantomjs/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后输入命令</p>]]></description></item><item><title>常用 Dotnet 资源整合</title><link>https://blog.frhello.com/%E5%B8%B8%E7%94%A8-dotnet-%E8%B5%84%E6%BA%90%E6%95%B4%E5%90%88/</link><pubDate>Wed, 31 Aug 2016 20:30:04 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/%E5%B8%B8%E7%94%A8-dotnet-%E8%B5%84%E6%BA%90%E6%95%B4%E5%90%88/</guid><description><![CDATA[<h2 id="微软相关平台资源">微软相关平台资源</h2>
+<ul>
+<li>国内的微软相关资源：<a href="http://www.itellyou.cn/" target="_blank" rel="noopener noreffer">http://www.itellyou.cn/</a></li>
+<li>Dotnet 相关资源：<a href="https://www.microsoft.com/net/download/visual-studio-sdks" target="_blank" rel="noopener noreffer">https://www.microsoft.com/net/download/visual-studio-sdks</a></li>
+<li>Windows 操作系统官方下载工具：<a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank" rel="noopener noreffer">https://www.microsoft.com/zh-cn/software-download/windows10</a></li>
+<li>C# 注释规范：<a href="https://msdn.microsoft.com/zh-cn/library/5ast78ax.aspx" target="_blank" rel="noopener noreffer">https://msdn.microsoft.com/zh-cn/library/5ast78ax.aspx</a></li>
+<li>Dotnet 全栈之路：<a href="https://www.microsoft.com/net/architecture" target="_blank" rel="noopener noreffer">https://www.microsoft.com/net/architecture</a></li>
+<li>.Net 产品控件库：<a href="https://www.syncfusion.com/" target="_blank" rel="noopener noreffer">https://www.syncfusion.com/</a></li>
+</ul>
+<h2 id="wpf">WPF</h2>
+<ul>
+<li>官方 MSDN（英文）：<a href="https://msdn.microsoft.com/en-us/library/ms754130.aspx" target="_blank" rel="noopener noreffer">https://msdn.microsoft.com/en-us/library/ms754130.aspx</a></li>
+<li>官方 MSDN（中文）：<a href="https://msdn.microsoft.com/zh-cn/library/ms754130%28v=vs.110%29.aspx" target="_blank" rel="noopener noreffer">https://msdn.microsoft.com/zh-cn/library/ms754130(v=vs.110).aspx</a></li>
+</ul>
+<h3 id="visual-studio">Visual Studio</h3>
+<ul>
+<li>模板扩展下载：<a href="https://visualstudiogallery.msdn.microsoft.com/" target="_blank" rel="noopener noreffer">https://visualstudiogallery.msdn.microsoft.com/</a></li>
+</ul>
+<h3 id="xamarin">Xamarin</h3>
+<ul>
+<li>版本信息：<a href="https://developer.xamarin.com/releases/current/" target="_blank" rel="noopener noreffer">https://developer.xamarin.com/releases/current/</a></li>
+</ul>
+<h2 id="内网穿透">内网穿透</h2>
+<ul>
+<li><a href="https://natapp.cn/" target="_blank" rel="noopener noreffer">https://natapp.cn/</a></li>
+</ul>
+<h2 id="有趣">有趣</h2>
+<ul>
+<li>GitHub 上的技术栈：<a href="https://octoverse.github.com/" target="_blank" rel="noopener noreffer">https://octoverse.github.com/</a></li>
+</ul>
+<h2 id="设计">设计</h2>
+<ul>
+<li>ICON 资源软件 Metro Studio：<a href="https://www.syncfusion.com/downloads/metrostudio/iconpackage/" target="_blank" rel="noopener noreffer">https://www.syncfusion.com/downloads/metrostudio/iconpackage/</a></li>
+</ul>
+<h2 id="dotnetlib-对比">DotNetLib 对比</h2>
+<ul>
+<li><a href="https://dotnet.libhunt.com/" target="_blank" rel="noopener noreffer">https://dotnet.libhunt.com/</a></li>
+</ul>]]></description></item></channel></rss>

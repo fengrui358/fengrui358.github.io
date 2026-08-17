@@ -1,1 +1,21 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Git - 标签 - free note</title><link>https://frhello.com/tags/git/</link><description>Git - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 08 Mar 2022 08:08:08 +0800</lastBuildDate><atom:link href="https://frhello.com/tags/git/" rel="self" type="application/rss+xml"/><item><title>git 笔记</title><link>https://frhello.com/git-%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 08 Mar 2022 08:08:08 +0800</pubDate><author>作者</author><guid>https://frhello.com/git-%E7%AC%94%E8%AE%B0/</guid><description>git 保存用户名密码 1 git config --global credential.helper store 获取 git 子模块 下载完主仓库后再执行一次以下命令获取子模块 1 git submodule update --init --recursive git 换行符设置 跨平台协作开发是常有的，不统一的换</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Git - 标签 - free note</title><link>https://blog.frhello.com/tags/git/</link><description>Git - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 08 Mar 2022 08:08:08 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/tags/git/" rel="self" type="application/rss+xml"/><item><title>git 笔记</title><link>https://blog.frhello.com/git-%E7%AC%94%E8%AE%B0/</link><pubDate>Tue, 08 Mar 2022 08:08:08 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/git-%E7%AC%94%E8%AE%B0/</guid><description><![CDATA[<h2 id="git-保存用户名密码">git 保存用户名密码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global credential.helper store
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获取-git-子模块">获取 git 子模块</h2>
+<p>下载完主仓库后再执行一次以下命令获取子模块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule update --init --recursive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="git-换行符设置">git 换行符设置</h2>
+<p>跨平台协作开发是常有的，不统一的换行符确实对跨平台的文件交换带来了麻烦。最大的问题是，在不同平台上，换行符发生改变时，Git 会认为整个文件被修改，这就造成我们没法 diff，不能正确反映本次的修改。还好 Git 在设计时就考虑了这一点，其提供了一个 autocrlf 的配置项，用于在提交和检出时自动转换换行符，该配置有三个可选项：</p>]]></description></item></channel></rss>

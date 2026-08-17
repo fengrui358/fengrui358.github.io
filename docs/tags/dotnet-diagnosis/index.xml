@@ -1,1 +1,32 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Dotnet, Diagnosis - 标签 - free note</title><link>https://frhello.com/tags/dotnet-diagnosis/</link><description>Dotnet, Diagnosis - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Dec 2021 23:25:19 +0800</lastBuildDate><atom:link href="https://frhello.com/tags/dotnet-diagnosis/" rel="self" type="application/rss+xml"/><item><title>Dotnet 程序诊断</title><link>https://frhello.com/dotnet-%E7%A8%8B%E5%BA%8F%E8%AF%8A%E6%96%AD/</link><pubDate>Tue, 14 Dec 2021 23:25:19 +0800</pubDate><author>作者</author><guid>https://frhello.com/dotnet-%E7%A8%8B%E5%BA%8F%E8%AF%8A%E6%96%AD/</guid><description>dotnet-counters 性能诊断 介绍 https://docs.microsoft.com/zh-cn/dotnet/core/diagnostics/dotnet-counters 安装 1 dotnet tool install --global dotnet-counters 收集 查看可监视的 dotnet 进程列表 1 dotnet-counters ps 以 3 秒的刷新间隔时间收集所有计数器的值，并生成 csv 输出文件： 1 dotnet-counters collect --process-id 1902 --refresh-interval 3 --format csv</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Dotnet, Diagnosis - 标签 - free note</title><link>https://blog.frhello.com/tags/dotnet-diagnosis/</link><description>Dotnet, Diagnosis - 标签 - free note</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>qjdev@qq.com (feng rui)</managingEditor><webMaster>qjdev@qq.com (feng rui)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Dec 2021 23:25:19 +0800</lastBuildDate><atom:link href="https://blog.frhello.com/tags/dotnet-diagnosis/" rel="self" type="application/rss+xml"/><item><title>Dotnet 程序诊断</title><link>https://blog.frhello.com/dotnet-%E7%A8%8B%E5%BA%8F%E8%AF%8A%E6%96%AD/</link><pubDate>Tue, 14 Dec 2021 23:25:19 +0800</pubDate><author>作者</author><guid>https://blog.frhello.com/dotnet-%E7%A8%8B%E5%BA%8F%E8%AF%8A%E6%96%AD/</guid><description><![CDATA[<h2 id="dotnet-counters-性能诊断">dotnet-counters 性能诊断</h2>
+<h3 id="介绍">介绍</h3>
+<p><a href="https://docs.microsoft.com/zh-cn/dotnet/core/diagnostics/dotnet-counters" target="_blank" rel="noopener noreffer">https://docs.microsoft.com/zh-cn/dotnet/core/diagnostics/dotnet-counters</a></p>
+<h3 id="安装">安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dotnet tool install --global dotnet-counters
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="收集">收集</h3>
+<p>查看可监视的 <code>dotnet</code> 进程列表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dotnet-counters ps
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以 3 秒的刷新间隔时间收集所有计数器的值，并生成 csv 输出文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dotnet-counters collect --process-id <span class="m">1902</span> --refresh-interval <span class="m">3</span> --format csv
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>实时监控</p>]]></description></item></channel></rss>
